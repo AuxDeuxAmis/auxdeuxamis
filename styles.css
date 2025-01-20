@@ -351,6 +351,7 @@
 .mobile-menu-trigger {
   position: relative;
   z-index: 60; /* Plus élevé que le panel qui est à 40 */
+  background: none;
 }
 
 
