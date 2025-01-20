@@ -353,9 +353,6 @@
   z-index: 60; /* Plus élevé que le panel qui est à 40 */
 }
 
-.mobile-menu-trigger.is-active span {
-  background-color: #D29F02; /* Notre couleur secondaire pour plus de contraste */
-}
 
 @media (min-width: 1024px) {
   .mobile-menu-trigger {
