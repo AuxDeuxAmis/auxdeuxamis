@@ -394,6 +394,11 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  justify-content: center; /* Ajoute le centrage vertical */
+  min-height: calc(100vh - 8rem); /* Hauteur totale moins le padding */
+  text-align: center; /* Centre horizontalement les liens */
+  display: inline-block; /* Pour que le padding ne prenne pas toute la largeur */
+  min-width: 200px; /* Largeur minimale pour l'aspect visuel */
 }
 
 .mobile-nav-link {
@@ -416,6 +421,7 @@
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
+  align-items: center; /* Centre les boutons */
   gap: 1rem;
 }
 
@@ -431,6 +437,12 @@
   border-radius: 0.5rem;
   background-color: rgba(92, 108, 116, 0.05);
   transition: all 0.2s ease;
+}
+
+.mobile-phone-link,
+.mobile-btn-reservation {
+  min-width: 200px; /* Même largeur que les liens du menu */
+  justify-content: center; /* Centre le contenu des boutons */
 }
 
 .mobile-phone-link:hover {
