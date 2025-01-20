@@ -349,12 +349,12 @@
 
 /* Mobile Menu */
 .mobile-menu-trigger {
-  display: block;
-  background: none;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  margin: -1rem;
+  position: relative;
+  z-index: 60; /* Plus élevé que le panel qui est à 40 */
+}
+
+.mobile-menu-trigger.is-active span {
+  background-color: #D29F02; /* Notre couleur secondaire pour plus de contraste */
 }
 
 @media (min-width: 1024px) {
@@ -372,7 +372,6 @@
   transition: transform 0.3s ease;
 }
 
-/* Mobile Panel */
 .mobile-panel {
   position: fixed;
   top: 0;
@@ -383,7 +382,7 @@
   padding: 6rem 2rem 2rem;
   transform: translateX(100%);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 40;
+  z-index: 55; /* Entre le header normal et le burger */
 }
 
 .mobile-panel.is-active {
