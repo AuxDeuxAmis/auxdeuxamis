@@ -393,12 +393,18 @@
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  justify-content: center; /* Ajoute le centrage vertical */
-  min-height: calc(100vh - 8rem); /* Hauteur totale moins le padding */
-  text-align: center; /* Centre horizontalement les liens */
-  display: inline-block; /* Pour que le padding ne prenne pas toute la largeur */
-  min-width: 200px; /* Largeur minimale pour l'aspect visuel */
+  align-items: center; /* Centre horizontalement les éléments */
+  justify-content: center; /* Centre verticalement */
+  min-height: calc(100vh - 8rem);
+}
+
+/* Les liens eux-mêmes */
+.mobile-nav a {
+  display: block; /* Force l'affichage vertical */
+  width: 100%; /* Prend toute la largeur disponible */
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem 0;
 }
 
 .mobile-nav-link {
@@ -417,11 +423,13 @@
   padding-left: 1.25rem;
 }
 
+/* Zone des CTA */
 .mobile-nav-cta {
-  margin-top: 2rem;
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Centre les boutons */
+  flex-direction: column; /* Force l'affichage vertical */
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
   gap: 1rem;
 }
 
@@ -439,10 +447,14 @@
   transition: all 0.2s ease;
 }
 
+/* Boutons CTA */
 .mobile-phone-link,
 .mobile-btn-reservation {
-  min-width: 200px; /* Même largeur que les liens du menu */
-  justify-content: center; /* Centre le contenu des boutons */
+  display: inline-flex; /* Pour centrer le contenu */
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  max-width: 80%; /* Évite que ça soit trop large sur grands écrans */
 }
 
 .mobile-phone-link:hover {
