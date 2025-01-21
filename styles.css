@@ -622,7 +622,6 @@ body.no-scroll {
 }
 .footer-logo {
   display: inline-block;
-  margin-bottom: var(--spacing-sm); /* Réduit de md à sm */
 }
 
 .footer-logo img {
