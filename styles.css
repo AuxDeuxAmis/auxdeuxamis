@@ -620,3 +620,29 @@ body.no-scroll {
   color: var(--color-gray-500);
   font-size: 0.875rem;
 }
+.footer-logo {
+  display: inline-block;
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-logo img {
+  max-width: 150px;
+  height: auto;
+  transition: opacity var(--transition-fast) ease;
+}
+
+.footer-logo:hover img {
+  opacity: 0.9;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+}
+
+.social-link span {
+  font-family: 'Filicudi', sans-serif;
+  color: var(--color-gray-600);
+}
