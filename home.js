@@ -8,7 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }, { threshold: 0.1 });
-
+// Ajouter au home.js existant
+document.querySelectorAll('.atmosphere-item, .atmosphere-main').forEach(item => {
+  item.style.opacity = '0';
+  item.style.transform = 'translateY(20px)';
+  item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(item);
+});
   document.querySelectorAll('.timing-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
