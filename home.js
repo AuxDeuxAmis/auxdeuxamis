@@ -34,17 +34,25 @@ document.addEventListener('DOMContentLoaded', function() {
     { threshold: 0.1 }
   );
 
-  // Initialisation des éléments à animer
   const elementsToAnimate = [
-    ...document.querySelectorAll('.timing-card'),
-    ...document.querySelectorAll('.atmosphere-item'),
-    ...document.querySelectorAll('.atmosphere-main')
-  ];
+  ...document.querySelectorAll('.timing-card'),
+  ...document.querySelectorAll('.atmosphere-item'),
+  ...document.querySelectorAll('.atmosphere-main')
+];
 
-  elementsToAnimate.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(element);
-  });
+elementsToAnimate.forEach(element => {
+  element.classList.add('scroll-animate'); // Ajout de la classe pour l'animation au scroll
+  observer.observe(element);
+});
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
 });
