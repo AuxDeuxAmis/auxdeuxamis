@@ -202,3 +202,106 @@
     padding: 1.5rem;
   }
 }
+
+.atmosphere-section {
+  padding: 5rem 2rem;
+  background-color: var(--color-gray-50);
+}
+
+.atmosphere-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.atmosphere-title {
+  font-family: 'Tanker', sans-serif;
+  font-size: 2.5rem;
+  color: #5C6C74;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.atmosphere-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.atmosphere-main {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.atmosphere-secondary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.atmosphere-item {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.atmosphere-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.atmosphere-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.atmosphere-overlay h3 {
+  font-family: 'Tanker', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.atmosphere-overlay p {
+  font-family: 'Filicudi', sans-serif;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.atmosphere-main:hover .atmosphere-img,
+.atmosphere-item:hover .atmosphere-img {
+  transform: scale(1.05);
+}
+
+.atmosphere-main:hover .atmosphere-overlay,
+.atmosphere-item:hover .atmosphere-overlay {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .atmosphere-section {
+    padding: 3rem 1rem;
+  }
+
+  .atmosphere-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .atmosphere-overlay {
+    padding: 1rem;
+  }
+
+  .atmosphere-overlay h3 {
+    font-size: 1.2rem;
+  }
+}
