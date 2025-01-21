@@ -1,6 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
   const targetDate = new Date('2025-02-22T12:00:00').getTime();
-  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.timing-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
+  });
   function updateCountdown() {
     const now = new Date().getTime();
     const difference = targetDate - now;
