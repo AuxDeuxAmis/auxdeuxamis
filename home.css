@@ -57,9 +57,8 @@
 
 .countdown-cta {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
 }
 
 .btn-menu {
@@ -79,14 +78,25 @@
 .btn-instagram {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: #5C6C74;
+  gap: 0.75rem;
+  background: #5C6C74;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
   text-decoration: none;
-  transition: color 0.3s;
+  font-family: 'Tanker', sans-serif;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(92, 108, 116, 0.1);
+}
+.btn-instagram:hover {
+  background: #D29F02;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(210, 159, 2, 0.2);
 }
 
-.btn-instagram:hover {
-  color: #D29F02;
+.btn-instagram i {
+  font-size: 1.4rem;
 }
 
 @media (max-width: 768px) {
