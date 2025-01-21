@@ -372,3 +372,9 @@
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
+
+.section-divider {
+  height: 4px;
+  background: linear-gradient(to right, #5C6C74, #D29F02);
+  opacity: 0.1;
+}
