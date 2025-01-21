@@ -3,7 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const trigger = document.querySelector('.mobile-menu-trigger');
   const panel = document.querySelector('.mobile-panel');
   const header = document.querySelector('.site-header');
-
+  const yearSpan = document.getElementById('current-year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+  
   trigger.addEventListener('click', function() {
     this.classList.toggle('is-active');
     panel.classList.toggle('is-active');
