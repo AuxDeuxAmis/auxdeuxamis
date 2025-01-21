@@ -235,7 +235,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 0.5rem 0; /* Ajout uniquement du padding vertical pour matcher les autres liens */
 }
 
 .dropdown-menu {
