@@ -622,11 +622,11 @@ body.no-scroll {
 }
 .footer-logo {
   display: inline-block;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm); /* Réduit de md à sm */
 }
 
 .footer-logo img {
-  max-width: 150px;
+  max-width: 200px; /* Augmenté de 150px à 200px pour matcher le header */
   height: auto;
   transition: opacity var(--transition-fast) ease;
 }
