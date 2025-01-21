@@ -115,6 +115,8 @@
 }
 
 .timing-section {
+    padding: 5rem 2rem;
+
   background-color: white;
   position: relative;
   overflow: hidden;
@@ -155,7 +157,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   text-align: center;
   transform: translateY(20px); /* État initial pour l'animation au scroll */
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .timing-card.scroll-animate {
   opacity: 0;
@@ -225,7 +227,9 @@
 
 .atmosphere-section {
   background-color: rgba(92, 108, 116, 0.05);
-  position: relative;}
+  position: relative;
+  padding: 5rem 2rem;
+}
 
 .atmosphere-section::after {
   content: '';
@@ -234,12 +238,15 @@
   left: 0;
   width: 100%;
   height: 100%;
+    z-index: -1;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d29f02' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .atmosphere-container {
   max-width: 1200px;
   margin: 0 auto;
+    z-index: 1;
+
 }
 
 .atmosphere-title {
@@ -279,7 +286,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .atmosphere-overlay {
@@ -291,7 +298,7 @@
   background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
   color: white;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .atmosphere-overlay h3 {
@@ -336,14 +343,29 @@
 }
 
 .contact-section {
-  padding: 3rem 2rem;
-  background: #D29F02;
-  color: white;}
+  padding: 5rem 2rem;
+  background: linear-gradient(45deg, #5C6C74, #1D1E1B);
+  color: white;
+  position: relative;
+}
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #D29F02);
+  opacity: 0.05;
+}
+
 
 .contact-container {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+    position: relative; /* Pour passer au-dessus de l'overlay */
+  z-index: 1;
 }
 
 .contact-title {
