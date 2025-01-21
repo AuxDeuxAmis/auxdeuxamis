@@ -1,0 +1,105 @@
+.countdown-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--color-gray-50);
+}
+
+.countdown-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.countdown-title {
+  font-family: 'Tanker', sans-serif;
+  font-size: 3rem;
+  color: #5C6C74;
+  margin-bottom: 3rem;
+}
+
+.countdown-timer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.countdown-block {
+  width: 140px;
+}
+
+.countdown-value {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 3rem;
+  font-family: 'Tanker', sans-serif;
+  color: #D29F02;
+  margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+  font-family: 'Filicudi', sans-serif;
+  color: #5C6C74;
+}
+
+.countdown-baseline {
+  font-family: 'Filicudi', sans-serif;
+  font-size: 1.5rem;
+  color: #1D1E1B;
+  margin-bottom: 2rem;
+}
+
+.countdown-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-menu {
+  background: #D29F02;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-family: 'Tanker', sans-serif;
+  transition: background-color 0.3s;
+}
+
+.btn-menu:hover {
+  background: #5C6C74;
+}
+
+.btn-instagram {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #5C6C74;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.btn-instagram:hover {
+  color: #D29F02;
+}
+
+@media (max-width: 768px) {
+  .countdown-title {
+    font-size: 2rem;
+  }
+  
+  .countdown-block {
+    width: 100px;
+  }
+  
+  .countdown-value {
+    font-size: 2rem;
+    padding: 1.5rem;
+  }
+}
