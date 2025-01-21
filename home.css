@@ -144,11 +144,21 @@
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   text-align: center;
-  transition: transform 0.3s ease;
+  transform: translateY(20px); /* État initial pour l'animation au scroll */
+  transition: all 0.3s ease;
+}
+.timing-card.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.timing-card.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* Le hover agit maintenant indépendamment */
 .timing-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) !important; /* Le !important assure que le hover prend le dessus */
 }
 
 .timing-icon {
