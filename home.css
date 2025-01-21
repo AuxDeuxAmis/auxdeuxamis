@@ -113,3 +113,92 @@
     padding: 1.5rem;
   }
 }
+
+.timing-section {
+  padding: 5rem 2rem;
+  background: white;
+}
+
+.timing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timing-title {
+  font-family: 'Tanker', sans-serif;
+  font-size: 2.5rem;
+  color: #5C6C74;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.timing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.timing-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.timing-card:hover {
+  transform: translateY(-10px);
+}
+
+.timing-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.timing-card-title {
+  font-family: 'Tanker', sans-serif;
+  color: #1D1E1B;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.timing-hours {
+  font-family: 'Filicudi', sans-serif;
+  color: #D29F02;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.timing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Filicudi', sans-serif;
+  color: #5C6C74;
+}
+
+.timing-features li {
+  margin-bottom: 0.75rem;
+  opacity: 0.9;
+}
+
+.timing-features li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .timing-section {
+    padding: 3rem 1rem;
+  }
+
+  .timing-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .timing-card {
+    padding: 1.5rem;
+  }
+}
