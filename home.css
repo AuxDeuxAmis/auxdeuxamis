@@ -5,7 +5,7 @@
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background-color: var(--color-gray-50);
+  background: linear-gradient(to bottom right, #5C6C74, #1D1E1B);
 }
 
 .countdown-container {
@@ -16,7 +16,7 @@
 .countdown-title {
   font-family: 'Tanker', sans-serif;
   font-size: 3rem;
-  color: #5C6C74;
+  color: white;
   margin-bottom: 3rem;
 }
 
@@ -45,13 +45,13 @@
 
 .countdown-label {
   font-family: 'Filicudi', sans-serif;
-  color: #5C6C74;
+  color: white;
 }
 
 .countdown-baseline {
   font-family: 'Filicudi', sans-serif;
   font-size: 1.5rem;
-  color: #1D1E1B;
+  color: white;
   margin-bottom: 2rem;
 }
 
@@ -115,8 +115,18 @@
 }
 
 .timing-section {
-  padding: 5rem 2rem;
-  background: white;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+.timing-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #D29F02;
 }
 
 .timing-container {
@@ -214,8 +224,17 @@
 }
 
 .atmosphere-section {
-  padding: 5rem 2rem;
-  background-color: var(--color-gray-50);
+  background-color: rgba(92, 108, 116, 0.05);
+  position: relative;}
+
+.atmosphere-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d29f02' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .atmosphere-container {
@@ -318,8 +337,8 @@
 
 .contact-section {
   padding: 3rem 2rem;
-  background: white;
-}
+  background: #D29F02;
+  color: white;}
 
 .contact-container {
   max-width: 800px;
@@ -330,7 +349,7 @@
 .contact-title {
   font-family: 'Tanker', sans-serif;
   font-size: 2.5rem;
-  color: #5C6C74;
+  color: white;
   margin-bottom: 1.5rem;
 }
 
@@ -342,7 +361,7 @@
 
 .contact-phone {
   display: inline-block;
-  color: #D29F02;
+  color: #1D1E1B;
   text-decoration: none;
   font-weight: bold;
   margin-top: 0.5rem;
