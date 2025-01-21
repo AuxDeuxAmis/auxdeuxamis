@@ -315,3 +315,41 @@
     font-size: 1.2rem;
   }
 }
+
+.contact-section {
+  padding: 3rem 2rem;
+  background: white;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-family: 'Tanker', sans-serif;
+  font-size: 2.5rem;
+  color: #5C6C74;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info {
+  font-family: 'Filicudi', sans-serif;
+  font-style: normal;
+  margin-bottom: 2rem;
+}
+
+.contact-phone {
+  display: inline-block;
+  color: #D29F02;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.contact-map {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
