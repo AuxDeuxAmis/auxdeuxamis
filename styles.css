@@ -542,7 +542,6 @@ body.no-scroll {
 .site-footer {
   background-color: var(--color-gray-50);
   padding: var(--spacing-xl) 0 var(--spacing-md);
-  margin-top: var(--spacing-2xl);
 }
 
 .footer-container {
