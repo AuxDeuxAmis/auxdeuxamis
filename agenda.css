@@ -62,10 +62,12 @@
 }
 
 .contact-section {
-    background: var(--color-gray-50);
+    background: white; /* Changé de var(--color-gray-50) à white */
     padding: var(--spacing-2xl) 0;
     text-align: center;
     margin-top: var(--spacing-2xl);
+    /* Ajout d'une bordure subtile pour marquer la séparation */
+    border-top: 1px solid var(--color-gray-200);
 }
 
 .contact-section h2 {
