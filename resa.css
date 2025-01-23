@@ -133,3 +133,56 @@
 .submit-btn:hover {
     background-color: var(--color-primary);
 }
+.separator {
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--color-gray-300) 15%, 
+        var(--color-gray-300) 85%, 
+        transparent 100%
+    );
+    margin: 0 var(--spacing-md);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.email-link {
+    display: inline-block;
+    color: var(--color-primary);
+    font-family: 'Filicudi', sans-serif;
+    text-decoration: none;
+    margin-top: var(--spacing-sm);
+    transition: color var(--transition-fast) ease;
+}
+
+.email-link:hover {
+    color: var(--color-secondary);
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-white);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-left: var(--spacing-sm);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-btn[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
