@@ -5,9 +5,10 @@
 }
 
 .hero-section {
+    padding-top: 140px; /* Pour passer sous le header fixe */
     background: var(--color-primary);
     color: white;
-    padding: var(--spacing-2xl) 0;
+    padding-bottom: var(--spacing-2xl);
     text-align: center;
 }
 
@@ -62,7 +63,7 @@
 }
 
 .contact-section {
-    background-color: var(--color-secondary); /* Fond doré */
+    background-color: var(--color-primary); /* Gris/bleu au lieu du jaune */
     color: white;
     padding: var(--spacing-2xl) 0;
     text-align: center;
@@ -71,27 +72,26 @@
 
 .contact-section h2 {
     font-family: 'Tanker', sans-serif;
-    color: white; /* Changé en blanc */
+    color: white;
     font-size: 2rem;
     margin-bottom: var(--spacing-md);
 }
 
 .contact-section p {
     font-family: 'Filicudi', sans-serif;
-    color: rgba(255, 255, 255, 0.9); /* Texte blanc légèrement transparent */
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: var(--spacing-lg);
 }
 
 .contact-section .btn-primary {
-    background: white;
-    color: var(--color-secondary);
-}
-
-.contact-section .btn-primary:hover {
-    background: var(--color-primary);
+    background: var(--color-secondary);
     color: white;
 }
 
+.contact-section .btn-primary:hover {
+    background: white;
+    color: var(--color-primary);
+}
 
 
 @media (max-width: 768px) {
