@@ -56,14 +56,21 @@
   text-decoration: none;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
-  font-family: 'Tanker', sans-serif; /* Police correcte */
+  font-family: 'Tanker', sans-serif;
   font-size: 1.2rem;
 }
+
 .menu-button.accent {
-  background: var(--color-secondary); /* Bouton du milieu en jaune */
+  background: var(--color-secondary);
 }
 
 .menu-button:hover {
+  background: #384148;
+  transform: translateX(10px);
+}
+
+.menu-button.accent:hover {
+  background: #a67d02;
   transform: translateX(10px);
 }
 
