@@ -1,0 +1,142 @@
+.gallery-container {
+    padding: var(--spacing-2xl) var(--spacing-md);
+    max-width: var(--breakpoint-xl);
+    margin: 0 auto;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.gallery-header h1 {
+    font-family: 'Tanker', sans-serif;
+    color: var(--color-primary);
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.gallery-header p {
+    font-family: 'Filicudi', sans-serif;
+    color: var(--color-dark);
+    font-size: 1.2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    grid-column: span 4;
+}
+
+.gallery-item.large {
+    grid-column: span 8;
+}
+
+.gallery-item.vertical {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+.gallery-item.horizontal {
+    grid-column: span 8;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(29, 30, 27, 0.9), transparent);
+    padding: var(--spacing-lg);
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-normal);
+}
+
+.gallery-overlay h3 {
+    font-family: 'Tanker', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.gallery-overlay p {
+    font-family: 'Filicudi', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-instagram {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.gallery-instagram p {
+    font-family: 'Filicudi', sans-serif;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: 'Tanker', sans-serif;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 8px;
+    background: rgba(92, 108, 116, 0.1);
+    transition: all var(--transition-normal);
+}
+
+.instagram-link:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.instagram-link svg {
+    fill: currentColor;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        gap: var(--spacing-sm);
+    }
+    
+    .gallery-item,
+    .gallery-item.large,
+    .gallery-item.vertical,
+    .gallery-item.horizontal {
+        grid-column: span 12;
+    }
+    
+    .gallery-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
