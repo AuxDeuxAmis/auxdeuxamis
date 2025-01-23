@@ -2,6 +2,7 @@
     padding: var(--spacing-2xl) var(--spacing-md);
     max-width: var(--breakpoint-xl);
     margin: 0 auto;
+    margin-top: 100px; /* Pour compenser le header fixed */
 }
 
 .gallery-header {
@@ -24,7 +25,7 @@
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Changé pour 3 colonnes fixes */
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-2xl);
 }
@@ -33,20 +34,21 @@
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    grid-column: span 4;
+    aspect-ratio: 1; /* Pour maintenir un ratio carré par défaut */
 }
 
 .gallery-item.large {
-    grid-column: span 8;
+    grid-column: span 2;
+    aspect-ratio: 16/9;
 }
 
 .gallery-item.vertical {
-    grid-column: span 4;
-    grid-row: span 2;
+    aspect-ratio: 3/4;
 }
 
 .gallery-item.horizontal {
-    grid-column: span 8;
+    grid-column: span 2;
+    aspect-ratio: 16/9;
 }
 
 .gallery-item img {
