@@ -55,9 +55,13 @@
   color: white;
   text-decoration: none;
   border-radius: 0.5rem;
-    transition: transform 0.15s ease, background-color 0.15s ease;
+    transition: none;
   font-family: 'Tanker', sans-serif;
   font-size: 1.2rem;
+}
+
+.menu-button, .menu-button.accent {
+    transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
 .menu-button.accent {
@@ -65,13 +69,13 @@
 }
 
 .menu-button:hover {
-  background: #384148;
-  transform: translateX(10px);
+    background: #384148;
+    transform: translateX(10px);
 }
 
 .menu-button.accent:hover {
-  background: #a67d02;
-  transform: translateX(10px);
+    background: #a67d02;
+    transform: translateX(10px);
 }
 
 @media (max-width: 1024px) {
