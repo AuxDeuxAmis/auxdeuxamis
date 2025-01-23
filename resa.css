@@ -1,0 +1,135 @@
+.hero-reservation {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: calc(var(--spacing-2xl) * 2) var(--spacing-md);
+    text-align: center;
+    margin-top: 85px;
+}
+
+.hero-reservation .heading-1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-reservation .baseline {
+    color: var(--color-secondary);
+    font-family: 'Filicudi', sans-serif;
+    font-size: 1.5rem;
+}
+
+.phone-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+    text-align: center;
+    background-color: var(--color-gray-50);
+}
+
+.phone-section .heading-2 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.phone-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-family: 'Tanker', sans-serif;
+    font-size: 2rem;
+    margin: var(--spacing-xl) 0;
+    transition: transform var(--transition-normal) ease,
+                background-color var(--transition-normal) ease;
+}
+
+.phone-cta:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.phone-icon {
+    width: 2rem;
+    height: 2rem;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+.opening-hours {
+    font-family: 'Filicudi', sans-serif;
+    color: var(--color-gray-600);
+    margin-top: var(--spacing-lg);
+}
+
+.form-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+}
+
+.reservation-form {
+    max-width: 800px;
+    margin: var(--spacing-xl) auto 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-family: 'Filicudi', sans-serif;
+    color: var(--color-gray-700);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-gray-300);
+    border-radius: 0.25rem;
+    font-family: 'Filicudi', sans-serif;
+    transition: border-color var(--transition-fast) ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: var(--spacing-xl) auto 0;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 0.5rem;
+    font-family: 'Tanker', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color var(--transition-normal) ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--color-primary);
+}
