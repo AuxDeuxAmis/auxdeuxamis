@@ -43,26 +43,35 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  max-width: 400px; /* Limite la largeur sur desktop */
 }
 
 .menu-button {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
+  justify-content: center;
+  padding: 1.2rem 2rem;
   background: var(--color-primary);
   color: white;
   text-decoration: none;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
+  font-family: 'Tanker', sans-serif; /* Police correcte */
+  font-size: 1.2rem;
+}
+.menu-button.accent {
+  background: var(--color-secondary); /* Bouton du milieu en jaune */
 }
 
 .menu-button:hover {
-  background: var(--color-secondary);
   transform: translateX(10px);
 }
 
 @media (max-width: 1024px) {
+  .menu-buttons {
+    max-width: 100%; /* Full width sur mobile */
+  }
+  
   .hero-section {
     flex-direction: column;
   }
