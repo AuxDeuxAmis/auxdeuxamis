@@ -1,64 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('reservationForm');
     const dateInput = document.getElementById('date');
-    const timeInput = document.getElementById('time');
-    const submitBtn = form.querySelector('.submit-btn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const spinner = submitBtn.querySelector('.spinner');
+    const guestsInput = document.getElementById('guests');
 
     // Définir la date minimale à 48h après aujourd'hui
     const minDate = new Date();
     minDate.setDate(minDate.getDate() + 2);
     dateInput.min = minDate.toISOString().split('T')[0];
 
-    // Restreindre les heures de réservation
-    timeInput.addEventListener('change', function() {
-        const time = this.value;
-        const hour = parseInt(time.split(':')[0]);
-        if (hour < 11 || hour > 21) {
-            alert('Les réservations sont possibles entre 11h et 21h');
-            this.value = '12:00';
+    // Validation des invités
+    guestsInput.addEventListener('input', function() {
+        const guests = parseInt(this.value);
+        if (guests < 8) {
+            this.setCustomValidity('Pour les groupes de moins de 8 personnes, merci de nous appeler directement.');
+        } else if (guests > 50) {
+            this.setCustomValidity('Pour les groupes de plus de 50 personnes, merci de nous contacter par téléphone.');
+        } else {
+            this.setCustomValidity('');
         }
     });
 
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Validation supplémentaire
-        const guests = parseInt(document.getElementById('guests').value);
-        if (guests < 8) {
-            alert('Pour les groupes de moins de 8 personnes, merci de nous appeler directement.');
-            return;
+    // Validation du numéro de téléphone (format français)
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', function() {
+        const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
+        if (!phoneRegex.test(this.value)) {
+            this.setCustomValidity('Veuillez entrer un numéro de téléphone français valide');
+        } else {
+            this.setCustomValidity('');
         }
+    });
 
-        // Désactiver le bouton et afficher le spinner
-        submitBtn.disabled = true;
-        spinner.style.display = 'inline-block';
-        btnText.textContent = 'Envoi en cours...';
-
-        try {
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                alert('Votre demande a été envoyée avec succès. Nous vous contacterons dans les plus brefs délais pour confirmer votre réservation.');
-                form.reset();
-            } else {
-                throw new Error('Erreur lors de l\'envoi');
+    // Clean up des messages d'erreur quand l'utilisateur commence à taper
+    form.querySelectorAll('input, textarea, select').forEach(element => {
+        element.addEventListener('input', function() {
+            if (this.validationMessage) {
+                this.setCustomValidity('');
             }
-        } catch (error) {
-            alert('Une erreur est survenue lors de l\'envoi du formulaire. Veuillez réessayer ou nous contacter par téléphone.');
-        } finally {
-            // Réactiver le bouton et cacher le spinner
-            submitBtn.disabled = false;
-            spinner.style.display = 'none';
-            btnText.textContent = 'Envoyer la demande';
-        }
+        });
     });
 });
