@@ -120,3 +120,55 @@
         margin: 0 var(--spacing-md);
     }
 }
+
+/* Ajout au CSS existant */
+.desktop-only {
+    display: none;
+}
+
+.mobile-only {
+    display: none;
+}
+
+.calendar-mobile {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.calendar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 8px;
+    font-family: 'Tanker', sans-serif;
+    text-decoration: none;
+    transition: all var(--transition-normal) ease;
+}
+
+.calendar-btn:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries */
+@media (min-width: 769px) {
+    .desktop-only {
+        display: block;
+    }
+    .mobile-only {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+    .mobile-only {
+        display: block;
+    }
+}
