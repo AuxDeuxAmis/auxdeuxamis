@@ -68,6 +68,7 @@
     color: var(--color-gray-600);
     font-size: 0.9rem;
     display: block; /* Pour assurer que le texte reste sur sa propre ligne */
+    margin-top: 16px;
 }
 
 /* Events Section */
