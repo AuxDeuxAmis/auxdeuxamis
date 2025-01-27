@@ -256,3 +256,14 @@
         transform: translateY(0);
     }
 }
+
+@media (max-width: 768px) {
+    .capacity-info {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
