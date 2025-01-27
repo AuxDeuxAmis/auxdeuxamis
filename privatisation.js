@@ -7,25 +7,44 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', handleFormSubmit);
     }
 
+    // Animation de la hero section
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle) {
+        heroSubtitle.style.opacity = '0';
+        heroSubtitle.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            heroSubtitle.style.opacity = '1';
+            heroSubtitle.style.transform = 'translateY(0)';
+        }, 500);
+    }
+
     // Animation des cartes au scroll
     const cards = document.querySelectorAll('.event-card, .formula-card');
+    
+    // Définir l'état initial des cartes
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease';
+    });
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, 100);
             }
         });
     }, {
+        root: null,
+        rootMargin: '0px',
         threshold: 0.1
     });
 
-    cards.forEach(card => {
-        card.style.opacity = 0;
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'all 0.6s ease';
-        observer.observe(card);
-    });
+    // Observer chaque carte
+    cards.forEach(card => observer.observe(card));
 
     // Validation du formulaire
     setupFormValidation();
