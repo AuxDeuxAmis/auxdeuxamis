@@ -2,8 +2,9 @@
     background-color: var(--color-primary);
     color: var(--color-white);
     text-align: center;
-    padding-top: calc(85px + var(--spacing-2xl) * 2); /* 85px est la hauteur du header */
-    margin-top: 0; /* Suppression de la marge précédente */
+    padding-top: calc(120px + var(--spacing-xl)); /* 120px couvre la hauteur totale du header avec son padding */
+    padding-bottom: calc(var(--spacing-2xl) * 2);
+    margin-top: 0;
 }
 
 .hero-reservation .heading-1 {
