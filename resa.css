@@ -1,9 +1,9 @@
 .hero-reservation {
     background-color: var(--color-primary);
     color: var(--color-white);
-    padding: calc(var(--spacing-2xl) * 2) var(--spacing-md);
     text-align: center;
-    margin-top: 85px;
+    padding-top: calc(85px + var(--spacing-2xl) * 2); /* 85px est la hauteur du header */
+    margin-top: 0; /* Suppression de la marge précédente */
 }
 
 .hero-reservation .heading-1 {
@@ -93,17 +93,32 @@
 
 .form-section {
     padding: var(--spacing-2xl) var(--spacing-md);
-    background-color: var(--color-white);
+    background-color: var(--color-gray-50); /* Fond légèrement gris pour contraster avec le formulaire blanc */
 }
 
-.form-section .heading-2,
+.form-section .heading-2 {
+    margin-bottom: var(--spacing-md);
+        text-align: center;
+
+}
+
 .form-section .body-text {
-    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+        text-align: center;
+
 }
 
 .reservation-form {
     max-width: 800px;
     margin: var(--spacing-xl) auto 0;
+    padding: var(--spacing-xl);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
 }
 
 .form-grid {
@@ -122,6 +137,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xs);
+    width: 100%; /* Assure que le champ prend toute la largeur */
 }
 
 .form-field.full-width {
@@ -144,6 +160,7 @@
     font-size: 1rem;
     width: 100%;
     transition: all var(--transition-fast) ease;
+    box-sizing: border-box; /* Pour inclure padding et border dans la largeur */
 }
 
 .form-input:focus,
@@ -153,6 +170,13 @@
     border-color: var(--color-secondary);
     box-shadow: 0 0 0 2px rgba(210, 159, 2, 0.1);
 }
+
+/* Correction spécifique pour l'input date sur mobile */
+input[type="date"].form-input {
+    min-width: 100%;
+    -webkit-appearance: none; /* Supprime l'apparence native sur iOS */
+}
+
 
 .form-textarea {
     min-height: 120px;
@@ -195,4 +219,20 @@
     border-radius: 0.5rem;
     text-align: center;
     margin-top: var(--spacing-xl);
+}
+
+/* Amélioration du responsive */
+@media (max-width: 767px) {
+    .reservation-form {
+        padding: var(--spacing-lg);
+    }
+
+    .form-grid {
+        gap: var(--spacing-sm);
+    }
+
+    .form-field.full-width,
+    .form-field {
+        grid-column: 1 / -1; /* Force tous les champs en pleine largeur sur mobile */
+    }
 }
