@@ -51,19 +51,23 @@
 
 .capacity-item {
     text-align: center;
+    min-width: 200px; /* Ajout d'une largeur minimum */
 }
+
 
 .capacity-number {
     font-family: 'Tanker', sans-serif;
     font-size: 3rem;
     color: var(--color-secondary);
     display: block;
+    margin-bottom: var(--spacing-xs); /* Ajout d'une marge en bas */
 }
 
 .capacity-label {
     font-family: 'Filicudi', sans-serif;
     color: var(--color-gray-600);
     font-size: 0.9rem;
+    display: block; /* Pour assurer que le texte reste sur sa propre ligne */
 }
 
 /* Events Section */
@@ -142,6 +146,7 @@
     transition: all var(--transition-normal) ease;
 }
 
+
 .formula-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.15);
@@ -158,6 +163,26 @@
     color: var(--color-secondary);
     font-weight: bold;
     margin-bottom: var(--spacing-md);
+}
+.formula-card ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+}
+
+.formula-card li {
+    font-family: 'Filicudi', sans-serif;
+    color: var(--color-gray-600);
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.formula-card li::before {
+    content: "•";
+    color: var(--color-secondary);
+    position: absolute;
+    left: 0;
 }
 
 /* Contact Section */
