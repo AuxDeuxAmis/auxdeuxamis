@@ -1,5 +1,5 @@
 .phone-section {
-   margin-top: 950px; /* Pour passer sous le header fixe */
+   margin-top: 95px; /* Pour passer sous le header fixe */
     padding: var(--spacing-2xl) var(--spacing-md);
     text-align: center;
     background-color: var(--color-gray-50);
