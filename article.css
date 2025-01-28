@@ -1,3 +1,172 @@
+/* Styles de base et typographie */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.article-category {
+  background: #D29F02;
+  color: white;
+  font-family: 'Tanker', sans-serif;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.article-date {
+  font-family: 'Filicudi', sans-serif;
+  color: #5C6C74;
+  font-size: 14px;
+  margin: 0;
+}
+
+.article-header h1 {
+  font-family: 'Tanker', sans-serif;
+  color: #5C6C74;
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.article-intro {
+  font-family: 'Filicudi', sans-serif;
+  color: #1D1E1B;
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.article-section h2 {
+  font-family: 'Tanker', sans-serif;
+  color: #5C6C74;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.article-section h3 {
+  font-family: 'Tanker', sans-serif;
+  color: #1D1E1B;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.article-section p {
+  font-family: 'Filicudi', sans-serif;
+  color: #1D1E1B;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Styles spécifiques des CTAs */
+.article-cta h3 {
+  font-family: 'Tanker', sans-serif;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.article-cta p {
+  font-family: 'Filicudi', sans-serif;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* Ajustements pour les features */
+.feature-item h3 {
+  font-family: 'Tanker', sans-serif;
+  font-size: 24px;
+  color: #5C6C74;
+  margin: 16px 0;
+}
+
+.feature-item p {
+  font-family: 'Filicudi', sans-serif;
+  font-size: 16px;
+  color: #1D1E1B;
+  line-height: 1.6;
+}
+
+/* Ajustements pour les changements */
+.change-item h3 {
+  font-family: 'Tanker', sans-serif;
+  font-size: 20px;
+  color: #5C6C74;
+  margin-bottom: 12px;
+}
+
+.change-item p {
+  font-family: 'Filicudi', sans-serif;
+  font-size: 16px;
+  color: #1D1E1B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Hover effects */
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item:hover,
+.change-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Transitions */
+.feature-item,
+.change-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Couleurs spécifiques pour les CTAs */
+.article-cta.accent .cta-button {
+  background: white;
+  color: #D29F02;
+}
+
+.article-cta.final .cta-button.primary:hover {
+  background: white;
+  color: #5C6C74;
+}
+
+.article-cta.final .cta-button.secondary:hover {
+  background: #D29F02;
+  color: white;
+}
+
+/* Ajustements responsives supplémentaires */
+@media (max-width: 768px) {
+  .article-header h1 {
+    font-size: 36px;
+  }
+  
+  .article-intro {
+    font-size: 18px;
+  }
+  
+  .article-section h2 {
+    font-size: 28px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .article-cta {
+    padding: 30px 20px;
+  }
+}
 /* Structure principale */
 .article-container {
   max-width: 1200px;
