@@ -149,18 +149,31 @@
   font-size: 18px;
   text-decoration: none;
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-button.primary {
   background: #D29F02;
   color: white;
 }
+.reading-time {
+  font-family: 'Filicudi', sans-serif;
+  color: #5C6C74;
+  font-size: 14px;
+  margin-left: 16px;
+}
 
 .cta-button.secondary {
   background: white;
   color: #5C6C74;
 }
+
+/* Styles pour les animations */
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
 
 
 /* Responsive */
