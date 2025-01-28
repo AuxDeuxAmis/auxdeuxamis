@@ -1,6 +1,4 @@
-<!-- privatisation.css -->
 .hero-section {
-    /* Modification de la marge pour passer sous le header fixe */
     margin-top: calc(95px + var(--spacing-2xl)); /* 95px est la hauteur du header */
     padding: var(--spacing-2xl) var(--spacing-md);
     background-color: var(--color-primary);
