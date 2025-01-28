@@ -94,6 +94,10 @@
 
 }
 
+.form-section .body-text span {
+color:#d29f1c;
+   }
+
 .reservation-form {
     max-width: 800px;
     margin: var(--spacing-xl) auto 0;
