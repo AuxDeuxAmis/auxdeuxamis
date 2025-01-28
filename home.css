@@ -174,8 +174,24 @@
 }
 
 .timing-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    height: 128px; /* Hauteur fixe pour éviter les sauts lors du chargement */
+}
+
+
+.timing-icon img {
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* L'effet hover s'intègre avec l'animation existante de la carte */
+.timing-card:hover .timing-icon img {
+    transform: scale(1.1);
 }
 
 .timing-card-title {
