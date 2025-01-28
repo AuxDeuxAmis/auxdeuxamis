@@ -1,62 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Animation de la hero section
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    if (heroSubtitle) {
-        heroSubtitle.style.opacity = '0';
-        heroSubtitle.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            heroSubtitle.style.opacity = '1';
-            heroSubtitle.style.transform = 'translateY(0)';
-        }, 500);
-    }
-
-    // Animation des cartes au scroll
-    const cards = document.querySelectorAll('.event-card, .formula-card');
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'all 0.6s ease';
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, 100);
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    cards.forEach(card => observer.observe(card));
-
-    // Gestion du formulaire de privatisation
-    const form = document.getElementById('privatisation-form');
+    const form = document.getElementById('privatisationForm');
     const dateInput = document.getElementById('date');
     const guestsInput = document.getElementById('guests');
+    const phoneInput = document.getElementById('phone');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
 
-    // Définir la date minimale à 48h après aujourd'hui
+    // Définir la date minimale à 14 jours
     const minDate = new Date();
-    minDate.setDate(minDate.getDate() + 2);
+    minDate.setDate(minDate.getDate() + 14);
     dateInput.min = minDate.toISOString().split('T')[0];
 
-    // Validation des invités
+    // Validation du nombre d'invités
     guestsInput.addEventListener('input', function() {
         const guests = parseInt(this.value);
-        if (guests < 10) {
-            this.setCustomValidity('Pour une privatisation, le minimum est de 10 personnes.');
+        if (guests < 20) {
+            this.setCustomValidity('Minimum 20 personnes pour une privatisation');
         } else if (guests > 120) {
-            this.setCustomValidity('Pour les groupes de plus de 120 personnes, merci de nous contacter par téléphone.');
+            this.setCustomValidity('Maximum 120 personnes (80 en intérieur + 40 en terrasse)');
         } else {
             this.setCustomValidity('');
         }
     });
 
     // Validation du numéro de téléphone (format français)
-    const phoneInput = document.getElementById('phone');
     phoneInput.addEventListener('input', function() {
         const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
         if (!phoneRegex.test(this.value)) {
@@ -64,14 +32,81 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             this.setCustomValidity('');
         }
+        
+        // Formater le numéro automatiquement
+        let cleaned = this.value.replace(/\D/g, '');
+        if (cleaned.length >= 10) {
+            cleaned = cleaned.match(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/);
+            if (cleaned) {
+                this.value = '0' + cleaned[1] + ' ' + cleaned[2] + ' ' + cleaned[3] + ' ' + cleaned[4] + ' ' + cleaned[5];
+            }
+        }
+    });
+
+    // Validation du nom (minimum 3 caractères)
+    nameInput.addEventListener('input', function() {
+        if (this.value.length < 3) {
+            this.setCustomValidity('Le nom doit contenir au moins 3 caractères');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+
+    // Validation de l'email
+    emailInput.addEventListener('input', function() {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(this.value)) {
+            this.setCustomValidity('Veuillez entrer une adresse email valide');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+
+    // Validation du message (minimum 20 caractères)
+    messageInput.addEventListener('input', function() {
+        const minLength = 20;
+        if (this.value.length < minLength) {
+            this.setCustomValidity(`Veuillez décrire votre projet en au moins ${minLength} caractères`);
+        } else {
+            this.setCustomValidity('');
+        }
     });
 
     // Clean up des messages d'erreur quand l'utilisateur commence à taper
-    form.querySelectorAll('input, textarea').forEach(element => {
+    form.querySelectorAll('input, textarea, select').forEach(element => {
         element.addEventListener('input', function() {
             if (this.validationMessage) {
                 this.setCustomValidity('');
             }
         });
+    });
+
+    // Gestion de la soumission du formulaire
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Afficher l'état d'envoi
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Envoi en cours...';
+        submitBtn.disabled = true;
+
+        // Simulation d'envoi (à remplacer par votre vrai endpoint)
+        setTimeout(() => {
+            // Succès
+            form.style.display = 'none';
+            document.querySelector('.w-form-done').style.display = 'block';
+            
+            // Reset le formulaire en arrière-plan
+            form.reset();
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+
+            // Scroll jusqu'au message de succès
+            document.querySelector('.w-form-done').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }, 1500);
     });
 });
