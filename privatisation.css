@@ -1,15 +1,18 @@
 <!-- privatisation.css -->
 .hero-section {
-    margin-top: 95px;
+    /* Modification de la marge pour passer sous le header fixe */
+    margin-top: calc(95px + var(--spacing-2xl)); /* 95px est la hauteur du header */
     padding: var(--spacing-2xl) var(--spacing-md);
     background-color: var(--color-primary);
     color: var(--color-white);
     text-align: center;
 }
 
+
 .hero-section .heading-1 {
     margin-bottom: var(--spacing-md);
     color: var(--color-white);
+    font-size: 2.5rem;
 }
 
 .hero-text {
@@ -58,8 +61,16 @@
 }
 
 .feature-icon {
-    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: var(--spacing-md);
+}
+
+.feature-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
 }
 
 .feature-card h3 {
@@ -241,4 +252,41 @@
 .submit-btn:hover {
     background-color: var(--color-primary);
     transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        /* Ajustement pour mobile */
+        margin-top: calc(75px + var(--spacing-xl)); /* Header plus petit sur mobile */
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+        .hero-section .heading-1 {
+        font-size: 2rem;
+    }
+}
+
+
+/* Correction du bug de l'input date sur mobile */
+input[type="date"].form-input {
+    min-height: 45px; /* Hauteur minimale pour être cliquable */
+    -webkit-appearance: none;
+    position: relative;
+    padding: var(--spacing-sm) var(--spacing-md);
+    width: 100%;
+}
+
+/* Correction spécifique pour Safari mobile */
+@supports (-webkit-touch-callout: none) {
+    input[type="date"].form-input {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* S'assurer que le padding est correct sur mobile */
+@media (max-width: 767px) {
+    input[type="date"].form-input {
+        padding-right: var(--spacing-md);
+        padding-left: var(--spacing-md);
+    }
 }
