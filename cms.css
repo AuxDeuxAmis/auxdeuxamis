@@ -1,0 +1,88 @@
+/* Styles spécifiques à la page mentions légales */
+.legal-container {
+  max-width: 1000px;
+  margin: 120px auto 60px;
+  padding: 0 20px;
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.legal-header h1 {
+  font-family: 'Tanker', sans-serif;
+  color: #5C6C74;
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.legal-date {
+  font-family: 'Filicudi', sans-serif;
+  color: #D29F02;
+  font-size: 16px;
+}
+
+.legal-content {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.legal-section {
+  margin-bottom: 40px;
+}
+
+.legal-section:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section h2 {
+  font-family: 'Tanker', sans-serif;
+  color: #5C6C74;
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #D29F02;
+}
+
+.legal-subsection {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.legal-subsection h3 {
+  font-family: 'Tanker', sans-serif;
+  color: #1D1E1B;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.legal-section p,
+.legal-subsection p {
+  font-family: 'Filicudi', sans-serif;
+  color: #1D1E1B;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .legal-container {
+    margin: 100px auto 40px;
+  }
+
+  .legal-content {
+    padding: 20px;
+  }
+
+  .legal-header h1 {
+    font-size: 36px;
+  }
+
+  .legal-section h2 {
+    font-size: 20px;
+  }
+}
