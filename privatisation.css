@@ -1,5 +1,5 @@
 .hero-section {
-    margin-top: calc(95px + var(--spacing-2xl)); /* 95px est la hauteur du header */
+    margin-top: 95px; /* Exactement la hauteur du header */
     padding: var(--spacing-2xl) var(--spacing-md);
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -243,7 +243,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     transition: all var(--transition-normal) ease;
-    margin-top: var(--spacing-xl);
+    margin: var(--spacing-xl) auto 0;
     min-width: 200px;
 }
 
@@ -254,12 +254,15 @@
 
 @media (max-width: 767px) {
     .hero-section {
-        /* Ajustement pour mobile */
-        margin-top: calc(75px + var(--spacing-xl)); /* Header plus petit sur mobile */
+        margin-top: 75px; /* Header plus petit sur mobile */
         padding: var(--spacing-xl) var(--spacing-md);
     }
         .hero-section .heading-1 {
         font-size: 2rem;
+    }
+        .submit-btn {
+        width: 100%;
+        max-width: 300px;
     }
 }
 
