@@ -17,6 +17,13 @@
   font-family: 'Tanker', sans-serif;
   font-size: 3rem;
   color: white;
+  margin-bottom: 1rem;
+}
+
+.countdown-pre {
+  font-family: 'Filicudi', sans-serif;
+  font-size: 1.2rem;
+  color: #D29F02;
   margin-bottom: 3rem;
 }
 
@@ -31,6 +38,7 @@
 .countdown-block {
   width: 140px;
 }
+
 
 .countdown-value {
   background: white;
@@ -89,6 +97,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(92, 108, 116, 0.1);
 }
+
 .btn-instagram:hover {
   background: #D29F02;
   transform: translateY(-2px);
@@ -104,11 +113,15 @@
     font-size: 2rem;
   }
   
-  .countdown-block {
+  .countdown-pre {
+    font-size: 1rem;
+  }
+  
+ .countdown-block {
     width: 100px;
   }
   
-  .countdown-value {
+ .countdown-value {
     font-size: 2rem;
     padding: 1.5rem;
   }
