@@ -604,25 +604,32 @@ body.no-scroll {
 }
 
 .social-link {
+  color: var(--color-primary); /* #5C6C74 */
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
   text-decoration: none;
-  transition: color var(--transition-fast) ease;
+  transition: all var(--transition-fast) ease;
 }
 
 .social-link:hover {
-  color: var(--color-secondary);
+  color: var(--color-secondary); /* #D29F02 */
 }
 
 .social-link svg {
   flex-shrink: 0;
+  stroke: currentColor; /* Assurez-vous que l'icône prend la couleur du parent */
 }
+
 
 .social-link span {
   font-family: 'Filicudi', sans-serif;
   color: var(--color-gray-600);
-  font-size: 0.9rem;
+}
+
+/* Au survol, le texte change aussi de couleur */
+.social-link:hover span {
+  color: var(--color-secondary); /* #D29F02 */
 }
 
 .footer-bottom {
