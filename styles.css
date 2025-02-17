@@ -599,16 +599,30 @@ body.no-scroll {
 
 .social-links {
   display: flex;
+  flex-direction: column;
   gap: var(--spacing-md);
 }
 
 .social-link {
-  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
   transition: color var(--transition-fast) ease;
 }
 
 .social-link:hover {
   color: var(--color-secondary);
+}
+
+.social-link svg {
+  flex-shrink: 0;
+}
+
+.social-link span {
+  font-family: 'Filicudi', sans-serif;
+  color: var(--color-gray-600);
+  font-size: 0.9rem;
 }
 
 .footer-bottom {
@@ -632,16 +646,4 @@ body.no-scroll {
 
 .footer-logo:hover img {
   opacity: 0.9;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  text-decoration: none;
-}
-
-.social-link span {
-  font-family: 'Filicudi', sans-serif;
-  color: var(--color-gray-600);
 }
