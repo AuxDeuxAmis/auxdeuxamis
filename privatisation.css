@@ -83,7 +83,7 @@
     line-height: 1.6;
 }
 
-.contact-section {
+.contact-section-priv {
     padding: var(--spacing-2xl) var(--spacing-md);
     background-color: var(--color-gray-50);
 }
