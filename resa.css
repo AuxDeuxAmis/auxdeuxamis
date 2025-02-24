@@ -94,6 +94,13 @@
 
 }
 
+.h1-resa {
+       font-family: Tanker, sans-serif;
+    color: rgb(210 159 3);
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
 .form-section .body-text span {
 color:#d29f1c;
    }
