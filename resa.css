@@ -99,6 +99,8 @@
     color: rgb(210 159 3);
     font-size: 48px;
     margin-bottom: 16px;
+       line-height: 54px;
+    letter-spacing: 1px;
 }
 
 .form-section .body-text span {
