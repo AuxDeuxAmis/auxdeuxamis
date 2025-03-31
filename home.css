@@ -672,8 +672,8 @@
   }
   
   .opening-logo {
-    margin: 0 auto 2rem;
-    max-width: 200px;
+    margin: 0 auto;
+    max-width: 350px;
   }
   
   .opening-buttons {
@@ -694,7 +694,7 @@
   }
   
   .opening-logo {
-    max-width: 150px;
+        max-width: 350px;
   }
   
   .opening-intro {
