@@ -536,7 +536,8 @@
 .opening-section {
   position: relative;
   min-height: 80vh;
-  padding: 10rem 2rem;
+    padding: 5rem 2rem;
+    margin-top: 4rem;
   background: linear-gradient(135deg, rgba(92, 108, 116, 0.95), rgba(29, 30, 27, 0.95)), 
               url('/chemin-vers-votre-image-de-fond.jpg');
   background-size: cover;
