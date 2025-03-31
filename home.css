@@ -393,7 +393,7 @@
   margin-bottom: 0.5rem;
 }
 
-.welcome-container h1 {
+.welcome-container h2 {
   font-family: 'Tanker', sans-serif;
   color: #5C6C74;
   font-size: 3.5rem;
@@ -402,7 +402,7 @@
   display: inline-block;
 }
 
-.welcome-container h1::after {
+.welcome-container h2::after {
   content: '';
   position: absolute;
   bottom: -8px;
@@ -414,7 +414,7 @@
   transition: transform 0.3s ease;
 }
 
-.welcome-container h1:hover::after {
+.welcome-container h2:hover::after {
   transform: scaleX(1);
 }
 
@@ -423,7 +423,7 @@
     font-size: 1rem;
   }
   
-  .welcome-container h1 {
+  .welcome-container h2 {
     font-size: 2.5rem;
   }
 }
