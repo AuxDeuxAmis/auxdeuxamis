@@ -1,73 +1,150 @@
-.countdown-section {
-  min-height: 100vh;
+.welcome-section {
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
-      padding-top: 100px;
+  padding: 4rem 2rem;
+  padding-top: 100px;
   background: linear-gradient(to bottom right, #5C6C74, #1D1E1B);
 }
 
-.countdown-container {
+.welcome-container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.countdown-title {
+.welcome-title {
   font-family: 'Tanker', sans-serif;
   font-size: 3rem;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.countdown-pre {
-  font-family: 'Filicudi', sans-serif;
-  font-size: 1.2rem;
-  color: #D29F02;
-  margin-bottom: 3rem;
-}
-
-.countdown-timer {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 3rem;
-}
-
-.countdown-block {
-  width: 140px;
-}
-
-
-.countdown-value {
-  background: white;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 3rem;
-  font-family: 'Tanker', sans-serif;
-  color: #D29F02;
-  margin-bottom: 0.5rem;
-}
-
-.countdown-label {
-  font-family: 'Filicudi', sans-serif;
-  color: white;
-}
-
-.countdown-baseline {
-  font-family: 'Filicudi', sans-serif;
-  font-size: 1.5rem;
   color: white;
   margin-bottom: 2rem;
 }
 
-.countdown-cta {
+.welcome-content {
   display: flex;
+  align-items: center;
+  gap: 3rem;
   justify-content: center;
-  margin-top: 3rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.welcome-logo {
+  flex: 0 0 auto;
+  max-width: 200px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.welcome-text {
+  flex: 1 1 400px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.welcome-message {
+  font-family: 'Filicudi', sans-serif;
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.welcome-date {
+  color: #D29F02;
+  font-weight: bold;
+}
+
+.welcome-details {
+  font-family: 'Filicudi', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+}
+
+.welcome-baseline {
+  font-family: 'Tanker', sans-serif;
+  font-size: 1.5rem;
+  color: #D29F02;
+  margin-bottom: 2rem;
+}
+
+.welcome-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-reservation {
+  background: #D29F02;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-family: 'Tanker', sans-serif;
+  transition: background-color 0.3s;
+}
+
+.btn-reservation:hover {
+  background: white;
+  color: #D29F02;
+}
+
+.btn-instagram {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-family: 'Tanker', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn-instagram:hover {
+  background: white;
+  color: #1D1E1B;
+}
+
+.btn-instagram i {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .welcome-section {
+    padding: 3rem 1rem;
+  }
+  
+  .welcome-title {
+    font-size: 2rem;
+  }
+  
+  .welcome-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .welcome-text {
+    text-align: center;
+  }
+  
+  .welcome-message {
+    font-size: 1.2rem;
+  }
+  
+  .welcome-buttons {
+    justify-content: center;
+  }
 }
 
 .btn-menu {
