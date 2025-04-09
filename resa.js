@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('reservationForm');
     const dateInput = document.getElementById('date');
     const guestsInput = document.getElementById('guests');
-
+    
     // Définir la date minimale à 48h après aujourd'hui
     const minDate = new Date();
     minDate.setDate(minDate.getDate() + 2);
     dateInput.min = minDate.toISOString().split('T')[0];
-
+    
     // Validation des invités
     guestsInput.addEventListener('input', function() {
         const guests = parseInt(this.value);
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.setCustomValidity('');
         }
     });
-
+    
     // Validation du numéro de téléphone (format français)
     const phoneInput = document.getElementById('phone');
     phoneInput.addEventListener('input', function() {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.setCustomValidity('');
         }
     });
-
+    
     // Clean up des messages d'erreur quand l'utilisateur commence à taper
     form.querySelectorAll('input, textarea, select').forEach(element => {
         element.addEventListener('input', function() {
