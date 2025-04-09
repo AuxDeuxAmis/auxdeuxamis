@@ -190,6 +190,15 @@
   }
 }
 
+#email-form {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
 .nav-list {
   display: flex;
   gap: 3rem;
