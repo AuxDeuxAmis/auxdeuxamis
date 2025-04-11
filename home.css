@@ -614,11 +614,25 @@
 }
 
 .opening-message ul {
-color:#D29F02;
+    font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  list-style: none; /* Supprime les puces par défaut */
+  padding-left: 20px; /* Conserve l'indentation */
 }
 
 .opening-message ul li {
-  color:#ffffff;
+  position: relative; /* Pour positionner la puce personnalisée */
+}
+
+.opening-message ul li::before {
+  content: "•"; /* Le symbole de puce que tu veux utiliser */
+  color: #D29F02; /* Ta couleur dorée de la charte */
+  font-weight: bold; /* Optionnel : pour des puces plus épaisses */
+  display: inline-block;
+  width: 1em; /* Largeur fixe pour aligner */
+  margin-left: -1em; /* Pour aligner avec le texte */
 }
 
 .opening-date {
