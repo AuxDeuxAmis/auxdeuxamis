@@ -599,14 +599,6 @@
   gap: 1rem;
 }
 
-.opening-text ul {
-  color:#D29F02;
-}
-
-.opening-text li {
-  color:#ffffff;
-}
-
 .opening-intro {
   font-family: 'Tanker', sans-serif;
   font-size: 1.3rem;
@@ -619,6 +611,11 @@
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 0.5rem;
+color:#D29F02;
+}
+
+.opening-message li {
+  color:#ffffff;
 }
 
 .opening-date {
