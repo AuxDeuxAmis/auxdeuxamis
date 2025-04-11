@@ -168,10 +168,10 @@
 }
 
 .event-details p {
-    font-family: 'Filicudi', sans-serif;
-    color: var(--color-gray-600);
-    font-size: 0.95rem;
-    line-height: 1.5;
+        font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;    color: var(--color-gray-600);
 }
 
 /* Section contact */
