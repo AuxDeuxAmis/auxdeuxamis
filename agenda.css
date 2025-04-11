@@ -175,7 +175,7 @@
 }
 
 /* Section contact */
-.contact-section {
+.contacto-section {
     background-color: var(--color-primary);
     color: white;
     padding: var(--spacing-2xl) 0;
@@ -183,20 +183,20 @@
     margin-top: 60px;
 }
 
-.contact-section h2 {
+.contacto-section h2 {
     font-family: 'Tanker', sans-serif;
     color: white;
     font-size: 2rem;
     margin-bottom: var(--spacing-md);
 }
 
-.contact-section p {
+.contacto-section p {
     font-family: 'Filicudi', sans-serif;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: var(--spacing-lg);
 }
 
-.btn-primary {
+.btno-primary {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-xl);
     border-radius: 8px;
@@ -207,7 +207,7 @@
     color: white;
 }
 
-.btn-primary:hover {
+.btno-primary:hover {
     background: white;
     color: var(--color-primary);
     transform: translateY(-2px);
