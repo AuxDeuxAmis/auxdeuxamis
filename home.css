@@ -624,6 +624,7 @@
 
 .opening-text ul li {
   position: relative; /* Pour positionner la puce personnalisée */
+  margin-bottom :  6px;
 }
 
 .opening-text ul li::before {
