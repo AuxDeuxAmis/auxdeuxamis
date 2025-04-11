@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     panel.classList.toggle('is-active');
     document.body.classList.toggle('no-scroll');
   });
-
   // Gestion du header au scroll
   let lastScroll = 0;
   window.addEventListener('scroll', function() {
@@ -38,4 +37,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     lastScroll = currentScroll;
   });
+
+  // Vérifier si le bouton existe déjà
+  const callButton = document.querySelector('.sticky-call-button');
+  if (callButton) {
+    // Afficher le bouton après un court délai
+    setTimeout(() => {
+      callButton.classList.add('visible');
+    }, 1500);
+    
+    // Faire sonner le bouton toutes les 5 secondes
+    setInterval(() => {
+      callButton.classList.add('ringing');
+      
+      // Arrêter l'animation de sonnerie après 1 seconde
+      setTimeout(() => {
+        callButton.classList.remove('ringing');
+      }, 1000);
+    }, 5000);
+  }
 });
