@@ -716,3 +716,81 @@ body.no-scroll {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
+
+
+.sticky-call-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+    transform-origin: center;
+    opacity: 0;
+  }
+
+  /* Animation d'entrée */
+  .sticky-call-button.visible {
+    opacity: 1;
+  }
+
+  /* Animation de sonnerie */
+  .sticky-call-button.ringing {
+    animation: ring 0.5s ease infinite;
+  }
+
+  /* Animation flottante continue */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  /* Animation de sonnerie */
+  @keyframes ring {
+    0% {
+      transform: rotate(0);
+    }
+    20% {
+      transform: rotate(-10deg);
+    }
+    40% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(-10deg);
+    }
+    80% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+
+  .sticky-call-button:hover {
+    transform: scale(1.1);
+    background-color: #b88600; /* Version plus foncée de var(--color-secondary) */
+  }
+
+  /* Ne montrer le bouton que sur mobile */
+  @media (min-width: 768px) {
+    .sticky-call-button {
+      display: none;
+    }
+  }
