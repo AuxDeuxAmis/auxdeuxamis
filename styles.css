@@ -731,7 +731,7 @@ body.no-scroll {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 54;
+    z-index: 49;
     transition: transform 0.3s ease, background-color 0.3s ease;
     animation: float 3s ease-in-out infinite;
     transform-origin: center;
