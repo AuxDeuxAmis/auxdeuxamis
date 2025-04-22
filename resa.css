@@ -233,4 +233,9 @@ input[type="date"].form-input {
     .form-field {
         grid-column: 1 / -1; /* Force tous les champs en pleine largeur sur mobile */
     }
+   .h1-resa {
+    font-size: 24px;
+       line-height: 30px;
+}
+
 }
