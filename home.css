@@ -121,9 +121,7 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
+  width: 100p%;
   height: 3px;
   background-color: #D29F02;
 }
