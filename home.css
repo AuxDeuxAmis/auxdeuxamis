@@ -115,6 +115,17 @@
     padding: var(--spacing-2xl) 0;
 }
 
+.agenda-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #D29F02;
+}
+
 .intro-text-home {
     max-width: 800px;
     margin: 0 auto var(--spacing-2xl);
@@ -218,6 +229,17 @@
   background-color: rgba(92, 108, 116, 0.05);
   position: relative;
   padding: 5rem 2rem;
+}
+
+.atmosphere-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #D29F02;
 }
 
 .atmosphere-section::after {
