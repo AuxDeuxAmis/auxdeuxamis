@@ -115,7 +115,7 @@
     padding: var(--spacing-2xl) 0;
 }
 
-.agenda-section::before {
+.agenda-section-home::before {
   content: '';
   position: absolute;
   top: 0;
