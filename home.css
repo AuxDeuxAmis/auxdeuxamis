@@ -112,8 +112,10 @@
 
 
 .agenda-section-home {
-    padding: var(--spacing-2xl) 0;
+  position: relative;
+  padding: 5rem 2rem;
 }
+
 
 .agenda-section-home::before {
   content: '';
