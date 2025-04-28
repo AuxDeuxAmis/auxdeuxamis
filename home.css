@@ -110,6 +110,88 @@
   font-size: 1.4rem;
 }
 
+
+.agenda-section-home {
+    padding: var(--spacing-2xl) 0;
+}
+
+.intro-text-home {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl);
+    text-align: center;
+    font-family: 'Filicudi', sans-serif;
+    font-size: 1.2rem;
+    color: var(--color-gray-600);
+}
+
+.posters-container-home {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+.poster-card-home {
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poster-card-home:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.poster-image-home {
+    position: relative;
+    height: 0;
+    padding-bottom: 141.4%; /* Ratio A4 (1:1.414) */
+    overflow: hidden;
+    border: 3px solid var(--color-primary); /* Ajout du cadre dans la couleur principale */
+}
+
+.poster-image-home img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.poster-card-home:hover .poster-image-home img {
+    transform: scale(1.03);
+}
+
+.poster-info-home {
+    padding: 24px; /* Augmenté de 20px à 24px */
+    margin-top: 8px; /* Ajouter un petit espace en haut */
+}
+
+.poster-info-home h3 {
+    font-family: 'Tanker', sans-serif;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.poster-date-home {
+    font-family: 'Filicudi', sans-serif;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+.poster-description-home {
+    color: var(--color-gray-600);
+        font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .countdown-title {
     font-size: 2rem;
@@ -129,133 +211,8 @@
   }
 }
 
-.timing-section {
-  padding: 5rem 2rem;
-  background-color: white;
-  position: relative;
-  overflow: hidden;
-}
 
-.timing-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: #D29F02;
-}
 
-.timing-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.timing-title {
-  font-family: 'Tanker', sans-serif;
-  font-size: 2.5rem;
-  color: #5C6C74;
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.timing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.timing-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  transform: translateY(20px); /* État initial pour l'animation au scroll */
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.timing-card.scroll-animate {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.timing-card.scroll-animate.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Le hover agit maintenant indépendamment */
-.timing-card:hover {
-  transform: translateY(-10px) !important; /* Le !important assure que le hover prend le dessus */
-}
-
-.timing-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  height: 64px; /* Réduit de 128px à 64px */
-}
-
-.timing-icon img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* L'effet hover s'intègre avec l'animation existante de la carte */
-.timing-card:hover .timing-icon img {
-  transform: scale(1.1);
-}
-
-.timing-card-title {
-  font-family: 'Tanker', sans-serif;
-  color: #1D1E1B;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.timing-hours {
-  font-family: 'Filicudi', sans-serif;
-  color: #D29F02;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  font-weight: bold;
-}
-
-.timing-features {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-family: 'Filicudi', sans-serif;
-  color: #5C6C74;
-}
-
-.timing-features li {
-  margin-bottom: 0.75rem;
-  opacity: 0.9;
-}
-
-.timing-features li:last-child {
-  margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-  .timing-section {
-    padding: 3rem 1rem;
-  }
-
-  .timing-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .timing-card {
-    padding: 1.5rem;
-  }
-}
 
 .atmosphere-section {
   background-color: rgba(92, 108, 116, 0.05);
@@ -740,4 +697,22 @@
   .opening-baseline span {
     font-size: 1.2rem;
   }
+    .posters-container-home {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .posters-container-home {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .poster-info-home h3 {
+        font-size: 1.3rem;
+    }
+    
 }
