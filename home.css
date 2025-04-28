@@ -669,6 +669,12 @@
     flex-wrap: wrap;
   }
 }
+@media (max-width: 1024px) {
+    .posters-container-home {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 20px;
+    }
+}
 
 @media (max-width: 768px) {
   .opening-section {
@@ -708,13 +714,6 @@
     .posters-container-home {
         grid-template-columns: 1fr;
         max-width: 400px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .posters-container-home {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 20px;
     }
 }
 
