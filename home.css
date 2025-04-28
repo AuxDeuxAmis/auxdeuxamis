@@ -627,6 +627,14 @@
   margin-top: 1rem;
 }
 
+
+.opening-buttons-home {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content:center;
+}
+
 .btn-reservation {
   background: #D29F02;
   color: white;
