@@ -112,7 +112,7 @@
     margin: 0 auto;
     padding: 40px;
     background: rgba(92, 108, 116, 0.05);
-    border-radius: 12px;
+    border: 3px solid #d29f1c;
 }
 
 .upcoming-events h2 {
