@@ -10,6 +10,7 @@
     color: white;
     padding-bottom: var(--spacing-2xl);
     text-align: center;
+        border-bottom: 2px solid #d29f1c;
 }
 
 .hero-section h1 {
@@ -112,7 +113,8 @@
     margin: 0 auto;
     padding: 40px;
     background: rgba(92, 108, 116, 0.05);
-    border: 3px solid #d29f1c;
+    border: 2px solid #d29f1c;
+    border-top:0px;
 }
 
 .upcoming-events h2 {
