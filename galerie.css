@@ -31,6 +31,10 @@
     margin-bottom: 60px;
 }
 
+.gallery-mosaic-1 {
+    margin-bottom: 20px;
+}
+
 .mosaic-row {
     display: flex;
     gap: 20px;
