@@ -57,3 +57,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 5000);
   }
 });
+
+
+// POPUP !!!!!
+        // Fonction pour fermer la pop-up
+        function adaClosePopup() {
+            const overlay = document.getElementById('adaCongesOverlay');
+            overlay.classList.add('ada-closing');
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
+            
+            // Marquer comme vue pour ne pas la réafficher
+            localStorage.setItem('adaCongesAout2025Seen', 'true');
+        }
+
+        // Fermer en cliquant sur l'overlay
+        document.getElementById('adaCongesOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                adaClosePopup();
+            }
+        });
+
+        // Fermer avec Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                adaClosePopup();
+            }
+        });
+
+        // Ne pas réafficher si déjà vue (optionnel)
+        document.addEventListener('DOMContentLoaded', function() {
+            const alreadySeen = localStorage.getItem('adaCongesAout2025Seen');
+            if (alreadySeen) {
+                document.getElementById('adaCongesOverlay').style.display = 'none';
+            }
+        });
