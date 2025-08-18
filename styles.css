@@ -794,3 +794,300 @@ body.no-scroll {
       display: none;
     }
   }
+
+
+
+/* POPUP !!!!! */
+        /* Overlay */
+        .ada-conges-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(29, 30, 27, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 1;
+            animation: ada-fade-in 0.3s ease-out;
+        }
+
+        @keyframes ada-fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes ada-slide-in {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Pop-up container */
+        .ada-conges-container {
+            background: white;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: ada-slide-in 0.4s ease-out 0.1s both;
+            overflow: hidden;
+        }
+
+        /* Header avec couleur */
+        .ada-conges-header {
+            background: linear-gradient(135deg, #5C6C74 0%, #1D1E1B 100%);
+            color: white;
+            padding: 30px 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .ada-conges-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #D29F02;
+            border-radius: 2px;
+        }
+
+        .ada-conges-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .ada-conges-title {
+            font-family: 'Tanker', sans-serif;
+            font-size: 28px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .ada-conges-subtitle {
+            font-family: 'Filicudi', sans-serif;
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Contenu */
+        .ada-conges-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .ada-conges-date-info {
+            background: rgba(210, 159, 2, 0.1);
+            border: 2px solid #D29F02;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .ada-conges-date-range {
+            font-family: 'Tanker', sans-serif;
+            font-size: 24px;
+            color: #5C6C74;
+            margin-bottom: 8px;
+        }
+
+        .ada-conges-date-details {
+            font-family: 'Filicudi', sans-serif;
+            color: #1D1E1B;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .ada-conges-reouverture {
+            background: rgba(92, 108, 116, 0.05);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+
+        .ada-conges-reouverture-title {
+            font-family: 'Tanker', sans-serif;
+            color: #5C6C74;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .ada-conges-reouverture-date {
+            font-family: 'Filicudi', sans-serif;
+            color: #1D1E1B;
+            font-size: 16px;
+        }
+
+        .ada-conges-contact-section {
+            border-top: 1px solid rgba(92, 108, 116, 0.2);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .ada-conges-contact-title {
+            font-family: 'Tanker', sans-serif;
+            color: #5C6C74;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .ada-conges-phone-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #D29F02;
+            text-decoration: none;
+            font-family: 'Filicudi', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .ada-conges-phone-link:hover {
+            color: #5C6C74;
+        }
+
+        .ada-conges-phone-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Bouton de fermeture */
+        .ada-conges-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .ada-conges-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .ada-conges-close-btn::before,
+        .ada-conges-close-btn::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+        }
+
+        .ada-conges-close-btn::before {
+            transform: rotate(45deg);
+        }
+
+        .ada-conges-close-btn::after {
+            transform: rotate(-45deg);
+        }
+
+        /* Actions */
+        .ada-conges-actions {
+            padding: 0 30px 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .ada-conges-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-family: 'Tanker', sans-serif;
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .ada-conges-btn-primary {
+            background: #D29F02;
+            color: white;
+        }
+
+        .ada-conges-btn-primary:hover {
+            background: #b8880a;
+            transform: translateY(-2px);
+        }
+
+        .ada-conges-btn-secondary {
+            background: transparent;
+            color: #5C6C74;
+            border: 2px solid #5C6C74;
+        }
+
+        .ada-conges-btn-secondary:hover {
+            background: #5C6C74;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ada-conges-container {
+                margin: 20px;
+                max-width: calc(100% - 40px);
+            }
+            
+            .ada-conges-header,
+            .ada-conges-content {
+                padding: 25px 20px;
+            }
+            
+            .ada-conges-title {
+                font-size: 24px;
+            }
+            
+            .ada-conges-date-range {
+                font-size: 20px;
+            }
+            
+            .ada-conges-actions {
+                padding: 0 20px 25px;
+                flex-direction: column;
+            }
+        }
+
+        /* Animation de sortie */
+        .ada-conges-overlay.ada-closing {
+            animation: ada-fade-out 0.3s ease-out forwards;
+        }
+
+        .ada-conges-overlay.ada-closing .ada-conges-container {
+            animation: ada-slide-out 0.3s ease-out forwards;
+        }
+
+        @keyframes ada-fade-out {
+            to { opacity: 0; }
+        }
+
+        @keyframes ada-slide-out {
+            to { 
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+        }
