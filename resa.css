@@ -85,7 +85,7 @@
 
 .form-section {
     padding: var(--spacing-2xl) var(--spacing-md);
-    background-color: var(--color-gray-50); /* Fond légèrement gris pour contraster avec le formulaire blanc */
+    background-color: #d29f1c24
 }
 
 .form-section .heading-2 {
