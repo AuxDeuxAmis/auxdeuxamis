@@ -1,55 +1,11 @@
 /* =========================================
-   CONCEPT DU SOIR - JAVASCRIPT SPÉCIFIQUE
+   CONCEPT DU SOIR V3 - JAVASCRIPT
    Brasserie Aux Deux Amis
-   Complément de main.js
    ========================================= */
 
 document.addEventListener('DOMContentLoaded', function() {
   
-  console.log('✅ Concept Soir JS initialized');
-  
-  // =========================================
-  // HERO SCROLL HINT
-  // =========================================
-  const scrollHint = document.querySelector('.hero-scroll-hint');
-  if (scrollHint) {
-    scrollHint.addEventListener('click', function() {
-      const conceptSection = document.querySelector('.concept-gallery-section');
-      if (conceptSection) {
-        conceptSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  }
-  
-  // =========================================
-  // AVAILABILITY BADGE DYNAMIQUE
-  // =========================================
-  const availabilityBadge = document.getElementById('availabilityHero');
-  
-  if (availabilityBadge) {
-    const now = new Date();
-    const hours = now.getHours();
-    const day = now.getDay(); // 0 = dimanche, 1 = lundi, etc.
-    
-    // Du mardi (2) au samedi (6), de 18h à 23h
-    const isOpenDay = day >= 2 && day <= 6;
-    const isOpenHours = hours >= 18 && hours < 23;
-    
-    if (isOpenDay && isOpenHours) {
-      // Ouvert maintenant
-      availabilityBadge.innerHTML = '<i class="fas fa-check-circle"></i><span>Ouvert maintenant · Tables disponibles</span>';
-      availabilityBadge.style.background = 'rgba(34, 197, 94, 0.2)';
-      availabilityBadge.style.borderColor = '#22C55E';
-    } else if (isOpenDay && hours >= 17 && hours < 18) {
-      // Ouverture bientôt
-      availabilityBadge.innerHTML = '<i class="fas fa-clock"></i><span>Ouverture dans ' + (18 - hours) + 'h · Réservez dès maintenant</span>';
-      availabilityBadge.style.background = 'rgba(251, 191, 36, 0.2)';
-      availabilityBadge.style.borderColor = '#FBBF24';
-    } else {
-      // Fermé - message par défaut
-      availabilityBadge.innerHTML = '<i class="far fa-clock"></i><span>Du mardi au samedi · 18h - 23h</span>';
-    }
-  }
+  console.log('✅ Concept Soir V3 initialized');
   
   // =========================================
   // SMOOTH SCROLL POUR ANCRES
@@ -73,7 +29,34 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // =========================================
-  // INTERSECTION OBSERVER - Animations au scroll
+  // FAQ ACCORDÉON
+  // =========================================
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const faqItem = this.parentElement;
+      const isActive = faqItem.classList.contains('active');
+      
+      // Fermer tous les autres items (optionnel)
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+          item.classList.remove('active');
+        }
+      });
+      
+      // Toggle l'item actuel
+      faqItem.classList.toggle('active');
+      
+      // Tracker l'ouverture FAQ
+      if (!isActive) {
+        trackEvent('Engagement', 'FAQ Open', question.querySelector('span').textContent);
+      }
+    });
+  });
+  
+  // =========================================
+  // INTERSECTION OBSERVER - Animations
   // =========================================
   const observerOptions = {
     root: null,
@@ -92,127 +75,139 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Éléments à animer
   const animatedElements = document.querySelectorAll(
-    '.concept-photo, .concept-text-block, .menu-compact-category, .testimonial-card'
+    '.concept-video-card, .concept-text-enhanced, .concept-photo-v3, ' +
+    '.menu-category-v3, .testimonial-card-v3, .seo-content, .seo-faq'
   );
   
   animatedElements.forEach((el, index) => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
-    el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+    el.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
     fadeInObserver.observe(el);
   });
   
   // =========================================
-  // TRACKING DES ÉVÉNEMENTS
+  // TRACKING DES CONVERSIONS
   // =========================================
   
-  // Tracking des clics sur les boutons téléphone
+  // Tracking téléphone
   const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
   phoneLinks.forEach(link => {
     link.addEventListener('click', function() {
-      trackEvent('Conversion', 'Phone Click', 'Concept Soir');
+      const location = this.closest('section')?.className || 'unknown';
+      trackEvent('Conversion', 'Phone Click', location);
     });
   });
   
-  // Tracking des clics WhatsApp
+  // Tracking WhatsApp
   const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
   whatsappLinks.forEach(link => {
     link.addEventListener('click', function() {
-      trackEvent('Conversion', 'WhatsApp Click', 'Concept Soir');
+      const location = this.closest('section')?.className || 'unknown';
+      trackEvent('Conversion', 'WhatsApp Click', location);
     });
   });
   
-  // Tracking du clic sur PDF
-  const pdfLink = document.querySelector('.btn-pdf');
+  // Tracking itinéraire
+  const directionLinks = document.querySelectorAll('.btn-map-direction');
+  directionLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      trackEvent('Engagement', 'Get Directions', 'Hero Map');
+    });
+  });
+  
+  // Tracking PDF menu
+  const pdfLink = document.querySelector('.btn-menu-pdf');
   if (pdfLink) {
     pdfLink.addEventListener('click', function() {
       trackEvent('Engagement', 'PDF Download', 'Menu Soir');
     });
   }
   
-  // =========================================
-  // SCROLL PROGRESS (optionnel)
-  // =========================================
-  
-  // Créer une barre de progression du scroll (optionnel)
-  /*
-  const progressBar = document.createElement('div');
-  progressBar.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #D29F02, #5C6C74);
-    width: 0%;
-    z-index: 9999;
-    transition: width 0.2s ease;
-  `;
-  document.body.appendChild(progressBar);
+  // Tracking scroll depth
+  let scrollDepthTracked = {
+    25: false,
+    50: false,
+    75: false,
+    100: false
+  };
   
   window.addEventListener('scroll', function() {
-    const winScroll = document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    progressBar.style.width = scrolled + '%';
-  });
-  */
-  
-  // =========================================
-  // PERFORMANCE MONITORING
-  // =========================================
-  
-  window.addEventListener('load', function() {
-    if (window.performance && window.performance.timing) {
-      const perfData = window.performance.timing;
-      const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-      
-      if (pageLoadTime > 0) {
-        console.log('⏱️ Page Load Time:', pageLoadTime + 'ms');
-        trackTiming('Concept Soir', 'Page Load', pageLoadTime);
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    
+    Object.keys(scrollDepthTracked).forEach(depth => {
+      if (scrollPercent >= depth && !scrollDepthTracked[depth]) {
+        trackEvent('Engagement', 'Scroll Depth', depth + '%');
+        scrollDepthTracked[depth] = true;
       }
-    }
+    });
   });
   
   // =========================================
-  // UTM TRACKING POUR ADS
+  // VIDÉO TRACKING
   // =========================================
+  const videoIframe = document.querySelector('.video-wrapper iframe');
+  if (videoIframe) {
+    // Tracking quand la vidéo est visible
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          trackEvent('Engagement', 'Video Visible', 'Concept Video');
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    videoObserver.observe(videoIframe);
+  }
   
+  // =========================================
+  // UTM TRACKING
+  // =========================================
   const urlParams = new URLSearchParams(window.location.search);
   const utmSource = urlParams.get('utm_source');
   const utmMedium = urlParams.get('utm_medium');
   const utmCampaign = urlParams.get('utm_campaign');
   
   if (utmSource || utmMedium || utmCampaign) {
-    // Stocker les UTMs
     const utmData = {
       source: utmSource,
       medium: utmMedium,
       campaign: utmCampaign,
       timestamp: new Date().toISOString(),
-      page: 'concept-soir'
+      page: 'concept-soir-v3'
     };
     
     sessionStorage.setItem('utm_data', JSON.stringify(utmData));
-    
-    // Tracker l'arrivée depuis la campagne
     trackEvent('Campaign', 'Landing', `${utmSource} - ${utmCampaign}`);
     
-    console.log('📊 UTM Data captured:', utmData);
+    console.log('📊 UTM captured:', utmData);
   }
+  
+  // =========================================
+  // PERFORMANCE MONITORING
+  // =========================================
+  window.addEventListener('load', function() {
+    if (window.performance && window.performance.timing) {
+      const perfData = window.performance.timing;
+      const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+      
+      if (pageLoadTime > 0) {
+        console.log('⏱️ Page Load:', pageLoadTime + 'ms');
+        trackTiming('Concept Soir V3', 'Page Load', pageLoadTime);
+      }
+    }
+  });
   
   // =========================================
   // LAZY LOADING OPTIMISÉ
   // =========================================
-  
   if ('loading' in HTMLImageElement.prototype) {
-    // Le navigateur supporte le lazy loading natif
     const images = document.querySelectorAll('img[data-src]');
     images.forEach(img => {
       img.src = img.dataset.src;
       img.removeAttribute('data-src');
     });
   } else {
-    // Fallback pour les anciens navigateurs
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -228,6 +223,77 @@ document.addEventListener('DOMContentLoaded', function() {
       imageObserver.observe(img);
     });
   }
+  
+  // =========================================
+  // SCHEMA.ORG STRUCTURED DATA
+  // =========================================
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Brasserie Aux Deux Amis",
+    "image": "https://cdn.prod.website-files.com/678e9e339a31bae6a2fe6c1d/68fa49a165ae0b65c474c45c_tapas-soir.webp",
+    "description": "Bar tapas à Lattes (Maurin) proposant des tapas gastronomiques du Chef Brice. Ouvert du mardi au samedi de 18h à 23h.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rue des Yeuses",
+      "addressLocality": "Lattes",
+      "postalCode": "34970",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.559923,
+      "longitude": 3.873195
+    },
+    "telephone": "+33619071186",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "18:00",
+        "closes": "23:00"
+      }
+    ],
+    "servesCuisine": ["Espagnole", "Méditerranéenne", "Tapas"],
+    "priceRange": "€€",
+    "menu": "https://cdn.prod.website-files.com/678e9e339a31bae6a2fe6c1d/68e3de55190ff4a06b6a3f2c_carte-soir-automne-2025.pdf",
+    "acceptsReservations": "True"
+  };
+  
+  // Injecter le schema dans le head
+  const scriptTag = document.createElement('script');
+  scriptTag.type = 'application/ld+json';
+  scriptTag.text = JSON.stringify(schemaData);
+  document.head.appendChild(scriptTag);
+  
+  // =========================================
+  // FAQ SCHEMA
+  // =========================================
+  const faqItems = document.querySelectorAll('.faq-item');
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": []
+  };
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question span').textContent;
+    const answer = item.querySelector('.faq-answer p').textContent;
+    
+    faqSchema.mainEntity.push({
+      "@type": "Question",
+      "name": question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": answer
+      }
+    });
+  });
+  
+  const faqScriptTag = document.createElement('script');
+  faqScriptTag.type = 'application/ld+json';
+  faqScriptTag.text = JSON.stringify(faqSchema);
+  document.head.appendChild(faqScriptTag);
   
   // =========================================
   // HELPER FUNCTIONS
@@ -251,8 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
-    // Console log pour debug
-    console.log('📊 Event tracked:', category, action, label);
+    console.log('📊 Event:', category, action, label);
   }
   
   function trackTiming(category, variable, time) {
@@ -268,72 +333,48 @@ document.addEventListener('DOMContentLoaded', function() {
   // =========================================
   // MOBILE OPTIMIZATIONS
   // =========================================
-  
-  // Désactiver le zoom sur double-tap
-  let lastTouchEnd = 0;
-  document.addEventListener('touchend', function(event) {
-    const now = Date.now();
-    if (now - lastTouchEnd <= 300) {
-      event.preventDefault();
-    }
-    lastTouchEnd = now;
-  }, { passive: false });
-  
-  // Détecter si c'est mobile
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
   if (isMobile) {
-    // Optimisations mobile
     document.body.classList.add('is-mobile');
     
-    // Améliorer les performances des animations sur mobile
-    const style = document.createElement('style');
-    style.textContent = `
-      @media (max-width: 768px) {
-        * {
-          -webkit-tap-highlight-color: transparent;
-        }
-        .concept-photo,
-        .testimonial-card {
-          transition-duration: 0.2s !important;
-        }
+    // Désactiver zoom double-tap
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
       }
-    `;
-    document.head.appendChild(style);
+      lastTouchEnd = now;
+    }, { passive: false });
   }
   
   // =========================================
-  // CONVERSION TRACKING AU CHARGEMENT
+  // INIT TRACKING
   // =========================================
+  trackEvent('Page', 'View', 'Concept Soir V3');
   
-  // Tracker la vue de la page
-  trackEvent('Page', 'View', 'Concept Soir Landing');
-  
-  // Si arrivée depuis une ads, tracker spécifiquement
+  // Détecter la source de trafic
   const referrer = document.referrer;
   if (referrer.includes('facebook.com') || referrer.includes('instagram.com')) {
     trackEvent('Traffic', 'Meta Ads', 'Concept Soir');
   } else if (referrer.includes('google.com')) {
-    trackEvent('Traffic', 'Google Ads', 'Concept Soir');
+    trackEvent('Traffic', 'Google', 'Concept Soir');
   }
   
   // =========================================
   // DEBUG MODE
   // =========================================
-  
   const debugMode = urlParams.get('debug') === 'true';
   
   if (debugMode) {
-    console.log('🐛 DEBUG MODE ACTIVÉ');
+    console.log('🐛 DEBUG MODE');
     console.log('📱 Mobile:', isMobile);
-    console.log('📊 UTM Data:', sessionStorage.getItem('utm_data'));
+    console.log('📊 UTM:', sessionStorage.getItem('utm_data'));
     console.log('🌐 Referrer:', referrer);
-    console.log('⏰ Current time:', new Date().toLocaleTimeString('fr-FR'));
-    console.log('📅 Day:', ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'][new Date().getDay()]);
     
-    // Indicateur visuel
     const debugBadge = document.createElement('div');
-    debugBadge.textContent = '🐛 DEBUG';
+    debugBadge.textContent = '🐛 DEBUG V3';
     debugBadge.style.cssText = `
       position: fixed;
       top: 10px;
@@ -342,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function() {
       color: white;
       padding: 5px 10px;
       border-radius: 5px;
-      font-size: 12px;
+      font-size: 11px;
       z-index: 99999;
       font-family: monospace;
     `;
@@ -354,11 +395,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // =========================================
 // ERROR HANDLING
 // =========================================
-
 window.addEventListener('error', function(e) {
-  console.error('❌ JavaScript Error:', e.message);
+  console.error('❌ Error:', e.message);
   
-  // Envoyer à un service de monitoring (optionnel)
   if (typeof gtag === 'function') {
     gtag('event', 'exception', {
       'description': e.message,
@@ -368,10 +407,9 @@ window.addEventListener('error', function(e) {
 });
 
 // =========================================
-// EXPORT (si besoin)
+// EXPORT
 // =========================================
-
 window.ConceptSoir = {
-  version: '2.0',
+  version: '3.0',
   initialized: true
 };
