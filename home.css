@@ -270,6 +270,7 @@
 .atmosphere-grid {
   display: grid;
   gap: 2rem;
+  margin-top: 20px;
 }
 
 .atmosphere-main {
