@@ -457,6 +457,14 @@
   padding-left: 1rem;
 }
 
+.seo-block a {
+    color: #d29f02;
+    text-decoration: none;
+}
+.seo-block a:hover {
+    color: #1D1E1B;
+}
+
 .seo-subtitle::before {
   content: '';
   position: absolute;
