@@ -137,9 +137,9 @@
 
 .posters-container-home {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto 60px;
 }
 
