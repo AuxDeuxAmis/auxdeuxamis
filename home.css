@@ -508,6 +508,7 @@
   
   .seo-content {
     grid-template-columns: 1fr;
+    gap:0px;
   }
   
   .seo-subtitle {
