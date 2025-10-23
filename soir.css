@@ -42,6 +42,12 @@
   z-index: 1;
 }
 
+@media (max-width: 768px) {
+  .hero-bg-image {
+    background-position: 50% 30%; /* Focus haut de la planche sur mobile */
+  }
+}
+
 .hero-bg-image::after {
   content: '';
   position: absolute;
@@ -170,14 +176,23 @@
 
 .hero-map-card {
   background: white;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border: 3px solid rgba(210, 159, 2, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-map-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+  border-color: #D29F02;
 }
 
 .map-info-compact {
-  padding: 1.5rem;
-  background: #F9FAFB;
+  padding: 1.75rem;
+  background: linear-gradient(135deg, rgba(210, 159, 2, 0.08) 0%, rgba(92, 108, 116, 0.05) 100%);
+  border-bottom: 2px solid rgba(210, 159, 2, 0.2);
 }
 
 .map-info-compact h3 {
@@ -314,25 +329,27 @@
   margin: 0 auto;
 }
 
-/* Vidéo story */
+/* Vidéo story verticale */
 .concept-video-card {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   background: #000;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .concept-video-card.large {
-  grid-column: span 2;
-  min-height: 400px;
+  grid-column: span 1; /* Pas de span sur vidéo verticale */
+  min-height: 600px;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 400px;
+  padding-bottom: 177.78%; /* Ratio 9:16 pour story verticale */
+  height: 0;
 }
 
 .video-wrapper iframe {
@@ -389,6 +406,14 @@
   font-size: 1.75rem;
   color: #D29F02;
   flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(210, 159, 2, 0.1);
+  border-radius: 50%;
+  border: 2px solid rgba(210, 159, 2, 0.3);
 }
 
 .highlight-compact strong {
@@ -408,12 +433,13 @@
 
 .chef-advice-v3 {
   position: relative;
-  background: linear-gradient(135deg, #5C6C74 0%, #1D1E1B 100%);
-  color: white;
+  background: linear-gradient(135deg, rgba(92, 108, 116, 0.08) 0%, rgba(29, 30, 27, 0.05) 100%);
+  color: #1D1E1B;
   padding: 2rem;
   border-left: 4px solid #D29F02;
   border-radius: 12px;
   margin: 0;
+  border: 1px solid rgba(92, 108, 116, 0.15);
 }
 
 .quote-icon {
@@ -422,7 +448,7 @@
   left: 1.5rem;
   font-size: 2rem;
   color: #D29F02;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .chef-advice-v3 p {
@@ -432,12 +458,14 @@
   margin: 0 0 1rem 0;
   line-height: 1.6;
   padding-left: 2rem;
+  color: #1D1E1B;
 }
 
 .chef-advice-v3 cite {
   font-size: 1rem;
-  opacity: 0.9;
+  opacity: 0.7;
   font-style: normal;
+  color: #5C6C74;
 }
 
 /* Photos produits */
@@ -546,12 +574,17 @@
   border-bottom: 2px solid #D29F02;
 }
 
-.category-icon-svg {
-  width: 28px;
-  height: 28px;
+.category-icon-fa {
+  font-size: 1.5rem;
   color: #D29F02;
-  stroke-width: 2;
   flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(210, 159, 2, 0.1);
+  border-radius: 50%;
 }
 
 .menu-items-v3 {
@@ -610,17 +643,18 @@
 
 .banger-badge {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: 8px;
+  left: 8px;
   background: linear-gradient(135deg, #D29F02 0%, #B88802 100%);
   color: white;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 50px;
   font-family: 'Tanker', sans-serif;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   box-shadow: 0 4px 12px rgba(210, 159, 2, 0.4);
+  z-index: 10;
 }
 
 .menu-footer-v3 {
@@ -771,6 +805,16 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.938rem;
   opacity: 0.9;
+  margin-bottom: 0.75rem;
+}
+
+.cta-address-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.938rem;
+  opacity: 0.9;
 }
 
 @media (max-width: 968px) {
@@ -911,7 +955,7 @@
 }
 
 .lead-text {
-  font-size: 1.25rem !important;
+  font-size: 1.125rem !important;
   font-weight: 600;
 }
 
