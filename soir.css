@@ -2,10 +2,6 @@
    CONCEPT DU SOIR V3 - CSS OPTIMISÉ
    Brasserie Aux Deux Amis
    ========================================= */
-
-/* Import Source Sans Pro pour les textes longs */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
-
 /* =========================================
    BASE & TYPOGRAPHY
    ========================================= */
@@ -196,6 +192,7 @@
   padding: 1.75rem;
   background: linear-gradient(135deg, rgba(210, 159, 2, 0.08) 0%, rgba(92, 108, 116, 0.05) 100%);
   border-bottom: 2px solid rgba(210, 159, 2, 0.2);
+  text-align: center;
 }
 
 .map-info-compact h3 {
@@ -205,6 +202,7 @@
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -216,7 +214,7 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1rem;
   color: #1D1E1B;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   line-height: 1.6;
 }
 
@@ -224,6 +222,23 @@
   display: block;
   font-size: 1.125rem;
   margin-bottom: 0.25rem;
+}
+
+.map-proximity {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.938rem;
+  color: #5C6C74;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-style: italic;
+}
+
+.map-proximity i {
+  color: #D29F02;
+  font-size: 0.875rem;
 }
 
 .btn-map-direction {
@@ -467,28 +482,25 @@
   color: #5C6C74;
 }
 
-/* Photos produits */
+/* Photos produits - toutes de même taille */
 .concept-photo-v3 {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  min-height: 280px;
 }
 
 .concept-photo-v3:hover {
   transform: translateY(-5px);
 }
 
-.concept-photo-v3.large {
-  grid-column: span 2;
-}
-
 .concept-photo-v3 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  min-height: 300px;
+  min-height: 280px;
 }
 
 .photo-tag {
