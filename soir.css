@@ -521,7 +521,7 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.125rem;
   color: #1D1E1B;
-  margin: 0 0 1rem 0;
+  margin: 1rem 0 1rem 0;
   line-height: 1.8;
   font-style: italic;
   display: flex;
@@ -685,6 +685,8 @@
 
 .category-icon-fa::before {
   display: block;
+   margin-left:11px;
+   margin-top:11px;
 }
 
 .menu-items-v3 {
@@ -743,8 +745,8 @@
 
 .banger-badge {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: -18px;
+  left: 40%;
   background: linear-gradient(135deg, #D29F02 0%, #B88802 100%);
   color: white;
   padding: 0.35rem 0.85rem;
