@@ -44,15 +44,8 @@
 
 @media (max-width: 768px) {
   .hero-bg-image {
-    transform: rotate(90deg);
-    transform-origin: center;
-    width: 100vh;
-    height: 100vw;
-    left: 50%;
-    top: 50%;
-    margin-left: -50vh;
-    margin-top: -50vw;
-    background-position: center;
+    background-size: cover;
+    background-position: 30% center; /* Focus plus à gauche sur mobile */
   }
 }
 
@@ -384,7 +377,7 @@
 
 /* Groupe vidéo + texte côte à côte sur desktop */
 .video-text-group {
-  grid-column: span 2;
+  grid-column: 1 / -1; /* Prend toute la largeur */
   display: grid;
   grid-template-columns: 350px 1fr;
   gap: 2rem;
@@ -392,12 +385,7 @@
 }
 
 @media (max-width: 968px) {
-  .concept-grid-v3 {
-    grid-template-columns: 1fr;
-  }
-  
   .video-text-group {
-    grid-column: span 1;
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -683,8 +671,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  line-height: 44px;
+}
+
+.category-icon-fa::before {
+  display: block;
 }
 
 .menu-items-v3 {
