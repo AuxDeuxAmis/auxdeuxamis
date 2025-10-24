@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // =========================================
   const observerOptions = {
     root: null,
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05, // Réduit de 0.1 à 0.05 pour trigger plus tôt
+    rootMargin: '0px 0px -20px 0px' // Réduit de -50px à -20px
   };
   
   const fadeInObserver = new IntersectionObserver((entries) => {
@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   animatedElements.forEach((el, index) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
+    el.style.transform = 'translateY(20px)'; // Réduit de 30px à 20px
+    el.style.transition = `opacity 0.4s ease ${index * 0.03}s, transform 0.4s ease ${index * 0.03}s`; // Réduit de 0.6s à 0.4s et délai de 0.05s à 0.03s
     fadeInObserver.observe(el);
   });
   
