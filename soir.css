@@ -441,47 +441,46 @@
   font-size: 2rem;
 }
 
-/* Texte amélioré */
+/* Texte amélioré - MAINTENANT À DROITE DE LA VIDÉO */
 .concept-text-enhanced {
-  grid-column: span 2;
+  /* SUPPRIMÉ : grid-column: span 2; pour que le texte reste à côté de la vidéo */
   background: #F9FAFB;
   padding: 2.5rem;
   border-radius: 16px;
   border: 2px solid rgba(92, 108, 116, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .highlights-compact {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 768px) {
-  .highlights-compact {
-    grid-template-columns: 1fr;
-    padding-left: 2rem;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .highlight-compact {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(210, 159, 2, 0.15);
+  transition: all 0.25s ease;
+}
+
+.highlight-compact:hover {
+  border-color: #D29F02;
+  box-shadow: 0 4px 12px rgba(210, 159, 2, 0.1);
+  transform: translateX(5px);
 }
 
 .highlight-compact i {
   font-size: 1.75rem;
   color: #D29F02;
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(210, 159, 2, 0.1);
-  border-radius: 50%;
-  border: 2px solid rgba(210, 159, 2, 0.3);
+  margin-top: 0.25rem;
 }
 
 .highlight-compact strong {
@@ -493,40 +492,38 @@
 }
 
 .highlight-compact p {
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.938rem;
   color: #1D1E1B;
-  opacity: 0.8;
   margin: 0;
+  line-height: 1.5;
 }
 
 .chef-advice-v3 {
   position: relative;
-  background: linear-gradient(135deg, rgba(92, 108, 116, 0.08) 0%, rgba(29, 30, 27, 0.05) 100%);
-  color: #1D1E1B;
-  padding: 2rem;
+  background: linear-gradient(135deg, rgba(210, 159, 2, 0.08) 0%, rgba(92, 108, 116, 0.05) 100%);
   border-left: 4px solid #D29F02;
-  border-radius: 12px;
+  padding: 2rem;
+  border-radius: 0 12px 12px 0;
   margin: 0;
-  border: 1px solid rgba(92, 108, 116, 0.15);
 }
 
 .quote-icon {
   position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 1rem;
+  left: 1rem;
   font-size: 2rem;
   color: #D29F02;
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 .chef-advice-v3 p {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.25rem;
-  font-style: italic;
-  margin: 0 0 1rem 0;
-  line-height: 1.6;
-  padding-left: 2rem;
+  font-size: 1.125rem;
   color: #1D1E1B;
+  margin: 0 0 1rem 0;
+  line-height: 1.8;
+  font-style: italic;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -534,19 +531,26 @@
 
 .advice-line {
   display: block;
+  position: relative;
+  padding-left: 1.5rem;
 }
 
 .advice-line::before {
-  content: "· ";
+  content: '✓';
+  position: absolute;
+  left: 0;
   color: #D29F02;
   font-weight: bold;
+  font-style: normal;
 }
 
 .chef-advice-v3 cite {
+  font-family: 'Tanker', sans-serif;
   font-size: 1rem;
-  opacity: 0.7;
-  font-style: normal;
   color: #5C6C74;
+  font-style: normal;
+  display: block;
+  text-align: right;
 }
 
 /* Photos produits - toutes de même taille */
@@ -593,19 +597,24 @@
     grid-template-columns: 1fr;
   }
   
-  .concept-video-card.large,
-  .concept-text-enhanced,
-  .concept-photo-v3.large {
-    grid-column: span 1;
-  }
-  
-  .highlights-compact {
-    grid-template-columns: 1fr;
-    padding-left: 2rem;
-  }
-  
   .concept-text-enhanced {
+    padding: 1.75rem;
+  }
+  
+  .highlight-compact {
+    padding: 0.875rem;
+  }
+  
+  .highlight-compact i {
+    font-size: 1.5rem;
+  }
+  
+  .chef-advice-v3 {
     padding: 1.5rem;
+  }
+  
+  .chef-advice-v3 p {
+    font-size: 1rem;
   }
 }
 
@@ -668,6 +677,7 @@
   background: rgba(210, 159, 2, 0.1);
   border-radius: 50%;
   border: 2px solid rgba(210, 159, 2, 0.3);
+  /* CORRECTION FLEXBOX POUR CENTRER L'ICÔNE */
   display: flex;
   align-items: center;
   justify-content: center;
