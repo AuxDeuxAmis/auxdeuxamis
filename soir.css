@@ -2,6 +2,7 @@
    CONCEPT DU SOIR V3 - CSS OPTIMISÉ
    Brasserie Aux Deux Amis
    ========================================= */
+
 /* =========================================
    BASE & TYPOGRAPHY
    ========================================= */
@@ -79,6 +80,20 @@
   color: white;
 }
 
+@media (max-width: 768px) {
+  .hero-left-content {
+    text-align: center;
+  }
+  
+  .hero-info-line {
+    justify-content: center;
+  }
+  
+  .hero-cta-simple {
+    justify-content: center;
+  }
+}
+
 .hero-badge-simple {
   display: inline-block;
   background: rgba(210, 159, 2, 0.2);
@@ -88,6 +103,12 @@
   font-size: 0.875rem;
   margin-bottom: 1.5rem;
   font-family: 'Tanker', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .hero-badge-simple {
+    display: none;
+  }
 }
 
 .hero-main-title {
@@ -347,6 +368,12 @@
   margin: 0 auto;
 }
 
+@media (max-width: 968px) {
+  .concept-grid-v3 {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Vidéo story verticale 9:16 */
 .concept-video-card {
   position: relative;
@@ -354,15 +381,18 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   background: #000;
+  width: 100%;
   max-width: 350px;
   margin: 0 auto;
-  aspect-ratio: 9 / 16; /* Ratio vertical story */
+  min-height: 600px;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  padding-bottom: 177.78%; /* Ratio 9:16 */
+  height: 0;
+  overflow: hidden;
 }
 
 .video-wrapper iframe {
@@ -408,6 +438,13 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .highlights-compact {
+    grid-template-columns: 1fr;
+    padding-left: 2rem;
+  }
 }
 
 .highlight-compact {
@@ -473,6 +510,19 @@
   line-height: 1.6;
   padding-left: 2rem;
   color: #1D1E1B;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.advice-line {
+  display: block;
+}
+
+.advice-line::before {
+  content: "· ";
+  color: #D29F02;
+  font-weight: bold;
 }
 
 .chef-advice-v3 cite {
@@ -488,12 +538,13 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   min-height: 280px;
 }
 
 .concept-photo-v3:hover {
   transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .concept-photo-v3 img {
@@ -501,6 +552,11 @@
   height: 100%;
   object-fit: cover;
   min-height: 280px;
+  transition: transform 0.3s ease;
+}
+
+.concept-photo-v3:hover img {
+  transform: scale(1.05);
 }
 
 .photo-tag {
@@ -528,6 +584,7 @@
   
   .highlights-compact {
     grid-template-columns: 1fr;
+    padding-left: 2rem;
   }
   
   .concept-text-enhanced {
@@ -586,16 +643,17 @@
 }
 
 .category-icon-fa {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #D29F02;
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   background: rgba(210, 159, 2, 0.1);
   border-radius: 50%;
+  border: 2px solid rgba(210, 159, 2, 0.3);
 }
 
 .menu-items-v3 {
