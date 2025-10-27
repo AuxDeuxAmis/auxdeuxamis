@@ -106,9 +106,17 @@
   font-family: 'Tanker', sans-serif;
 }
 
+.hero-badge-simple h1 {
+   font-size: 16px;
+    line-height: 16px;
+    margin: 0px;
+    font-weight: 400;
+}
+
 @media (max-width: 768px) {
   .hero-badge-simple {
-    display: none;
+     margin-top: 20px;
+      margin-bottom: 0px;
   }
 }
 
