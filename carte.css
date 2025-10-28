@@ -35,9 +35,18 @@
 }
 
 .hero-content p {
-  font-family: 'Filicudi', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: var(--color-dark);
   max-width: 50ch;
+}
+
+.hero-content a {
+  color: #d29f03;
+  text-decoration:none;
+}
+
+.hero-content a:hover {
+  color: #5c6d74;
 }
 
 .menu-buttons {
