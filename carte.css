@@ -40,12 +40,12 @@
   max-width: 50ch;
 }
 
-.hero-content a {
+.hero-content p a {
   color: #d29f03;
   text-decoration:none;
 }
 
-.hero-content a:hover {
+.hero-content p a:hover {
   color: #5c6d74;
 }
 
