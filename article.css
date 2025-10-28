@@ -96,6 +96,15 @@
   line-height: 1.6;
 }
 
+.feature-item a {
+  color:#d19e05;
+  text-decoration:none;
+}
+
+.feature-item a:hover {
+  color:#5c6d74;
+}
+
 /* Ajustements pour les changements */
 .change-item h3 {
   font-family: 'Tanker', sans-serif;
