@@ -450,6 +450,10 @@
   transition: all 0.2s ease;
 }
 
+.little-mobile {
+font-size:1rem;
+}
+
 .mobile-nav-link:hover {
   color: #D29F02;
   background-color: rgba(92, 108, 116, 0.05);
