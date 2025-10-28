@@ -1159,6 +1159,15 @@
   margin: 0;
 }
 
+.faq-answer a {
+   color:#d19e05;
+   text-decoration:none;
+}
+
+.faq-answer a:hover {
+   color:#5c6d73;
+}
+
 /* Mots-clés SEO */
 .seo-keywords {
   max-width: 900px;
