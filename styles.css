@@ -1,4 +1,6 @@
-/* Reset et variables globales */
+/* =========================================================
+   RESET & VARIABLES GLOBALES
+   ========================================================= */
 :root {
   /* Couleurs */
   --color-primary: #5C6C74;
@@ -17,13 +19,13 @@
   --color-gray-900: #111827;
 
   /* Espacement */
-  --spacing-xs: 0.25rem;   /* 4px */
-  --spacing-sm: 0.5rem;    /* 8px */
-  --spacing-md: 1rem;      /* 16px */
-  --spacing-lg: 1.5rem;    /* 24px */
-  --spacing-xl: 2rem;      /* 32px */
-  --spacing-2xl: 3rem;     /* 48px */
-  
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
   /* Breakpoints */
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
@@ -35,11 +37,17 @@
   --transition-fast: 150ms;
   --transition-normal: 250ms;
   --transition-slow: 350ms;
-  
-  /* Z-index layers */
+
+  /* Z-index */
   --z-header: 50;
   --z-modal: 100;
   --z-tooltip: 75;
+}
+
+/* Anti-débordement horizontal global */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Typographie */
@@ -48,1110 +56,270 @@
   src: url('/fonts/Tanker-Regular.woff2') format('woff2');
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Filicudi';
   src: url('/fonts/FilicudiSolid-Regular.woff2') format('woff2');
   font-display: swap;
 }
 
-/* Classes utilitaires réutilisables */
+/* Utilitaires & typo */
 .container {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--spacing-md);
-  padding-right: var(--spacing-md);
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-/* Classes typographiques */
-.heading-1 {
-  font-family: 'Tanker', sans-serif;
-  font-size: 2.5rem;
-  line-height: 1.2;
-}
-
-.heading-2 {
-  font-family: 'Tanker', sans-serif;
-  font-size: 2rem;
-  line-height: 1.3;
-}
-
-.heading-3 {
-  font-family: 'Tanker', sans-serif;
-  font-size: 1.5rem;
-  line-height: 1.4;
-}
-
-.body-text {
-  font-family: 'Filicudi', sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Animations communes */
-.fade-in {
-  animation: fadeIn var(--transition-normal) ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Accessibilité */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Focus styles */
-.focus-visible:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Header */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  z-index: 50;
-  transition: all 0.3s ease;
-}
-
-.header-container {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 0 var(--spacing-md);
 }
+@media (min-width: 640px){ .container{ max-width:640px; } }
+@media (min-width: 768px){ .container{ max-width:768px; } }
+@media (min-width:1024px){ .container{ max-width:1024px; } }
+@media (min-width:1280px){ .container{ max-width:1280px; } }
 
-/* Logo */
-.header-logo {
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
+.heading-1 { font-family:'Tanker',sans-serif; font-size:2.5rem; line-height:1.2; }
+.heading-2 { font-family:'Tanker',sans-serif; font-size:2rem; line-height:1.3; }
+.heading-3 { font-family:'Tanker',sans-serif; font-size:1.5rem; line-height:1.4; }
+.body-text { font-family:'Filicudi',sans-serif; font-size:1rem; line-height:1.5; }
+
+.fade-in { animation: fadeIn var(--transition-normal) ease-in; }
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
 }
+.focus-visible:focus-visible { outline:2px solid var(--color-primary); outline-offset:2px; }
 
-.header-logo:hover {
-  transform: scale(1.02);
-}
-
-.header-logo img {
-  height: 67px;
-  width: auto;
-}
-
-/* Navigation Desktop */
-.header-nav {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .header-nav {
-    display: block;
-    margin-left: 2rem;
-  }
-}
-
-#email-form {
-    position: absolute;
-    opacity: 0;
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.nav-list {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-}
-
-.nav-link {
-  font-family: "Tanker", "Impact", "Arial Black", sans-serif;
-  font-size: 1.25rem;
-  color: #5C6C74;
-  text-decoration: none;
-  padding: 0.5rem 0;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #D29F02;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #D29F02;
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
-
-/* Dropdown */
-.nav-dropdown {
-  position: relative;
-}
-
-.dropdown-trigger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 0; /* Ajout uniquement du padding vertical pour matcher les autres liens */
-}
-
-/* Appliquer le même effet de soulignement */
-.dropdown-trigger::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #D29F02;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.dropdown-trigger:hover {
-  color: #D29F02;
-}
-
-.dropdown-trigger:hover::after {
-  transform: scaleX(1);
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 1rem);
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  min-width: 220px;
-  padding: 0.75rem 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.dropdown-menu::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 16px;
-  height: 16px;
-  background-color: white;
-  border-radius: 2px;
-}
-
-.nav-dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-.dropdown-link {
-  display: block;
-  padding: 0.75rem 1.5rem;
-  font-family: "Filicudi", "Helvetica Neue", sans-serif;
-  font-size: 1rem;
-  color: #5C6C74;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.ddl-midi {
-    color: #d29f1c;
-}
-
-.dropdown-link:hover {
-  background-color: rgba(92, 108, 116, 0.05);
-  color: #D29F02;
-  padding-left: 2rem;
-}
-
-/* CTA Section */
-.header-cta {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .header-cta {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-}
-
-.phone-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: "Tanker", "Impact", "Arial Black", sans-serif;
-  font-size: 1.15rem;
-  color: #5C6C74;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  padding: 0.5rem;
-  border-radius: 0.375rem;
-}
-
-.phone-link:hover {
-  color: #D29F02;
-  background-color: rgba(92, 108, 116, 0.05);
-}
-
-.phone-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.btn-reservation {
-  background-color: #D29F02;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-family: "Tanker", "Impact", "Arial Black", sans-serif;
-  font-size: 1.15rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  transform: translateY(0);
-  box-shadow: 0 4px 6px rgba(210, 159, 2, 0.1);
-}
-
-.btn-reservation:hover {
-  background-color: #5C6C74;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(92, 108, 116, 0.2);
-}
-
-/* Mobile Menu */
-.mobile-menu-trigger {
-  position: relative;
-  z-index: 60; /* Plus élevé que le panel qui est à 40 */
-  background: none;
-}
-
-
-@media (min-width: 1024px) {
-  .mobile-menu-trigger {
-    display: none;
-  }
-}
-
-.mobile-menu-trigger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  margin: 5px 0;
-  background-color: #5C6C74;
-  transition: transform 0.3s ease;
-}
-
-.mobile-panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: white;
-  padding: 6rem 2rem 2rem;
-  transform: translateX(100%);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 55; /* Entre le header normal et le burger */
-  overflow-y: auto;                 /* 👈 permet le scroll dans le panneau */
-  -webkit-overflow-scrolling: touch;/* 👈 inertie iOS */
-  overscroll-behavior: contain;     /* évite de “tirer” le body derrière */
-}
-
-.mobile-panel.is-active {
-  transform: translateX(0);
-}
-
-.mobile-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centre horizontalement les éléments */
-  justify-content: center; /* Centre verticalement */
-  min-height: calc(100vh - 20rem);
-}
-
-/* Les liens eux-mêmes */
-.mobile-nav a {
-  display: block; /* Force l'affichage vertical */
-  width: 100%; /* Prend toute la largeur disponible */
-  text-align: center;
-  padding: 0.75rem 1.5rem;
-  margin: 0.5rem 0;
-}
-
-.mobile-nav-link {
-  font-family: "Tanker", "Impact", "Arial Black", sans-serif;
-  font-size: 1.5rem;
-  color: #5C6C74;
-  text-decoration: none;
-  background:none;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-}
-
-.mobile-nav-link:hover {
-  color: #D29F02;
-  background-color: rgba(92, 108, 116, 0.05);
-  padding-left: 1.25rem;
-}
-
-.little-mobile {
-  font-size:16px;
-}
-
-/* Zone des CTA */
-.mobile-nav-cta {
-  display: flex;
-  flex-direction: column; /* Force l'affichage vertical */
-  align-items: center;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.mobile-phone-link {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: "Tanker", "Impact", "Arial Black", sans-serif;
-  font-size: 1.25rem;
-  color: #5C6C74;
-  text-decoration: none;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: rgba(92, 108, 116, 0.05);
-  transition: all 0.2s ease;
-}
-
-/* Boutons CTA */
-.mobile-phone-link,
-.mobile-btn-reservation {
-  display: inline-flex; /* Pour centrer le contenu */
-  align-items: center;
-  justify-content: center;
-  min-width: 200px;
-  max-width: 80%; /* Évite que ça soit trop large sur grands écrans */
-}
-
-.mobile-phone-link:hover {
-  color: #D29F02;
-  background-color: rgba(92, 108, 116, 0.1);
-}
-
-.mobile-phone-link svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.mobile-btn-reservation {
-  font-family: "Tanker", "Impact", "Arial Black", sans-serif;
-  font-size: 1.25rem;
-  color: white;
-  text-decoration: none;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: #D29F02;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.mobile-btn-reservation:hover {
-  background-color: #5C6C74;
-}
-
-/* Animation menu burger */
-.mobile-menu-trigger.is-active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.mobile-menu-trigger.is-active span:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-trigger.is-active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Sous-menu mobile : À propos */
-.mobile-accordion { width: 100%; }
-
-.mobile-accordion-trigger {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  display: block;
-    padding: 1.25rem 1.5rem;
-}
-
-.mobile-caret {
-  display: inline-block;
-  margin-left: 8px;
-  border: solid currentColor;
-  border-width: 0 2px 2px 0;
-  padding: 4px;
-  transform: rotate(45deg);
-  transition: transform 0.25s ease;
-}
-
-.mobile-accordion-trigger[aria-expanded="true"] .mobile-caret {
-  transform: rotate(-135deg);
-}
-
-/* Container animé (height) */
-.mobile-submenu {
-  overflow: hidden;
-  transition: height 0.18s ease;
-  background-color: rgba(92, 108, 116, 0.05);
-}
-
-/* Liens du sous-menu */
-.mobile-submenu-link {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 0.6rem 1rem;
-  margin: 0.25rem 0;
-  font-family: "Filicudi", "Helvetica Neue", sans-serif;
-  font-size: 1.15rem;
-  color: var(--color-gray-700);
-  text-decoration: none;
-  border-radius: 0.5rem;
-}
-
-.mobile-submenu-link:hover {
-  background-color: rgba(92,108,116,0.05);
-  color: var(--color-secondary);
-}
-
-
-/* Ajoutez ceci dans votre CSS */
+/* =========================================================
+   HEADER & NAV
+   ========================================================= */
 .site-header {
-  transform: translateY(0);
+  position: fixed; top: 0; left: 0; width: 100%;
+  background-color: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-header);
   transition: transform 0.3s ease, background-color 0.3s ease;
+  transform: translateY(0);
 }
-
-.site-header.is-hidden {
-  transform: translateY(-100%);
-}
-
+.site-header.is-hidden { transform: translateY(-100%); }
 .site-header.is-scrolled {
-  background-color: rgba(255, 255, 255, 0.98);
+  background-color: rgba(255,255,255,0.98);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Pour bloquer le scroll quand le menu mobile est ouvert */
-body.no-scroll {
-  overflow: hidden;
+.header-container {
+  max-width: 1280px; margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
 }
 
-.site-footer {
-  background-color: var(--color-gray-50);
-  border-top: 2px solid #d29f1c;
+.header-logo { flex-shrink:0; transition: transform 0.3s ease; }
+.header-logo:hover { transform: scale(1.02); }
+.header-logo img { height: 67px; width: auto; }
+
+/* Desktop nav */
+.header-nav { display: none; }
+@media (min-width:1024px){ .header-nav{ display:block; margin-left:2rem; } }
+
+#email-form { position:absolute; opacity:0; height:0; width:0; overflow:hidden; pointer-events:none; }
+
+.nav-list { display:flex; gap:3rem; align-items:center; }
+.nav-link {
+  font-family:"Tanker","Impact","Arial Black",sans-serif;
+  font-size:1.25rem; color:#5C6C74; text-decoration:none; padding:0.5rem 0;
+  position:relative; transition: color 0.2s ease;
 }
-
-.footer-container {
-  max-width: var(--breakpoint-xl);
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-  padding-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: var(--spacing-xl);
+.nav-link::after {
+  content:''; position:absolute; bottom:0; left:0; width:100%; height:2px;
+  background-color:#D29F02; transform: scaleX(0); transition: transform 0.3s ease;
 }
+.nav-link:hover { color:#D29F02; }
+.nav-link:hover::after { transform: scaleX(1); }
 
-@media (min-width: 768px) {
-  .footer-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Dropdown desktop */
+.nav-dropdown { position:relative; }
+.dropdown-trigger {
+  background:none; border:none; cursor:pointer; padding:0.5rem 0; position:relative;
 }
-
-.footer-section {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
+.dropdown-trigger::after {
+  content:''; position:absolute; bottom:0; left:0; width:100%; height:2px;
+  background-color:#D29F02; transform:scaleX(0); transition:transform 0.3s ease;
 }
+.dropdown-trigger:hover { color:#D29F02; }
+.dropdown-trigger:hover::after { transform:scaleX(1); }
 
-.footer-title {
-  font-family: 'Tanker', sans-serif;
-  color: var(--color-primary);
-  font-size: 1.25rem;
-  margin-bottom: var(--spacing-sm);
+.dropdown-menu {
+  position:absolute; top:calc(100% + 1rem); left:50%;
+  transform: translateX(-50%) translateY(10px);
+  background:#fff; border-radius:0.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.1);
+  min-width:220px; padding:0.75rem 0; opacity:0; visibility:hidden; transition:all 0.3s ease;
 }
-
-.footer-address {
-  font-family: 'Filicudi', sans-serif;
-  font-style: normal;
-  color: var(--color-gray-600);
-  line-height: 1.5;
+.dropdown-menu::before {
+  content:''; position:absolute; top:-8px; left:50%; transform:translateX(-50%) rotate(45deg);
+  width:16px; height:16px; background:#fff; border-radius:2px;
 }
-
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+.nav-dropdown:hover .dropdown-menu {
+  opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);
 }
-
-.footer-link {
-  color: var(--color-gray-600);
-  text-decoration: none;
-  transition: color var(--transition-fast) ease;
-  font-family: 'Filicudi', sans-serif;
+.dropdown-link {
+  display:block; padding:0.75rem 1.5rem;
+  font-family:"Filicudi","Helvetica Neue",sans-serif; font-size:1rem;
+  color:#5C6C74; text-decoration:none; transition: all 0.2s ease;
 }
+.ddl-midi { color:#d29f1c; }
+.dropdown-link:hover { background-color:rgba(92,108,116,0.05); color:#D29F02; padding-left:2rem; }
 
-.footer-link:hover {
-  color: var(--color-secondary);
+/* CTA header (desktop) */
+.header-cta { display:none; }
+@media (min-width:1024px){
+  .header-cta { display:flex; align-items:center; gap:1.5rem; }
 }
-
-.social-links {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
+.phone-link{
+  display:flex; align-items:center; gap:0.5rem;
+  font-family:"Tanker","Impact","Arial Black",sans-serif; font-size:1.15rem;
+  color:#5C6C74; text-decoration:none; transition: color 0.2s ease; padding:0.5rem; border-radius:0.375rem;
 }
+.phone-link:hover{ color:#D29F02; background-color:rgba(92,108,116,0.05); }
+.phone-icon { width:1.25rem; height:1.25rem; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
 
-.social-link {
-  color: var(--color-primary); /* #5C6C74 */
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  text-decoration: none;
-  transition: all var(--transition-fast) ease;
+.btn-reservation{
+  background:#D29F02; color:#fff; padding:0.75rem 1.5rem; border-radius:0.5rem;
+  font-family:"Tanker","Impact","Arial Black",sans-serif; font-size:1.15rem; text-decoration:none;
+  transition: all 0.3s ease; transform: translateY(0); box-shadow:0 4px 6px rgba(210,159,2,0.1);
 }
+.btn-reservation:hover{ background:#5C6C74; transform:translateY(-2px); box-shadow:0 8px 15px rgba(92,108,116,0.2); }
 
-.social-link:hover {
-  color: var(--color-secondary); /* #D29F02 */
+/* =========================================================
+   MENU MOBILE (burger + panneau)
+   ========================================================= */
+.mobile-menu-trigger { position:relative; z-index:60; background:none; }
+@media (min-width:1024px){ .mobile-menu-trigger{ display:none; } }
+.mobile-menu-trigger span {
+  display:block; width:24px; height:2px; margin:5px 0; background:#5C6C74; transition: transform 0.3s ease, opacity 0.3s ease;
 }
+/* Animation burger */
+.mobile-menu-trigger.is-active span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.mobile-menu-trigger.is-active span:nth-child(2){ opacity:0; }
+.mobile-menu-trigger.is-active span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
 
-.social-link svg {
-  flex-shrink: 0;
-  stroke: currentColor; /* Assurez-vous que l'icône prend la couleur du parent */
+/* Panneau mobile (scrollable, pas de débordement, inertie iOS) */
+.mobile-panel{
+  position: fixed; inset: 0; width:100vw; height:100vh;
+  background:#fff; padding:6rem 2rem 2rem;
+  transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  z-index:55;
+  overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
+  box-sizing:border-box; max-width:100vw;
 }
+.mobile-panel.is-active{ transform: translateX(0); }
 
-
-.social-link span {
-  font-family: 'Filicudi', sans-serif;
-  color: var(--color-gray-600);
+.mobile-nav{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  min-height: calc(100vh - 20rem);
 }
-
-/* Au survol, le texte change aussi de couleur */
-.social-link:hover span {
-  color: var(--color-secondary); /* #D29F02 */
+.mobile-nav a{
+  display:block; width:100%; text-align:center; padding:0.75rem 1.5rem; margin:0.5rem 0;
 }
-
-.footer-bottom {
-  text-align: center;
-  padding-top: var(--spacing-xl);
-  margin-top: var(--spacing-xl);
-  border-top: 1px solid var(--color-gray-200);
-  font-family: 'Filicudi', sans-serif;
-  color: var(--color-gray-500);
-  font-size: 0.875rem;
+.mobile-nav-link{
+  font-family:"Tanker","Impact","Arial Black",sans-serif; font-size:1.5rem;
+  color:#5C6C74; text-decoration:none; background:none; padding:0.75rem;
+  border-radius:0.5rem; transition: all 0.2s ease;
 }
-.footer-logo {
-  display: inline-block;
+.mobile-nav-link:hover{ color:#D29F02; background-color:rgba(92,108,116,0.05); padding-left:1.25rem; }
+.little-mobile{ font-size:16px; }
+
+/* Sous-menu À propos (accordion) */
+.mobile-accordion{ width:100%; }
+.mobile-accordion-trigger{
+  position:relative; width:100%; text-align:center; display:block; padding:1.25rem 1.5rem;
 }
-
-.footer-logo img {
-  max-width: 200px; /* Augmenté de 150px à 200px pour matcher le header */
-  height: auto;
-  transition: opacity var(--transition-fast) ease;
+.mobile-caret{
+  display:inline-block; margin-left:8px; border: solid currentColor; border-width:0 2px 2px 0;
+  padding:4px; transform:rotate(45deg); transition: transform 0.25s ease;
 }
+.mobile-accordion-trigger[aria-expanded="true"] .mobile-caret{ transform: rotate(-135deg); }
 
-.footer-logo:hover img {
-  opacity: 0.9;
+.mobile-submenu{
+  overflow:hidden; transition: height 0.16s ease; background-color: rgba(92,108,116,0.05); width:100%;
 }
-
-.contact-section {
-  padding: 5rem 2rem;
-  background: linear-gradient(45deg, #5C6C74, #1D1E1B);
-  color: white;
-  position: relative;
+.mobile-submenu-link{
+  display:block; width:100%; text-align:center; padding:0.6rem 1rem; margin:0.25rem 0;
+  font-family:"Filicudi","Helvetica Neue",sans-serif; font-size:1.15rem;
+  color: var(--color-gray-700); text-decoration:none; border-radius:0.5rem;
+  word-break: break-word;
 }
+.mobile-submenu-link:hover{ background-color: rgba(92,108,116,0.05); color: var(--color-secondary); }
 
-.contact-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, transparent, #D29F02);
-  opacity: 0.05;
+/* Zone CTA du panneau mobile */
+.mobile-nav-cta{
+  display:flex; flex-direction:column; align-items:center; width:100%; margin-top:10px; gap:1rem;
 }
-
-.contact-container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  z-index: 1;
+.mobile-phone-link{
+  display:flex; align-items:center; gap:0.75rem;
+  font-family:"Tanker","Impact","Arial Black",sans-serif; font-size:1.25rem; color:#5C6C74; text-decoration:none;
+  padding:1rem; border-radius:0.5rem; background-color: rgba(92,108,116,0.05); transition: all 0.2s ease;
 }
+.mobile-phone-link:hover{ color:#D29F02; background-color: rgba(92,108,116,0.1); }
+.mobile-phone-link svg{ width:1.5rem; height:1.5rem; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
 
-.contact-title {
-  font-family: 'Tanker', sans-serif;
-  font-size: 2.5rem;
-  color: white;
-  margin-bottom: 1.5rem;
+.mobile-btn-reservation{
+  font-family:"Tanker","Impact","Arial Black",sans-serif; font-size:1.25rem; color:#fff; text-decoration:none;
+  padding:1rem; border-radius:0.5rem; background:#D29F02; text-align:center; transition: all 0.3s ease;
+  display:inline-flex; align-items:center; justify-content:center; min-width:200px; max-width:80%;
 }
+.mobile-btn-reservation:hover{ background:#5C6C74; }
 
-.contact-info {
-  font-family: 'Filicudi', sans-serif;
-  font-style: normal;
-  margin-bottom: 2rem;
+/* Verrouillage scroll quand le menu est ouvert (complété par JS iOS-lock) */
+body.no-scroll{ overflow:hidden; }
+
+/* =========================================================
+   FOOTER / BLOCS
+   ========================================================= */
+.site-footer{ background:var(--color-gray-50); border-top:2px solid #d29f1c; }
+.footer-container{
+  max-width: var(--breakpoint-xl); margin:0 auto; padding:20px var(--spacing-md);
+  display:grid; grid-template-columns: repeat(1,1fr); gap: var(--spacing-xl);
 }
+@media (min-width:768px){ .footer-container{ grid-template-columns: repeat(3,1fr); } }
 
-.contact-phone {
-  display: inline-block;
-  color: #D29F02;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 0.5rem;
+.footer-section{ display:flex; flex-direction:column; gap: var(--spacing-md); }
+.footer-title{ font-family:'Tanker',sans-serif; color:var(--color-primary); font-size:1.25rem; margin-bottom: var(--spacing-sm); }
+.footer-address{ font-family:'Filicudi',sans-serif; font-style:normal; color: var(--color-gray-600); line-height:1.5; }
+.footer-nav{ display:flex; flex-direction:column; gap: var(--spacing-sm); }
+.footer-link{ color: var(--color-gray-600); text-decoration:none; transition: color var(--transition-fast) ease; font-family:'Filicudi',sans-serif; }
+.footer-link:hover{ color: var(--color-secondary); }
+
+.social-links{ display:flex; flex-direction:column; gap: var(--spacing-md); }
+.social-link{
+  color: var(--color-primary); display:flex; align-items:center; gap: var(--spacing-sm);
+  text-decoration:none; transition: all var(--transition-fast) ease;
 }
+.social-link:hover{ color: var(--color-secondary); }
+.social-link svg{ flex-shrink:0; stroke: currentColor; }
+.social-link span{ font-family:'Filicudi',sans-serif; color: var(--color-gray-600); }
+.social-link:hover span{ color: var(--color-secondary); }
 
-.contact-map {
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+.footer-bottom{
+  text-align:center; padding-top: var(--spacing-xl); margin-top: var(--spacing-xl);
+  border-top:1px solid var(--color-gray-200); font-family:'Filicudi',sans-serif; color: var(--color-gray-500); font-size:0.875rem;
 }
+.footer-logo{ display:inline-block; }
+.footer-logo img{ max-width:200px; height:auto; transition: opacity var(--transition-fast) ease; }
+.footer-logo:hover img{ opacity:0.9; }
 
+/* =========================================================
+   BOUTON D’APPEL STICKY (mobile uniquement)
+   ========================================================= */
+.sticky-call-button{
+  position: fixed; bottom:20px; right:20px; width:60px; height:60px; border-radius:50%;
+  background: var(--color-secondary); color:#fff; display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index:49; transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: float 3s ease-in-out infinite; transform-origin:center; opacity:0;
+}
+.sticky-call-button.visible{ opacity:1; }
+.sticky-call-button.ringing{ animation: ring 0.5s ease infinite; }
+@keyframes float{ 0%{transform:translateY(0);} 50%{transform:translateY(-8px);} 100%{transform:translateY(0);} }
+@keyframes ring{ 0%{transform:rotate(0);} 20%{transform:rotate(-10deg);} 40%{transform:rotate(10deg);} 60%{transform:rotate(-10deg);} 80%{transform:rotate(10deg);} 100%{transform:rotate(0);} }
+.sticky-call-button:hover{ transform:scale(1.1); background-color:#b88600; }
+@media (min-width:768px){ .sticky-call-button{ display:none; } }
 
-.sticky-call-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: var(--color-secondary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 49;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    animation: float 3s ease-in-out infinite;
-    transform-origin: center;
-    opacity: 0;
-  }
-
-  /* Animation d'entrée */
-  .sticky-call-button.visible {
-    opacity: 1;
-  }
-
-  /* Animation de sonnerie */
-  .sticky-call-button.ringing {
-    animation: ring 0.5s ease infinite;
-  }
-
-  /* Animation flottante continue */
-  @keyframes float {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  /* Animation de sonnerie */
-  @keyframes ring {
-    0% {
-      transform: rotate(0);
-    }
-    20% {
-      transform: rotate(-10deg);
-    }
-    40% {
-      transform: rotate(10deg);
-    }
-    60% {
-      transform: rotate(-10deg);
-    }
-    80% {
-      transform: rotate(10deg);
-    }
-    100% {
-      transform: rotate(0);
-    }
-  }
-
-  .sticky-call-button:hover {
-    transform: scale(1.1);
-    background-color: #b88600; /* Version plus foncée de var(--color-secondary) */
-  }
-
-  /* Ne montrer le bouton que sur mobile */
-  @media (min-width: 768px) {
-    .sticky-call-button {
-      display: none;
-    }
-  }
-
-
-
-/* POPUP !!!!! */
-
-        /* Overlay */
-        .ada-conges-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(29, 30, 27, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 1;
-            animation: ada-fade-in 0.3s ease-out;
-        }
-
-        @keyframes ada-fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes ada-slide-in {
-            from { 
-                opacity: 0;
-                transform: translateY(-20px) scale(0.95);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Pop-up container */
-        .ada-conges-container {
-            background: white;
-            border-radius: 16px;
-            max-width: 500px;
-            width: 100%;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: ada-slide-in 0.4s ease-out 0.1s both;
-            overflow: hidden;
-        }
-
-        /* Header avec couleur */
-        .ada-conges-header {
-            background: linear-gradient(135deg, #5C6C74 0%, #1D1E1B 100%);
-            color: white;
-            padding: 30px 30px 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .ada-conges-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #D29F02;
-            border-radius: 2px;
-        }
-
-        .ada-conges-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .ada-conges-title {
-            font-family: 'Tanker', sans-serif;
-            font-size: 28px;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        .ada-conges-subtitle {
-            font-family: 'Filicudi', sans-serif;
-            font-size: 16px;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* Contenu */
-        .ada-conges-content {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .ada-conges-date-info {
-            background: rgba(210, 159, 2, 0.1);
-            border: 2px solid #D29F02;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-
-        .ada-conges-date-range {
-            font-family: 'Tanker', sans-serif;
-            font-size: 24px;
-            color: #5C6C74;
-            margin-bottom: 8px;
-        }
-
-        .ada-conges-date-details {
-            font-family: 'Filicudi', sans-serif;
-            color: #1D1E1B;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .ada-conges-reouverture {
-            background: rgba(92, 108, 116, 0.05);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 25px;
-        }
-
-        .ada-conges-reouverture-title {
-            font-family: 'Tanker', sans-serif;
-            color: #5C6C74;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .ada-conges-reouverture-date {
-            font-family: 'Filicudi', sans-serif;
-            color: #1D1E1B;
-            font-size: 16px;
-        }
-
-        .ada-conges-contact-section {
-            border-top: 1px solid rgba(92, 108, 116, 0.2);
-            padding-top: 20px;
-            margin-top: 20px;
-        }
-
-        .ada-conges-contact-title {
-            font-family: 'Tanker', sans-serif;
-            color: #5C6C74;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .ada-conges-phone-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #D29F02;
-            text-decoration: none;
-            font-family: 'Filicudi', sans-serif;
-            font-weight: 500;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        .ada-conges-phone-link:hover {
-            color: #5C6C74;
-        }
-
-        .ada-conges-phone-icon {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-        }
-
-        /* Bouton de fermeture */
-        .ada-conges-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-
-        .ada-conges-close-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .ada-conges-close-btn::before,
-        .ada-conges-close-btn::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 2px;
-            background: white;
-            border-radius: 1px;
-        }
-
-        .ada-conges-close-btn::before {
-            transform: rotate(45deg);
-        }
-
-        .ada-conges-close-btn::after {
-            transform: rotate(-45deg);
-        }
-
-        /* Actions */
-        .ada-conges-actions {
-            padding: 0 30px 30px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .ada-conges-btn {
-            flex: 1;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-family: 'Tanker', sans-serif;
-            font-size: 16px;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .ada-conges-btn-primary {
-            background: #D29F02;
-            color: white;
-        }
-
-        .ada-conges-btn-primary:hover {
-            background: #b8880a;
-            transform: translateY(-2px);
-        }
-
-        .ada-conges-btn-secondary {
-            background: transparent;
-            color: #5C6C74;
-            border: 2px solid #5C6C74;
-        }
-
-        .ada-conges-btn-secondary:hover {
-            background: #5C6C74;
-            color: white;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .ada-conges-container {
-                margin: 20px;
-                max-width: calc(100% - 40px);
-            }
-            
-            .ada-conges-header,
-            .ada-conges-content {
-                padding: 25px 20px;
-            }
-            
-            .ada-conges-title {
-                font-size: 24px;
-            }
-            
-            .ada-conges-date-range {
-                font-size: 20px;
-            }
-            
-            .ada-conges-actions {
-                padding: 0 20px 25px;
-                flex-direction: column;
-            }
-        }
-
-        /* Animation de sortie */
-        .ada-conges-overlay.ada-closing {
-            animation: ada-fade-out 0.3s ease-out forwards;
-        }
-
-        .ada-conges-overlay.ada-closing .ada-conges-container {
-            animation: ada-slide-out 0.3s ease-out forwards;
-        }
-
-        @keyframes ada-fade-out {
-            to { opacity: 0; }
-        }
-
-        @keyframes ada-slide-out {
-            to { 
-                opacity: 0;
-                transform: translateY(-20px) scale(0.95);
-            }
-        }
+/* =========================================================
+   (NOTE) POPUP CSS SUPPRIMÉ — pour éviter tout conflit
+   ========================================================= */
