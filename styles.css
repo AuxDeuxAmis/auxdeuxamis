@@ -536,6 +536,56 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Sous-menu mobile : À propos */
+.mobile-accordion { width: 100%; }
+
+.mobile-accordion-trigger {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.mobile-caret {
+  display: inline-block;
+  margin-left: 8px;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  padding: 4px;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.mobile-accordion-trigger[aria-expanded="true"] .mobile-caret {
+  transform: rotate(-135deg);
+}
+
+/* Container animé (height) */
+.mobile-submenu {
+  overflow: hidden;
+  transition: height 0.25s ease;
+}
+
+/* Liens du sous-menu */
+.mobile-submenu-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  margin: 0.25rem 0;
+  font-family: "Filicudi", "Helvetica Neue", sans-serif;
+  font-size: 1.15rem;
+  color: var(--color-gray-700);
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+
+.mobile-submenu-link:hover {
+  background-color: rgba(92,108,116,0.05);
+  color: var(--color-secondary);
+}
+
+
 /* Ajoutez ceci dans votre CSS */
 .site-header {
   transform: translateY(0);
