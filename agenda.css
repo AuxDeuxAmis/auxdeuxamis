@@ -107,6 +107,14 @@
     margin-bottom: 0.5rem;
 }
 
+.poster-description a {
+    color:#d29f03;
+    text-decoration:none;
+}
+.poster-description a:hover {
+    color:#5c6c74;
+}
+
 /* Styles pour les événements à venir */
 .upcoming-events {
     max-width: 800px;
