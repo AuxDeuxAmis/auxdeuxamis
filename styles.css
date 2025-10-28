@@ -311,6 +311,16 @@
   transition: all 0.2s ease;
 }
 
+.ddl-midi {
+    background: #5C6C74;
+    color: white;
+}
+
+.ddl-soir {
+    background: #d29f1c;
+    color: white;
+}
+
 .dropdown-link:hover {
   background-color: rgba(92, 108, 116, 0.05);
   color: #D29F02;
