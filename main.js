@@ -54,23 +54,36 @@ document.addEventListener('DOMContentLoaded', function() {
     delete document.body.dataset.scrollY;
   };
 
-  // ===== Burger toggle + scroll-lock =====
-  if (trigger && panel) {
-    trigger.addEventListener('click', function() {
-      const opening = !panel.classList.contains('is-active');
-      this.classList.toggle('is-active');
-      panel.classList.toggle('is-active');
+// ===== Burger toggle + scroll-lock =====
+if (trigger && panel) {
+  // Un seul handler réutilisable → permet de removeEventListener proprement
+  const stopScrollChaining = (e) => e.stopPropagation();
 
-      if (opening) {
-        lockScroll();
-        // Empêche le scroll chaining vers le body
-        panel.addEventListener('touchmove', e => e.stopPropagation(), { passive: true });
-        panel.addEventListener('wheel',      e => e.stopPropagation(), { passive: true });
-      } else {
-        unlockScroll();
-      }
-    });
-  }
+  trigger.addEventListener('click', function() {
+    const opening = !panel.classList.contains('is-active');
+    this.classList.toggle('is-active');
+    panel.classList.toggle('is-active');
+
+    if (opening) {
+      lockScroll();
+
+      // ✅ Le scroll reste bien DANS le panneau
+      panel.addEventListener('wheel', stopScrollChaining, { passive: true });
+      panel.addEventListener('touchmove', stopScrollChaining, { passive: true });
+
+      // ✅ Focus clavier (et iOS) sur le panneau pour capturer le scroll
+      if (!panel.hasAttribute('tabindex')) panel.setAttribute('tabindex', '-1');
+      panel.focus({ preventScroll: true });
+    } else {
+      // On nettoie pour éviter l’empilement des listeners à chaque ouverture
+      panel.removeEventListener('wheel', stopScrollChaining);
+      panel.removeEventListener('touchmove', stopScrollChaining);
+
+      unlockScroll();
+    }
+  });
+}
+
 
   // ===== Header show/hide au scroll =====
   let lastScroll = 0;
