@@ -93,3 +93,11 @@
   font-size: 16px;
   line-height: 1.6;
 }
+
+.member-info a {
+  color:#D29F02;
+    text-decoration:none;
+}
+.member-info a:hover {
+  color:#5C6C74;
+}
