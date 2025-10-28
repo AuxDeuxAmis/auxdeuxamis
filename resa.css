@@ -102,8 +102,11 @@
     margin-left: auto;
     margin-right: auto;
         text-align: center;
-   font-family:Source Sans Pro, sans-serif;
+   font-family:'Source Sans Pro', sans-serif;
+}
 
+.phone-section .body-text{
+   font-family:'Source Sans Pro', sans-serif;
 }
 
 .h1-resa {
