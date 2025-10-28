@@ -428,7 +428,7 @@
   flex-direction: column;
   align-items: center; /* Centre horizontalement les éléments */
   justify-content: center; /* Centre verticalement */
-  min-height: calc(100vh - 12rem);
+  min-height: calc(100vh - 20rem);
 }
 
 /* Les liens eux-mêmes */
@@ -436,7 +436,7 @@
   display: block; /* Force l'affichage vertical */
   width: 100%; /* Prend toute la largeur disponible */
   text-align: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.55rem 1.5rem;
   margin: 0.5rem 0;
 }
 
@@ -450,14 +450,14 @@
   transition: all 0.2s ease;
 }
 
-.little-mobile {
-  font-size:16px;
-}
-
 .mobile-nav-link:hover {
   color: #D29F02;
   background-color: rgba(92, 108, 116, 0.05);
   padding-left: 1.25rem;
+}
+
+.little-mobile {
+  font-size:16px;
 }
 
 /* Zone des CTA */
@@ -466,7 +466,7 @@
   flex-direction: column; /* Force l'affichage vertical */
   align-items: center;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
   gap: 1rem;
 }
 
