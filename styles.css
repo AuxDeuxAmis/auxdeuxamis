@@ -415,6 +415,9 @@
   transform: translateX(100%);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 55; /* Entre le header normal et le burger */
+  overflow-y: auto;                 /* 👈 permet le scroll dans le panneau */
+  -webkit-overflow-scrolling: touch;/* 👈 inertie iOS */
+  overscroll-behavior: contain;     /* évite de “tirer” le body derrière */
 }
 
 .mobile-panel.is-active {
@@ -565,7 +568,7 @@
 /* Container animé (height) */
 .mobile-submenu {
   overflow: hidden;
-  transition: height 0.25s ease;
+  transition: height 0.18s ease;
   background-color: rgba(92, 108, 116, 0.05);
 }
 
