@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // =========================================
   const observerOptions = {
     root: null,
-    threshold: 0.05, // Réduit de 0.1 à 0.05 pour trigger plus tôt
-    rootMargin: '0px 0px -20px 0px' // Réduit de -50px à -20px
+    threshold: 0.05,
+    rootMargin: '0px 0px -20px 0px'
   };
   
   const fadeInObserver = new IntersectionObserver((entries) => {
@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }, observerOptions);
   
-  // Éléments à animer
   const animatedElements = document.querySelectorAll(
     '.concept-video-card, .concept-text-enhanced, .concept-photo-v3, ' +
     '.menu-category-v3, .testimonial-card-v3, .seo-content, .seo-faq'
@@ -81,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
   animatedElements.forEach((el, index) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)'; // Réduit de 30px à 20px
-    el.style.transition = `opacity 0.4s ease ${index * 0.03}s, transform 0.4s ease ${index * 0.03}s`; // Réduit de 0.6s à 0.4s et délai de 0.05s à 0.03s
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = `opacity 0.4s ease ${index * 0.03}s, transform 0.4s ease ${index * 0.03}s`;
     fadeInObserver.observe(el);
   });
   
@@ -125,12 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Tracking scroll depth
-  let scrollDepthTracked = {
-    25: false,
-    50: false,
-    75: false,
-    100: false
-  };
+  let scrollDepthTracked = { 25: false, 50: false, 75: false, 100: false };
   
   window.addEventListener('scroll', function() {
     const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
@@ -148,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // =========================================
   const videoIframe = document.querySelector('.video-wrapper iframe');
   if (videoIframe) {
-    // Tracking quand la vidéo est visible
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -223,84 +216,12 @@ document.addEventListener('DOMContentLoaded', function() {
       imageObserver.observe(img);
     });
   }
-  
-  // =========================================
-  // SCHEMA.ORG STRUCTURED DATA
-  // =========================================
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "name": "Brasserie Aux Deux Amis",
-    "image": "https://cdn.prod.website-files.com/678e9e339a31bae6a2fe6c1d/68fa49a165ae0b65c474c45c_tapas-soir.webp",
-    "description": "Bar tapas à Lattes (Maurin) proposant des tapas gastronomiques du Chef Brice. Ouvert du mardi au samedi de 18h à 23h.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rue des Yeuses",
-      "addressLocality": "Lattes",
-      "postalCode": "34970",
-      "addressCountry": "FR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 43.559923,
-      "longitude": 3.873195
-    },
-    "telephone": "+33619071186",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "18:00",
-        "closes": "23:00"
-      }
-    ],
-    "servesCuisine": ["Espagnole", "Méditerranéenne", "Tapas"],
-    "priceRange": "€€",
-    "menu": "https://cdn.prod.website-files.com/678e9e339a31bae6a2fe6c1d/68e3de55190ff4a06b6a3f2c_carte-soir-automne-2025.pdf",
-    "acceptsReservations": "True"
-  };
-  
-  // Injecter le schema dans le head
-  const scriptTag = document.createElement('script');
-  scriptTag.type = 'application/ld+json';
-  scriptTag.text = JSON.stringify(schemaData);
-  document.head.appendChild(scriptTag);
-  
-  // =========================================
-  // FAQ SCHEMA
-  // =========================================
-  const faqItems = document.querySelectorAll('.faq-item');
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": []
-  };
-  
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question span').textContent;
-    const answer = item.querySelector('.faq-answer p').textContent;
-    
-    faqSchema.mainEntity.push({
-      "@type": "Question",
-      "name": question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": answer
-      }
-    });
-  });
-  
-  const faqScriptTag = document.createElement('script');
-  faqScriptTag.type = 'application/ld+json';
-  faqScriptTag.text = JSON.stringify(faqSchema);
-  document.head.appendChild(faqScriptTag);
-  
+
   // =========================================
   // HELPER FUNCTIONS
   // =========================================
   
   function trackEvent(category, action, label) {
-    // Google Analytics 4
     if (typeof gtag === 'function') {
       gtag('event', action, {
         'event_category': category,
@@ -309,12 +230,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
-    // Facebook Pixel
     if (typeof fbq === 'function') {
-      fbq('track', action, {
-        category: category,
-        label: label
-      });
+      fbq('track', action, { category, label });
     }
     
     console.log('📊 Event:', category, action, label);
@@ -329,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   }
-  
+
   // =========================================
   // MOBILE OPTIMIZATIONS
   // =========================================
@@ -338,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (isMobile) {
     document.body.classList.add('is-mobile');
     
-    // Désactiver zoom double-tap
     let lastTouchEnd = 0;
     document.addEventListener('touchend', function(event) {
       const now = Date.now();
@@ -348,20 +264,19 @@ document.addEventListener('DOMContentLoaded', function() {
       lastTouchEnd = now;
     }, { passive: false });
   }
-  
+
   // =========================================
   // INIT TRACKING
   // =========================================
   trackEvent('Page', 'View', 'Concept Soir V3');
   
-  // Détecter la source de trafic
   const referrer = document.referrer;
   if (referrer.includes('facebook.com') || referrer.includes('instagram.com')) {
     trackEvent('Traffic', 'Meta Ads', 'Concept Soir');
   } else if (referrer.includes('google.com')) {
     trackEvent('Traffic', 'Google', 'Concept Soir');
   }
-  
+
   // =========================================
   // DEBUG MODE
   // =========================================
