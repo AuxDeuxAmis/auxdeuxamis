@@ -367,6 +367,13 @@
   line-height: 1.2;
   margin-bottom: 1rem;
 }
+.title-3reasons {
+       font-family: 'Tanker', sans-serif;
+    font-size: 24px;
+    color: #d29f1c;
+    line-height: 1.2;
+    margin-bottom: 0px;
+}
 
 .section-description {
   font-family: 'Source Sans Pro', sans-serif;
