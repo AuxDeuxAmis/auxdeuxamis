@@ -676,6 +676,16 @@
   border-bottom: 2px solid #D29F02;
 }
 
+.category-title-menu {
+    display: block;
+    text-align: center;
+    font-family: 'Tanker', sans-serif;
+    font-size: 1.5rem;
+    color: #5C6C74;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #D29F02;
+}
+
 .category-icon-fa {
   font-size: 1.25rem;
   color: #D29F02;
