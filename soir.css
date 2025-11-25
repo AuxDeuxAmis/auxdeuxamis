@@ -703,6 +703,13 @@
   gap: 1rem;
 }
 
+.menu-items-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+   text-align:center;
+}
+
 .menu-item-v3 {
   position: relative;
   display: flex;
@@ -714,6 +721,13 @@
   transition: background 0.2s ease;
 }
 
+.menu-item-subtitle {
+    position: relative;
+    padding: 0.875rem;
+    border-radius: 8px;
+    transition: background 0.2s 
+ease;
+}
 .menu-item-v3:hover {
   background: rgba(92, 108, 116, 0.03);
 }
