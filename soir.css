@@ -378,6 +378,7 @@
     color: #d29f1c;
     line-height: 1.2;
     margin-bottom: 0px;
+   text-align:center;
 }
 
 .section-description {
@@ -636,7 +637,7 @@ margin: 6px 0;
   }
   
   .concept-text-enhanced {
-    padding: 1.75rem;
+    padding: 0.75rem;
   }
   
   .highlight-compact {
