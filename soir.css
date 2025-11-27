@@ -524,6 +524,7 @@ margin: 6px 0;
 
 .highlight-compact ul {
     list-style-type: disclosure-closed;
+   padding-left: 20px;
 }
 
 .highlight-compact ul li::marker{
