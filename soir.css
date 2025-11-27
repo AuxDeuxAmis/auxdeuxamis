@@ -141,6 +141,11 @@
   line-height: 1.6;
 }
 
+.hero-description strong {
+    font-weight: bolder;
+    color: #d29f1c;
+}
+
 .hero-info-line {
   display: flex;
   flex-wrap: wrap;
