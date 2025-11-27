@@ -717,9 +717,6 @@ margin: 6px 0;
     border-bottom: 2px solid #D29F02;
 }
 
-#carte, #jeu-concours {
-   scroll-margin-top:110px;
-}
 
 .category-icon-fa {
   font-size: 1.25rem;
