@@ -510,9 +510,26 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.938rem;
   color: #1D1E1B;
-  margin: 0;
-  line-height: 1.5;
+margin: 6px 0;
+   line-height: 1.5;
 }
+
+.highlight-compact li {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.938rem;
+    color: #1D1E1B;
+    margin: 3px 0;
+    line-height: 1.5;
+}
+
+.highlight-compact ul {
+    list-style-type: disclosure-closed;
+}
+
+.highlight-compact ul li::marker{
+    color:#d29f1c;
+}
+
 
 .chef-advice-v3 {
   position: relative;
