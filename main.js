@@ -152,3 +152,181 @@ if (trigger && panel) {
     });
   }
 });
+
+// =====================================================
+// POPUP — Fermeture annuelle (ADA)
+// - Injection DOM
+// - Affichage uniquement pendant la période
+// - Si fermeture => pas de réaffichage (localStorage)
+// =====================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const STORAGE_KEY = 'ada_closure_2025_dismissed_until';
+  const SHOW_DELAY_MS = 800;
+
+  // Fenêtre d’affichage (heure locale du navigateur)
+  // du 22/12/2025 00:00 au 04/01/2026 23:59:59 (inclus)
+  const START = new Date(2025, 11, 22, 0, 0, 0);
+  const END   = new Date(2026, 0,  4, 23, 59, 59);
+
+  // Quand l’utilisateur ferme, on ne réaffiche plus jusqu’au 06/01/2026 00:00
+  const DISMISS_UNTIL = new Date(2026, 0, 6, 0, 0, 0);
+
+  function now(){ return new Date(); }
+  function isInWindow(d){ return d >= START && d <= END; }
+
+  function getDismissedUntil(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return null;
+      const ts = Number(raw);
+      if(!Number.isFinite(ts)) return null;
+      return new Date(ts);
+    } catch(e){
+      return null;
+    }
+  }
+
+  function setDismissedUntil(dateObj){
+    try{
+      localStorage.setItem(STORAGE_KEY, String(dateObj.getTime()));
+    } catch(e){
+      // ignore (mode privé / storage bloqué)
+    }
+  }
+
+  // Scroll lock indépendant (pour éviter le scroll derrière la popup)
+  function lockScrollForModal(){
+    const y = window.scrollY || document.documentElement.scrollTop;
+    document.body.dataset.adaClosureScrollY = String(y);
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${y}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  }
+
+  function unlockScrollForModal(){
+    const y = parseInt(document.body.dataset.adaClosureScrollY || '0', 10) || 0;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    delete document.body.dataset.adaClosureScrollY;
+    window.scrollTo(0, y);
+  }
+
+  function buildPopup(){
+    const overlay = document.createElement('div');
+    overlay.className = 'ada-closure-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Fermeture annuelle');
+
+    overlay.innerHTML = `
+      <div class="ada-closure-modal" role="document">
+        <div class="ada-closure-header">
+          <button class="ada-closure-close" type="button" aria-label="Fermer"></button>
+          <div class="ada-closure-badge">🏖️ Fermeture annuelle</div>
+          <div class="ada-closure-title">On revient très vite</div>
+          <div class="ada-closure-subtitle">Merci de votre compréhension ❤️</div>
+        </div>
+
+        <div class="ada-closure-body">
+          <div class="ada-closure-block">
+            <div class="ada-closure-block-title">Dates</div>
+            <div class="ada-closure-block-text">
+              Du lundi 22 décembre 2025 au dimanche 4 janvier 2026
+            </div>
+          </div>
+
+          <div class="ada-closure-block">
+            <div class="ada-closure-block-title">Réouverture</div>
+            <div class="ada-closure-block-text">
+              Réouverture le lundi 5 janvier !
+            </div>
+          </div>
+
+          <div class="ada-closure-block">
+            <div class="ada-closure-block-title">Réservations futures</div>
+            <div class="ada-closure-block-text">
+              Vous pouvez nous contacter par mail :
+              <a class="ada-closure-email" href="mailto:contact@aux-deux-amis.fr">contact@aux-deux-amis.fr</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ada-closure-actions">
+          <a class="ada-closure-btn ada-closure-btn-primary" href="mailto:contact@aux-deux-amis.fr">Envoyer un mail</a>
+          <button class="ada-closure-btn ada-closure-btn-secondary" type="button" data-ada-closure-close>Fermer</button>
+        </div>
+      </div>
+    `;
+
+    return overlay;
+  }
+
+  function closePopup(overlay){
+    overlay.classList.add('ada-closure-closing');
+    setTimeout(() => {
+      overlay.remove();
+    }, 230);
+    unlockScrollForModal();
+  }
+
+  function openPopup(){
+    // Évite doublons
+    if (document.querySelector('.ada-closure-overlay')) return;
+
+    const overlay = buildPopup();
+    document.body.appendChild(overlay);
+    lockScrollForModal();
+
+    const xBtn = overlay.querySelector('.ada-closure-close');
+    const closeBtn = overlay.querySelector('[data-ada-closure-close]');
+
+    function dismiss(){
+      setDismissedUntil(DISMISS_UNTIL);
+      closePopup(overlay);
+    }
+
+    if(xBtn) xBtn.addEventListener('click', dismiss);
+    if(closeBtn) closeBtn.addEventListener('click', dismiss);
+
+    // Clic hors modal
+    overlay.addEventListener('click', (e) => {
+      if(e.target === overlay) dismiss();
+    });
+
+    // ESC
+    document.addEventListener('keydown', function onKey(e){
+      if(e.key === 'Escape'){
+        dismiss();
+        document.removeEventListener('keydown', onKey);
+      }
+    }, { once: true });
+  }
+
+  function init(){
+    const d = now();
+
+    // 1) fenêtre de dates
+    if(!isInWindow(d)) return;
+
+    // 2) respect fermeture user
+    const dismissedUntil = getDismissedUntil();
+    if(dismissedUntil && d < dismissedUntil) return;
+
+    // 3) affiche rapidement
+    setTimeout(() => {
+      const d2 = now();
+      const dismissedUntil2 = getDismissedUntil();
+      if(!isInWindow(d2)) return;
+      if(dismissedUntil2 && d2 < dismissedUntil2) return;
+      openPopup();
+    }, SHOW_DELAY_MS);
+  }
+
+  init();
+});
