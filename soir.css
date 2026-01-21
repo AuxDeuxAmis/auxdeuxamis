@@ -1275,3 +1275,55 @@ ease;
     font-size: 1.125rem !important;
   }
 }
+
+/* ====== PAGE SAINT-VALENTIN (overrides) ====== */
+.valentine-page {
+  --valentine: #C2185B; /* ta couleur Saint-Valentin */
+}
+
+/* Petit accent sur badges / titres */
+.valentine-page .section-label,
+.valentine-page .hero-badge-simple h1 {
+  position: relative;
+}
+
+.valentine-page .section-label {
+  color: var(--valentine);
+}
+
+/* Hero : ambiance + léger voile */
+.hero-valentine .hero-bg-valentine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.30));
+}
+
+/* Assure-toi que .hero-bg-image est bien positionné (si pas déjà le cas) */
+.hero-valentine .hero-bg-image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Menu : version “une seule colonne” (si ton CSS actuel force 2 colonnes) */
+.menu-grid-single {
+  grid-template-columns: 1fr !important;
+}
+
+/* Petits accents sur icônes (sans casser ta DA) */
+.valentine-page .hero-info-line .info-item i,
+.valentine-page .highlight-compact i,
+.valentine-page .btn-menu-pdf i {
+  color: var(--valentine);
+}
+
+/* Bouton secondaire : accent valentine léger */
+.valentine-page .btn-hero-secondary {
+  border-color: rgba(194, 24, 91, 0.35);
+}
+.valentine-page .btn-hero-secondary:hover {
+  border-color: rgba(194, 24, 91, 0.7);
+}
