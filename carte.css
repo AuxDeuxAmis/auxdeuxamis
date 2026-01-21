@@ -1,10 +1,4 @@
-.saint-valentin {
- background:#c21b5b; 
-}
 
-.saint-valentin:hover {
- background:#901c49; 
-}
 
 .carte-page {
   padding-top: 80px; /* Espace pour le header fixe */
@@ -117,4 +111,14 @@
   border-right: none;
   border-bottom: 2px solid #d29f1c;
 }
+}
+
+
+
+.saint-valentin {
+ background:#c21b5b; 
+}
+
+.saint-valentin:hover {
+ background:#901c49; 
 }
