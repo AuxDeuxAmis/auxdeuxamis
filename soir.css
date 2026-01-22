@@ -1127,6 +1127,18 @@ ease;
   margin-bottom: 1.25rem;
 }
 
+/* Liens dans le bloc SEO */
+.seo-text a {
+  color: #D29F02;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.seo-text a:hover {
+  color: #5C6C74;
+}
+
 .lead-text {
   font-size: 1.125rem !important;
   font-weight: 600;
