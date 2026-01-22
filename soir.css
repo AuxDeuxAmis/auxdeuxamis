@@ -1276,90 +1276,218 @@ ease;
   }
 }
 
-/* ====== PAGE SAINT-VALENTIN (overrides) ====== */
-.valentine-page{--valentine:#C2185B;}
+/* =========================================
+   PAGE SAINT-VALENTIN - OVERRIDES & STYLES
+   Brasserie Aux Deux Amis
+   ========================================= */
 
-.valentine-page .section-label{color:var(--valentine);}
-.valentine-page .hero-info-line .info-item i,
-.valentine-page .highlight-compact i,
-.valentine-page .btn-menu-pdf i{color:var(--valentine);}
-
-.valentine-page a.tel-link{
-  font-weight:800;
-  text-decoration:underline;
-  text-underline-offset:3px;
+/* =========================================
+   VARIABLES VALENTINE
+   ========================================= */
+.valentine-page {
+  --valentine-pink: #C2185B;
+  --valentine-pink-light: rgba(194, 24, 91, 0.1);
+  --valentine-pink-border: rgba(194, 24, 91, 0.3);
 }
 
-.hero-valentine{position:relative;overflow:hidden;}
-
-.hero-valentine .hero-bg-image{
-  position:absolute;
-  inset:0;
-  z-index:0;
-  background-size:cover;
-  background-position:center;
+/* =========================================
+   HERO VALENTINE
+   ========================================= */
+.valentine-page .hero-tapas-v3 .hero-bg-image::after {
+  background: linear-gradient(
+    135deg,
+    rgba(194, 24, 91, 0.75) 0%,
+    rgba(29, 30, 27, 0.85) 50%,
+    rgba(92, 108, 116, 0.80) 100%
+  );
 }
 
-.hero-valentine .hero-bg-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg, rgba(0,0,0,.70), rgba(0,0,0,.25));
-  pointer-events:none;
+.valentine-page .hero-badge-simple {
+  background: var(--valentine-pink-light);
+  border-color: var(--valentine-pink);
 }
 
-.hero-valentine .hero-split-layout{position:relative;z-index:2;}
-
-.valentine-page .btn-hero-main.btn-valentine{
-  background:var(--valentine);
-  border-color:var(--valentine);
-  color:#fff;
-}
-.valentine-page .btn-hero-main.btn-valentine:hover{filter:brightness(.95);}
-
-.valentine-page .btn-hero-secondary{border-color:rgba(194,24,91,.35);}
-.valentine-page .btn-hero-secondary:hover{border-color:rgba(194,24,91,.7);}
-
-.valentine-page .hl-title{
-  font-family:inherit;
-  font-weight:900;
-  letter-spacing:.02em;
-  text-transform:uppercase;
-  margin:0 0 6px 0;
-}
-.valentine-page .hl-strong{
-  font-family:inherit;
-  font-weight:900;
-  letter-spacing:.02em;
-  text-transform:uppercase;
-  margin:6px 0;
-}
-.valentine-page .hl-line,
-.valentine-page .hl-note{margin:6px 0;}
-.valentine-page .hl-inline-strong{font-weight:900;}
-
-.valentine-page .highlight-compact.is-featured{
-  border:1px solid rgba(210,159,2,.85);
+.valentine-page .hero-badge-simple h1 {
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 400;
+  color: #fff;
 }
 
-.concept-photo-v3{
-  overflow:hidden;
-  border-radius:24px;
-  min-height:320px;
-}
-.concept-photo-v3 img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  object-position:center;
-}
-@media (max-width:767px){
-  .concept-photo-v3{min-height:240px;}
+.valentine-page .hero-info-line .info-item i {
+  color: var(--valentine-pink);
 }
 
-.menu-single-wrap{
-  max-width:920px;
-  margin:0 auto;
+/* Bouton principal rose */
+.valentine-page .btn-valentine {
+  background: var(--valentine-pink);
+  border-color: var(--valentine-pink);
+  box-shadow: 0 10px 25px rgba(194, 24, 91, 0.3);
 }
-.menu-grid-single{grid-template-columns:1fr !important;}
+
+.valentine-page .btn-valentine:hover {
+  background: #A01648;
+  box-shadow: 0 15px 35px rgba(194, 24, 91, 0.4);
+}
+
+/* Bouton secondaire */
+.valentine-page .btn-hero-secondary {
+  border-color: var(--valentine-pink-border);
+}
+
+.valentine-page .btn-hero-secondary:hover {
+  border-color: var(--valentine-pink);
+  background: rgba(194, 24, 91, 0.15);
+}
+
+/* =========================================
+   SECTION INTRO / GALERIE
+   ========================================= */
+.valentine-page .section-label {
+  color: var(--valentine-pink);
+}
+
+/* Grille Valentine : texte full width + photos en row */
+.valentine-page .valentine-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.valentine-page .valentine-text-full {
+  grid-column: 1 / -1;
+}
+
+.valentine-page .valentine-photos-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .valentine-page .valentine-photos-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Highlights */
+.valentine-page .highlight-compact i {
+  color: var(--valentine-pink);
+}
+
+.valentine-page .highlight-compact.is-featured {
+  border: 2px solid var(--valentine-pink-border);
+  background: var(--valentine-pink-light);
+}
+
+.valentine-page .highlight-compact.is-featured:hover {
+  border-color: var(--valentine-pink);
+}
+
+/* Photos */
+.valentine-page .concept-photo-v3 {
+  min-height: 280px;
+  max-height: 350px;
+}
+
+.valentine-page .concept-photo-v3 img {
+  min-height: 280px;
+  max-height: 350px;
+}
+
+/* =========================================
+   MENU VALENTINE
+   ========================================= */
+.valentine-page .valentine-menu-card {
+  border: 2px solid var(--valentine-pink-border);
+}
+
+.valentine-page .valentine-menu-card .category-title-menu {
+  border-bottom-color: var(--valentine-pink);
+  color: var(--valentine-pink);
+}
+
+.valentine-page .menu-item-subtitle .item-price-v3 {
+  color: var(--valentine-pink);
+}
+
+.valentine-page .valentine-resa-block {
+  background: var(--valentine-pink-light);
+  border-radius: 12px;
+  margin-top: 1rem;
+  padding: 1.25rem;
+}
+
+.valentine-page .valentine-resa-block .item-price-v3 {
+  margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   CTA VALENTINE
+   ========================================= */
+.valentine-page .valentine-cta-content {
+  background: linear-gradient(135deg, var(--valentine-pink) 0%, #1D1E1B 100%);
+}
+
+.valentine-page .cta-content .btn-cta-large.primary i {
+  color: var(--valentine-pink);
+}
+
+/* =========================================
+   LIENS TÉLÉPHONE
+   ========================================= */
+.valentine-page a.tel-link {
+  color: var(--valentine-pink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.valentine-page a.tel-link:hover {
+  color: #A01648;
+}
+
+/* =========================================
+   FAQ VALENTINE
+   ========================================= */
+.valentine-page .faq-question:hover {
+  background: var(--valentine-pink-light);
+}
+
+.valentine-page .faq-item.active .faq-question {
+  background: var(--valentine-pink-light);
+}
+
+.valentine-page .faq-answer a {
+  color: var(--valentine-pink);
+}
+
+.valentine-page .faq-answer a:hover {
+  color: #A01648;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+  .valentine-page .hero-badge-simple {
+    margin-top: 1.5rem;
+  }
+  
+  .valentine-page .hero-badge-simple h1 {
+    font-size: 13px;
+  }
+  
+  .valentine-page .concept-photo-v3,
+  .valentine-page .concept-photo-v3 img {
+    min-height: 220px;
+    max-height: 280px;
+  }
+  
+  .valentine-page .valentine-resa-block {
+    padding: 1rem;
+  }
+}
