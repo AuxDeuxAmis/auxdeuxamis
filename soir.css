@@ -1277,66 +1277,15 @@ ease;
 }
 
 /* =========================================
-   PAGE SAINT-VALENTIN - STYLES COMPLETS
-   Brasserie Aux Deux Amis
+   PAGE SAINT-VALENTIN - CSS MINIMAL
+   Réutilise les styles de soir.css
    ========================================= */
 
 /* =========================================
-   VARIABLES VALENTINE
+   LAYOUT SPÉCIFIQUE VALENTINE
    ========================================= */
-.valentine-page {
-  --valentine-accent: #D29F02;
-}
 
-/* =========================================
-   HERO VALENTINE - Voile sobre
-   ========================================= */
-.valentine-page .hero-tapas-v3 .hero-bg-image::after {
-  background: linear-gradient(
-    135deg,
-    rgba(29, 30, 27, 0.88) 0%,
-    rgba(92, 108, 116, 0.82) 50%,
-    rgba(29, 30, 27, 0.75) 100%
-  );
-}
-
-.valentine-page .hero-badge-simple {
-  background: rgba(210, 159, 2, 0.2);
-  border: 1px solid #D29F02;
-}
-
-.valentine-page .hero-badge-simple h1 {
-  font-size: 14px;
-  line-height: 1.2;
-  margin: 0;
-  font-weight: 400;
-  color: #fff;
-}
-
-.valentine-page .hero-info-line .info-item i {
-  color: #D29F02;
-}
-
-/* Bouton principal doré */
-.valentine-page .btn-valentine {
-  background: #D29F02;
-  border-color: #D29F02;
-  box-shadow: 0 10px 25px rgba(210, 159, 2, 0.3);
-}
-
-.valentine-page .btn-valentine:hover {
-  background: #B88802;
-  box-shadow: 0 15px 35px rgba(210, 159, 2, 0.4);
-}
-
-/* =========================================
-   SECTION "CE QUI VOUS ATTEND"
-   ========================================= */
-.valentine-page .section-label {
-  color: #D29F02;
-}
-
-/* Grille Valentine */
+/* Grille intro : colonne unique */
 .valentine-page .valentine-grid {
   display: flex;
   flex-direction: column;
@@ -1365,47 +1314,6 @@ ease;
   width: 100%;
 }
 
-/* Style uniforme des blocs highlight (pas de rose) */
-.valentine-page .highlight-compact {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid rgba(92, 108, 116, 0.15);
-  transition: all 0.25s ease;
-}
-
-.valentine-page .highlight-compact:hover {
-  border-color: #D29F02;
-  box-shadow: 0 4px 12px rgba(210, 159, 2, 0.1);
-  transform: translateY(-3px);
-}
-
-.valentine-page .highlight-compact i {
-  font-size: 1.75rem;
-  color: #D29F02;
-  flex-shrink: 0;
-  margin-top: 0.25rem;
-}
-
-.valentine-page .highlight-compact strong {
-  display: block;
-  font-family: 'Tanker', sans-serif;
-  font-size: 1.125rem;
-  color: #5C6C74;
-  margin-bottom: 0.5rem;
-}
-
-.valentine-page .highlight-compact p {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1rem;
-  color: #1D1E1B;
-  margin: 0;
-  line-height: 1.6;
-}
-
 /* Photos côte à côte */
 .valentine-page .valentine-photos-row {
   display: grid;
@@ -1419,46 +1327,12 @@ ease;
   }
 }
 
-.valentine-page .concept-photo-v3 {
-  min-height: 280px;
-  max-height: 350px;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.valentine-page .concept-photo-v3 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  min-height: 280px;
-  max-height: 350px;
-}
-
 /* =========================================
-   MENU VALENTINE - Centré
+   MENU CENTRÉ
    ========================================= */
 .valentine-page .valentine-menu-wrapper {
   max-width: 700px;
   margin: 0 auto;
-}
-
-.valentine-page .valentine-menu-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 2rem;
-  border: 2px solid rgba(92, 108, 116, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-.valentine-page .valentine-menu-card .category-title-menu {
-  border-bottom: 2px solid #D29F02;
-  color: #5C6C74;
-  padding-bottom: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.valentine-page .menu-item-subtitle .item-price-v3 {
-  color: #D29F02;
 }
 
 .valentine-page .valentine-resa-block {
@@ -1469,51 +1343,27 @@ ease;
   text-align: center;
 }
 
-.valentine-page .menu-footer-v3 {
-  text-align: center;
-  margin-top: 2rem;
-}
-
 /* =========================================
-   CTA VALENTINE - Sobre (pas rose)
+   CTA - Image qui s'adapte au contenu
    ========================================= */
-.valentine-page .valentine-cta-section .cta-wrapper {
-  min-height: 500px;
+.valentine-page .valentine-cta-wrapper {
+  align-items: stretch;
 }
 
-.valentine-page .valentine-cta-section .cta-visual {
-  min-height: 500px;
+.valentine-page .valentine-cta-wrapper .cta-visual {
+  display: flex;
+  min-height: auto;
+  height: auto;
 }
 
-.valentine-page .valentine-cta-section .cta-visual img {
+.valentine-page .valentine-cta-wrapper .cta-visual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  min-height: 500px;
 }
 
-.valentine-page .valentine-cta-section .cta-content {
-  background: linear-gradient(135deg, #5C6C74 0%, #1D1E1B 100%);
-  min-height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.valentine-page .cta-content .btn-cta-large.primary i {
-  color: #D29F02;
-}
-
-@media (max-width: 968px) {
-  .valentine-page .valentine-cta-section .cta-visual,
-  .valentine-page .valentine-cta-section .cta-visual img {
-    min-height: 300px;
-  }
-  
-  .valentine-page .valentine-cta-section .cta-content {
-    min-height: auto;
-    padding: 2.5rem 1.5rem;
-  }
+.valentine-page .valentine-cta-wrapper .cta-content {
+  min-height: auto;
 }
 
 /* =========================================
@@ -1524,123 +1374,8 @@ ease;
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: color 0.2s ease;
 }
 
 .valentine-page a.tel-link:hover {
-  color: #B88802;
-}
-
-/* =========================================
-   SECTION SEO
-   ========================================= */
-.valentine-page .seo-content h3 {
-  font-family: 'Tanker', sans-serif;
-  font-size: 1.5rem;
   color: #5C6C74;
-  margin: 2rem 0 1rem;
-}
-
-.valentine-page .seo-text a {
-  color: #D29F02;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.valentine-page .seo-text a:hover {
-  color: #5C6C74;
-}
-
-.valentine-page .seo-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0;
-}
-
-.valentine-page .seo-list li {
-  position: relative;
-  padding-left: 2rem;
-  margin-bottom: 0.75rem;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.063rem;
-  line-height: 1.6;
-  color: #1D1E1B;
-}
-
-.valentine-page .seo-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: #D29F02;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-/* FAQ */
-.valentine-page .faq-question:hover {
-  background: rgba(210, 159, 2, 0.05);
-}
-
-.valentine-page .faq-item.active .faq-question {
-  background: rgba(210, 159, 2, 0.05);
-}
-
-.valentine-page .faq-answer a {
-  color: #D29F02;
-}
-
-.valentine-page .faq-answer a:hover {
-  color: #5C6C74;
-}
-
-/* Keywords */
-.valentine-page .seo-keywords {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid rgba(92, 108, 116, 0.1);
-}
-
-.valentine-page .seo-keywords p {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 0.938rem;
-  color: #5C6C74;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.valentine-page .seo-keywords strong {
-  color: #1D1E1B;
-}
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-@media (max-width: 768px) {
-  .valentine-page .hero-badge-simple {
-    margin-top: 1.5rem;
-  }
-  
-  .valentine-page .hero-badge-simple h1 {
-    font-size: 13px;
-  }
-  
-  .valentine-page .concept-photo-v3,
-  .valentine-page .concept-photo-v3 img {
-    min-height: 220px;
-    max-height: 280px;
-  }
-  
-  .valentine-page .valentine-menu-card {
-    padding: 1.5rem;
-  }
-  
-  .valentine-page .valentine-resa-block {
-    padding: 1rem;
-  }
-  
-  .valentine-page .highlight-compact {
-    padding: 1.25rem;
-  }
 }
