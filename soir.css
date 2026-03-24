@@ -1426,6 +1426,40 @@ ease;
 }
 
 /* =========================================
+   BAR LATTES — Nouvelles classes spécifiques
+   À coller dans bar-lattes.css
+   ========================================= */
+
+/* =========================================
+   SECTION CONCEPTS GRID
+   ========================================= */
+
+.concepts-section {
+    padding: 80px 0;
+    background: #1D1E1B;
+    border-bottom: 4px solid #D29F02;
+}
+
+.concepts-section .section-intro .section-label {
+    color: #D29F02;
+}
+
+.concepts-section .section-title {
+    color: #fff;
+}
+
+.concepts-section .section-description {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+/* =========================================
    CONCEPT CARD
    ========================================= */
 
