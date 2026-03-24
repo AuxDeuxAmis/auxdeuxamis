@@ -1391,3 +1391,179 @@ ease;
 .valentine-page a.tel-link:hover {
   color: #5C6C74;
 }
+
+/* =========================================
+   BAR LATTES — Nouvelles classes spécifiques
+   À coller dans bar-lattes.css
+   ========================================= */
+
+/* =========================================
+   SECTION CONCEPTS GRID
+   ========================================= */
+
+.concepts-section {
+    padding: 80px 0;
+    background: #1D1E1B;
+}
+
+.concepts-section .section-intro .section-label {
+    color: #D29F02;
+}
+
+.concepts-section .section-title {
+    color: #fff;
+}
+
+.concepts-section .section-description {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+/* =========================================
+   CONCEPT CARD
+   ========================================= */
+
+.concept-card {
+    position: relative;
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    min-height: 320px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.concept-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+}
+
+.concept-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.concept-card:hover .concept-card-bg {
+    transform: scale(1.05);
+}
+
+.concept-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(29, 30, 27, 0.92) 0%,
+        rgba(29, 30, 27, 0.5) 50%,
+        rgba(29, 30, 27, 0.15) 100%
+    );
+    transition: background 0.3s ease;
+}
+
+.concept-card:hover .concept-card-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(29, 30, 27, 0.95) 0%,
+        rgba(29, 30, 27, 0.6) 50%,
+        rgba(29, 30, 27, 0.2) 100%
+    );
+}
+
+.concept-card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    min-height: 320px;
+    padding: 28px;
+}
+
+.concept-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #D29F02;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 14px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.concept-card:hover .concept-card-icon {
+    background: #fff;
+    color: #D29F02;
+    transform: scale(1.1);
+}
+
+.concept-card-content h3 {
+    font-family: 'Tanker', sans-serif;
+    font-size: 26px;
+    color: #fff;
+    margin: 0 0 8px;
+    line-height: 1.1;
+}
+
+.concept-card-content p {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 16px;
+    line-height: 1.5;
+}
+
+.concept-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Tanker', sans-serif;
+    font-size: 15px;
+    color: #D29F02;
+    transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.concept-card:hover .concept-card-cta {
+    gap: 12px;
+    color: #fff;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+    .concepts-section {
+        padding: 56px 0;
+    }
+
+    .concepts-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .concept-card {
+        min-height: 260px;
+    }
+
+    .concept-card-content {
+        min-height: 260px;
+        padding: 22px;
+    }
+
+    .concept-card-content h3 {
+        font-size: 22px;
+    }
+}
