@@ -1,5 +1,8 @@
 /* ============================================================
-   LANDING ADS v3 - landing-ads-v3.js
+   LANDING ADS v4 - landing-ads-v4.js
+   Le formulaire est géré nativement par Webflow (w-form).
+   Ce JS gère uniquement : topbar, animations scroll,
+   particles hero, smooth scroll, parallax.
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -32,26 +35,24 @@ document.addEventListener('DOMContentLoaded', function () {
         animEls.forEach(function (el) { el.classList.add('lp-in'); });
     }
 
-    /* ---- PARTICLES dans le hero ---- */
+    /* ---- PARTICLES hero ---- */
     var container = document.getElementById('lp-particles');
     if (container) {
         for (var i = 0; i < 20; i++) {
             var p   = document.createElement('div');
             p.className = 'lp-particle';
             var sz  = 1.5 + Math.random() * 2.5;
-            p.style.cssText = [
-                'left:'   + (Math.random() * 100) + '%',
-                'top:'    + (40 + Math.random() * 50) + '%',
-                'width:'  + sz + 'px',
-                'height:' + sz + 'px',
-                '--dur:'   + (4 + Math.random() * 5) + 's',
-                '--delay:' + (Math.random() * 6) + 's'
-            ].join(';');
+            p.style.left   = (Math.random() * 100) + '%';
+            p.style.top    = (40 + Math.random() * 50) + '%';
+            p.style.width  = sz + 'px';
+            p.style.height = sz + 'px';
+            p.style.setProperty('--dur',   (4 + Math.random() * 5) + 's');
+            p.style.setProperty('--delay', (Math.random() * 6) + 's');
             container.appendChild(p);
         }
     }
 
-    /* ---- SMOOTH SCROLL (offset topbar) ---- */
+    /* ---- SMOOTH SCROLL (offset topbar ~64px) ---- */
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         a.addEventListener('click', function (e) {
             var target = document.querySelector(this.getAttribute('href'));
@@ -62,27 +63,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    /* ---- PARALLAX hero (desktop) ---- */
+    /* ---- PARALLAX hero bg (desktop uniquement) ---- */
     var heroBg = document.querySelector('.lp-hero-bg');
     if (heroBg && window.matchMedia('(min-width: 768px)').matches) {
         window.addEventListener('scroll', function () {
             heroBg.style.transform = 'scale(1.05) translateY(' + (window.scrollY * 0.16) + 'px)';
         }, { passive: true });
-    }
-
-    /* ---- FORMULAIRE ---- */
-    var form    = document.getElementById('lp-contact-form');
-    var success = document.getElementById('lp-form-success');
-    if (form && success) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            // TODO : brancher l'envoi réel ici
-            // Option A : fetch vers endpoint custom
-            // Option B : retirer e.preventDefault() et laisser Webflow gérer
-            // Option C : Formspree — ajouter action="https://formspree.io/f/XXXXX"
-            form.style.display  = 'none';
-            success.classList.add('lp-visible');
-        });
     }
 
 });
