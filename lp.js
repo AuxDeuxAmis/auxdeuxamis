@@ -1,17 +1,20 @@
 /* ============================================================
-   LANDING ADS v5 - landing-ads-v5.js
-   Formulaire géré nativement par Webflow (w-form).
+   LANDING ADS v6 - landing-ads-v6.js
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* ---- TOPBAR : apparaît après le hero ---- */
-    var topbar = document.querySelector('.lp-topbar');
-    var hero   = document.querySelector('.lp-hero');
-    if (topbar && hero) {
+    var hero         = document.querySelector('.lp-hero');
+    var topbar       = document.querySelector('.lp-topbar');
+    var stickyBottom = document.querySelector('.lp-sticky-bottom');
+
+    /* ---- TOPBAR + STICKY BOTTOM : apparaissent après le hero ---- */
+    if (hero) {
         var heroObs = new IntersectionObserver(function (entries) {
             entries.forEach(function (e) {
-                topbar.classList.toggle('lp-visible', !e.isIntersecting);
+                var afterHero = !e.isIntersecting;
+                if (topbar)       topbar.classList.toggle('lp-visible', afterHero);
+                if (stickyBottom) stickyBottom.classList.toggle('lp-visible', afterHero);
             });
         }, { threshold: 0.1 });
         heroObs.observe(hero);
@@ -50,13 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    /* ---- SMOOTH SCROLL (offset topbar ~64px) ---- */
+    /* ---- SMOOTH SCROLL (offset topbar ~68px) ---- */
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         a.addEventListener('click', function (e) {
             var target = document.querySelector(this.getAttribute('href'));
             if (!target) return;
             e.preventDefault();
-            var top = target.getBoundingClientRect().top + window.scrollY - 64;
+            var top = target.getBoundingClientRect().top + window.scrollY - 68;
             window.scrollTo({ top: top, behavior: 'smooth' });
         });
     });
