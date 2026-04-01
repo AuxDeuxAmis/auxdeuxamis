@@ -1,8 +1,6 @@
 /* ============================================================
-   LANDING ADS v4 - landing-ads-v4.js
-   Le formulaire est géré nativement par Webflow (w-form).
-   Ce JS gère uniquement : topbar, animations scroll,
-   particles hero, smooth scroll, parallax.
+   LANDING ADS v5 - landing-ads-v5.js
+   Formulaire géré nativement par Webflow (w-form).
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
