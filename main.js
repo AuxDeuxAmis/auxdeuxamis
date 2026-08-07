@@ -154,23 +154,23 @@ if (trigger && panel) {
 });
 
 // =====================================================
-// POPUP — Fermeture annuelle (ADA)
+// POPUP — Fermeture annuelle (ADA) — Août 2026
 // - Injection DOM
 // - Affichage uniquement pendant la période
 // - Si fermeture => pas de réaffichage (localStorage)
 // =====================================================
 
 document.addEventListener('DOMContentLoaded', function() {
-  const STORAGE_KEY = 'ada_closure_2025_dismissed_until';
+  const STORAGE_KEY = 'ada_closure_2026_aout_dismissed_until';
   const SHOW_DELAY_MS = 800;
 
-  // Fenêtre d’affichage (heure locale du navigateur)
-  // du 22/12/2025 00:00 au 04/01/2026 23:59:59 (inclus)
-  const START = new Date(2025, 11, 22, 0, 0, 0);
-  const END   = new Date(2026, 0,  4, 23, 59, 59);
+  // Fenêtre d'affichage (heure locale du navigateur)
+  // du 07/08/2026 00:00 au 23/08/2026 23:59:59 (inclus)
+  const START = new Date(2026, 7, 7, 0, 0, 0);
+  const END   = new Date(2026, 7, 23, 23, 59, 59);
 
-  // Quand l’utilisateur ferme, on ne réaffiche plus jusqu’au 06/01/2026 00:00
-  const DISMISS_UNTIL = new Date(2026, 0, 6, 0, 0, 0);
+  // Quand l'utilisateur ferme, on ne réaffiche plus jusqu'au 25/08/2026 00:00
+  const DISMISS_UNTIL = new Date(2026, 7, 25, 0, 0, 0);
 
   function now(){ return new Date(); }
   function isInWindow(d){ return d >= START && d <= END; }
@@ -228,8 +228,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="ada-closure-modal" role="document">
         <div class="ada-closure-header">
           <button class="ada-closure-close" type="button" aria-label="Fermer"></button>
-          <div class="ada-closure-badge">🏖️ Fermeture annuelle</div>
-          <div class="ada-closure-title">On revient très vite</div>
+          <div class="ada-closure-badge">☀️ Fermeture estivale</div>
+          <div class="ada-closure-title">On part se ressourcer !</div>
           <div class="ada-closure-subtitle">Merci de votre compréhension ❤️</div>
         </div>
 
@@ -237,14 +237,14 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="ada-closure-block">
             <div class="ada-closure-block-title">Dates</div>
             <div class="ada-closure-block-text">
-              Du lundi 22 décembre 2025 au dimanche 4 janvier 2026
+              Du dimanche 9 août au dimanche 23 août 2026
             </div>
           </div>
 
           <div class="ada-closure-block">
             <div class="ada-closure-block-title">Réouverture</div>
             <div class="ada-closure-block-text">
-              Réouverture le lundi 5 janvier !
+              Réouverture le lundi 24 août, dès le service du midi !
             </div>
           </div>
 
