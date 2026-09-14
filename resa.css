@@ -257,6 +257,33 @@ input[type="date"].form-input {
 .ada-horaires {
   font-family: 'Source Sans Pro', sans-serif;
   color: #1D1E1B;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.ada-horaires-table {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+  max-width: 640px;
+}
+
+.ada-horaires-head {
+  display: grid;
+  grid-template-columns: 110px 130px 1fr;
+  gap: 16px;
+  padding: 0 0 8px 0;
+  border-bottom: 2px solid #5C6C74;
+}
+
+.ada-horaires-head-cell {
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5C6C74;
 }
 
 .ada-horaires-list {
@@ -269,9 +296,9 @@ input[type="date"].form-input {
   display: grid;
   grid-template-columns: 110px 130px 1fr;
   align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(92, 108, 116, 0.25);
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(92, 108, 116, 0.22);
 }
 
 .ada-horaires-row:last-child {
@@ -286,6 +313,7 @@ input[type="date"].form-input {
 
 .ada-horaires-open {
   color: #5C6C74;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
@@ -297,15 +325,23 @@ input[type="date"].form-input {
 
 .ada-horaires-service {
   display: inline-block;
-  padding: 3px 10px;
-  border: 1px solid rgba(210, 159, 2, 0.45);
+  padding: 5px 12px;
+  border: 1px solid rgba(210, 159, 2, 0.5);
   border-radius: 999px;
-  background-color: rgba(210, 159, 2, 0.08);
+  background-color: rgba(210, 159, 2, 0.1);
   color: #1D1E1B;
-  font-size: 0.9em;
+  font-size: 0.85em;
   font-weight: 600;
   line-height: 1.4;
   white-space: nowrap;
+}
+
+.ada-horaires-service--off {
+  border-color: rgba(92, 108, 116, 0.3);
+  background-color: transparent;
+  color: #5C6C74;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .ada-horaires-row--closed .ada-horaires-day,
@@ -316,20 +352,30 @@ input[type="date"].form-input {
 }
 
 .ada-horaires-note {
-  margin-top: 14px;
-  font-size: 0.88em;
+  margin-top: 18px;
+  font-size: 0.9em;
   line-height: 1.5;
   color: #5C6C74;
 }
 
 @media screen and (max-width: 767px) {
-  .ada-horaires-row {
-    grid-template-columns: 1fr;
-    gap: 6px;
-    padding: 12px 0;
+  .ada-horaires-head {
+    display: none;
   }
 
-  .ada-horaires-open {
-    font-size: 0.95em;
+  .ada-horaires-row {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 16px 0;
+  }
+
+  .ada-horaires-services {
+    justify-content: center;
+  }
+
+  .ada-horaires-service {
+    white-space: normal;
   }
 }
