@@ -249,18 +249,15 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="ada-closure-body">
           <div class="ada-closure-block">
             <div class="ada-closure-block-title">Quelques nouveautés du midi</div>
-            <ul class="ada-newmenu-dishes">
+<ul class="ada-newmenu-dishes">
               <li class="ada-newmenu-dish">
                 <span class="ada-newmenu-dish-name">Le Risotto du Cueilleur<small>Champignons sauvages de saison</small></span>
-                <span class="ada-newmenu-dish-price">19€</span>
               </li>
               <li class="ada-newmenu-dish">
                 <span class="ada-newmenu-dish-name">La Volaille aux Morilles<small>Volaille fermière, dés de Comté</small></span>
-                <span class="ada-newmenu-dish-price">22€</span>
               </li>
               <li class="ada-newmenu-dish">
                 <span class="ada-newmenu-dish-name">Le Trio de Canard aux Cèpes<small>Magret, cœurs, foie gras poêlé</small></span>
-                <span class="ada-newmenu-dish-price">26€</span>
               </li>
             </ul>
           </div>
