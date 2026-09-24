@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <div class="ada-closure-body">
           <div class="ada-closure-block">
-            <div class="ada-closure-block-title">Au menu du midi</div>
+            <div class="ada-closure-block-title">Quelques nouveautés du midi</div>
             <ul class="ada-newmenu-dishes">
               <li class="ada-newmenu-dish">
                 <span class="ada-newmenu-dish-name">Le Risotto du Cueilleur<small>Champignons sauvages de saison</small></span>
@@ -267,14 +267,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
           <div class="ada-closure-block">
             <div class="ada-closure-block-text">
-              Formules du midi dès <strong>13,90€</strong>, plus l'ardoise du jour.
+               Et toujours nos formules du midi dès <strong>13,90€</strong> !
             </div>
           </div>
         </div>
 
         <div class="ada-closure-actions">
           <a class="ada-closure-btn ada-closure-btn-primary" href="/restaurant-lattes#carte" data-ada-newmenu-cta>Voir la carte</a>
-          <a class="ada-closure-btn ada-closure-btn-secondary ada-newmenu-btn-tel" href="tel:+33775770069" data-ada-newmenu-cta>Réserver</a>
+          <a class="ada-closure-btn ada-closure-btn-secondary ada-newmenu-btn-tel" href="https://www.aux-deux-amis.fr/reservation" data-ada-newmenu-cta>Réserver</a>
         </div>
       </div>
     `;
