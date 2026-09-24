@@ -593,6 +593,7 @@ body.no-scroll{ overflow:hidden; }
   .ada-closure-title{ font-size: 34px; }
   .ada-closure-actions{ flex-direction: column; }
 }
+
 /* =========================================================
    POPUP - Nouvelle carte du midi (ADA) - Automne 2026
    Complète les classes .ada-closure-* ci-dessus
