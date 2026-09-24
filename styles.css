@@ -593,3 +593,87 @@ body.no-scroll{ overflow:hidden; }
   .ada-closure-title{ font-size: 34px; }
   .ada-closure-actions{ flex-direction: column; }
 }
+/* =========================================================
+   POPUP - Nouvelle carte du midi (ADA) - Automne 2026
+   Complète les classes .ada-closure-* ci-dessus
+   ========================================================= */
+
+.ada-newmenu-header{
+  background:
+    radial-gradient(circle at 100% 0%, rgba(210,159,2,0.35) 0%, rgba(210,159,2,0) 55%),
+    linear-gradient(45deg, var(--color-primary), var(--color-dark));
+}
+
+.ada-newmenu-leaf{
+  width: 16px;
+  height: 16px;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.ada-newmenu-dishes{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ada-newmenu-dish{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px dashed rgba(92,108,116,0.25);
+}
+
+.ada-newmenu-dish:last-child{
+  border-bottom: 0;
+  padding-bottom: 2px;
+}
+
+.ada-newmenu-dish-name{
+  font-family: "Filicudi", sans-serif;
+  font-size: 16px;
+  color: var(--color-dark);
+  line-height: 1.3;
+}
+
+.ada-newmenu-dish-name small{
+  display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 13px;
+  color: var(--color-gray-500);
+  margin-top: 2px;
+}
+
+.ada-newmenu-dish-price{
+  font-family: "Tanker", sans-serif;
+  font-size: 20px;
+  color: var(--color-secondary);
+  white-space: nowrap;
+}
+
+.ada-newmenu-modal .ada-closure-block-text strong{
+  color: var(--color-secondary);
+}
+
+.ada-newmenu-btn-tel{
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ada-newmenu-modal .ada-closure-close:focus-visible,
+.ada-newmenu-modal .ada-closure-btn:focus-visible{
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .ada-newmenu-overlay,
+  .ada-newmenu-modal{
+    animation: none;
+    transform: none;
+  }
+}
