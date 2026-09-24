@@ -678,3 +678,91 @@ body.no-scroll{ overflow:hidden; }
     transform: none;
   }
 }
+/* =========================================================
+   POPUP - Nouvelle carte du midi (ADA) - Ajustements mobile
+   ========================================================= */
+
+@media (max-width: 480px){
+  .ada-newmenu-overlay{
+    padding: 12px;
+  }
+
+  .ada-newmenu-modal{
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+  }
+
+  /* En-tête resserré */
+  .ada-newmenu-modal .ada-closure-header{
+    padding: 16px 16px 12px;
+  }
+  .ada-newmenu-modal .ada-closure-close{
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+  }
+  .ada-newmenu-modal .ada-closure-badge{
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .ada-newmenu-modal .ada-closure-title{
+    font-size: 28px;
+    margin-top: 10px;
+    padding-right: 36px;
+  }
+  .ada-newmenu-modal .ada-closure-subtitle{
+    display: none;
+  }
+
+  /* Corps allégé */
+  .ada-newmenu-modal .ada-closure-body{
+    padding: 14px 16px 12px;
+  }
+  .ada-newmenu-modal .ada-closure-block{
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .ada-newmenu-modal .ada-closure-block-title{
+    font-size: 18px;
+    margin-bottom: 2px;
+  }
+  .ada-newmenu-dish{
+    padding: 6px 0;
+  }
+  .ada-newmenu-dish-name{
+    font-size: 15px;
+  }
+  .ada-newmenu-dish-name small{
+    display: none;
+  }
+  .ada-newmenu-dish-price{
+    font-size: 18px;
+  }
+
+  /* Formules : simple ligne, sans encadré */
+  .ada-newmenu-modal .ada-closure-block:last-child{
+    background: none;
+    border: 0;
+    padding: 2px 0 0;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .ada-newmenu-modal .ada-closure-block:last-child .ada-closure-block-text{
+    font-size: 15px;
+  }
+
+  /* Boutons côte à côte, hauteur réelle */
+  .ada-newmenu-modal .ada-closure-actions{
+    flex-direction: row;
+    gap: 8px;
+    padding: 0 16px 16px;
+  }
+  .ada-newmenu-modal .ada-closure-btn{
+    flex: 1 1 0;
+    height: auto;
+    min-height: 46px;
+    padding: 12px 10px;
+    font-size: 17px;
+  }
+}
