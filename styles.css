@@ -766,3 +766,28 @@ body.no-scroll{ overflow:hidden; }
     font-size: 17px;
   }
 }
+/* =========================================================
+   POPUP - Nouvelle carte du midi (ADA) - En-tête centré
+   ========================================================= */
+
+.ada-newmenu-modal .ada-closure-header{
+  text-align: center;
+}
+
+.ada-newmenu-modal .ada-closure-title{
+  line-height: 1.1;
+  padding: 0 40px;
+}
+
+@media (max-width: 480px){
+  .ada-newmenu-modal .ada-closure-header{
+    padding: 18px 16px 16px;
+  }
+
+  .ada-newmenu-modal .ada-closure-title{
+    font-size: 28px;
+    line-height: 1.15;
+    margin-top: 12px;
+    padding: 0 36px;
+  }
+}
