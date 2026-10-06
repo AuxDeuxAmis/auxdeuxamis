@@ -251,12 +251,12 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="ada-newmenu-choices">
           <a class="ada-newmenu-choice ada-newmenu-choice--midi" href="/restaurant-lattes#carte" data-ada-newmenu-cta>
             <span class="ada-newmenu-choice-when">Le midi</span>
-            <span class="ada-newmenu-choice-what">La cuisine de saison du Chef Olivier</span>
+            <span class="ada-newmenu-choice-what">Cette saison, la star de la carte du Chef Olivier, c'est le Champignon !</span>
             <span class="ada-newmenu-choice-cta">Voir la carte</span>
           </a>
           <a class="ada-newmenu-choice ada-newmenu-choice--soir" href="/bar-lattes/tapas#carte" data-ada-newmenu-cta>
             <span class="ada-newmenu-choice-when">Le soir</span>
-            <span class="ada-newmenu-choice-what">Les nouvelles tapas du Chef Julio</span>
+            <span class="ada-newmenu-choice-what">15 nouvelles créations tapas qui sentent bon l'automne ! Par le Chef Julio.</span>
             <span class="ada-newmenu-choice-cta">Voir la carte</span>
           </a>
         </div>
