@@ -154,27 +154,30 @@ if (trigger && panel) {
 });
 
 // =====================================================
-// POPUP - Nouvelle carte du midi (ADA) - Automne 2026
-// - Réutilise les classes .ada-closure-* (styles.css)
-// - Affichage du 24/09/2026 au 08/10/2026 inclus
+// POPUP - Nouvelles cartes midi & soir (ADA) - Automne 2026
+// - Réutilise les classes .ada-closure-* et .ada-newmenu-* (styles.css)
+// - Affichage du 06/10/2026 au 31/10/2026 inclus
 // - Non affichée sur les pages de EXCLUDED_PATHS
-// - Si fermeture ou clic CTA => pas de réaffichage (localStorage)
+// - Fermeture (croix, Échap, clic hors popup) ou clic CTA
+//   => plus de réaffichage jusqu'au 01/11/2026 (localStorage)
 // =====================================================
 
 document.addEventListener('DOMContentLoaded', function() {
-  const STORAGE_KEY = 'ada_newmenu_2026_automne_dismissed_until';
+  // Nouvelle clé : les visiteurs qui avaient fermé la popup "midi"
+  // verront quand même celle-ci une fois
+  const STORAGE_KEY = 'ada_newmenus_2026_automne_midi_soir_dismissed_until';
   const SHOW_DELAY_MS = 1200;
 
   // Fenêtre d'affichage (heure locale du navigateur)
-  // du 24/09/2026 00:00 au 08/10/2026 23:59:59 (inclus)
-  const START = new Date(2026, 8, 24, 0, 0, 0);
-  const END   = new Date(2026, 9, 8, 23, 59, 59);
+  // du 06/10/2026 00:00 au 31/10/2026 23:59:59 (inclus)
+  const START = new Date(2026, 9, 6, 0, 0, 0);
+  const END   = new Date(2026, 9, 31, 23, 59, 59);
 
-  // Après fermeture, plus de réaffichage jusqu'au 09/10/2026 00:00
-  const DISMISS_UNTIL = new Date(2026, 9, 9, 0, 0, 0);
+  // Après fermeture, plus de réaffichage jusqu'au 01/11/2026 00:00
+  const DISMISS_UNTIL = new Date(2026, 10, 1, 0, 0, 0);
 
-  // Pages où la popup ne s'affiche pas (le visiteur est déjà sur la carte)
-  const EXCLUDED_PATHS = ['/restaurant-lattes'];
+  // Pages où la popup ne s'affiche pas (le visiteur est déjà sur une carte)
+  const EXCLUDED_PATHS = ['/restaurant-lattes', '/bar-lattes/tapas'];
 
   function now(){ return new Date(); }
   function isInWindow(d){ return d >= START && d <= END; }
@@ -240,16 +243,16 @@ document.addEventListener('DOMContentLoaded', function() {
             <svg class="ada-newmenu-leaf" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M5 21c0-9 5-15 16-17-1 11-7 16-16 17zm0 0c3-4 6-7 10-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Nouveau depuis le 24 septembre
+            Nouvelles cartes d'automne
           </div>
-          <div class="ada-closure-title" id="ada-newmenu-title">La carte d'automne est arrivée !</div>
-          <div class="ada-closure-subtitle">Le Chef Olivier passe aux saveurs de sous-bois.</div>
+          <div class="ada-closure-title" id="ada-newmenu-title">Les cartes d'automne sont arrivées !</div>
+          <div class="ada-closure-subtitle">Le midi avec le Chef Olivier, le soir avec le Chef Julio.</div>
         </div>
 
         <div class="ada-closure-body">
           <div class="ada-closure-block">
-            <div class="ada-closure-block-title">Quelques nouveautés du midi</div>
-<ul class="ada-newmenu-dishes">
+            <div class="ada-closure-block-title">Le midi · du lundi au samedi</div>
+            <ul class="ada-newmenu-dishes">
               <li class="ada-newmenu-dish">
                 <span class="ada-newmenu-dish-name">Le Risotto du Cueilleur<small>Champignons sauvages de saison</small></span>
               </li>
@@ -260,18 +263,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="ada-newmenu-dish-name">Le Trio de Canard aux Cèpes<small>Magret, cœurs, foie gras poêlé</small></span>
               </li>
             </ul>
+            <div class="ada-closure-block-text">
+              Formules dès <strong>13,90€</strong> du lundi au vendredi.
+            </div>
           </div>
 
           <div class="ada-closure-block">
+            <div class="ada-closure-block-title">Le soir · du mardi au samedi</div>
+            <ul class="ada-newmenu-dishes">
+              <li class="ada-newmenu-dish">
+                <span class="ada-newmenu-dish-name">L'Œuf Parfait Automnal<small>Crémeux de champignons de saison</small></span>
+              </li>
+              <li class="ada-newmenu-dish">
+                <span class="ada-newmenu-dish-name">La Tagliata de Bœuf « Aubrac »<small>Réduction au porto, pickles oignons rouges</small></span>
+              </li>
+              <li class="ada-newmenu-dish">
+                <span class="ada-newmenu-dish-name">Le Foie Gras Maison à l'Armagnac<small>Pain brioché, chutney à la mangue</small></span>
+              </li>
+            </ul>
             <div class="ada-closure-block-text">
-               Et toujours nos formules du midi dès <strong>13,90€</strong> !
+              Tapas de <strong>5€ à 13€</strong>.
             </div>
           </div>
         </div>
 
         <div class="ada-closure-actions">
-          <a class="ada-closure-btn ada-closure-btn-primary" href="/restaurant-lattes#carte" data-ada-newmenu-cta>Voir la carte</a>
-          <a class="ada-closure-btn ada-closure-btn-secondary ada-newmenu-btn-tel" href="https://www.aux-deux-amis.fr/reservation" data-ada-newmenu-cta>Réserver</a>
+          <a class="ada-closure-btn ada-closure-btn-primary" href="/restaurant-lattes#carte" data-ada-newmenu-cta>Carte du midi</a>
+          <a class="ada-closure-btn ada-closure-btn-secondary ada-newmenu-btn-tel" href="/bar-lattes/tapas#carte" data-ada-newmenu-cta>Carte du soir</a>
         </div>
       </div>
     `;
