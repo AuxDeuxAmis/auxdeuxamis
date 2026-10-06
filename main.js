@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-labelledby', 'ada-newmenu-title');
 
-    overlay.innerHTML = `
+ overlay.innerHTML = `
       <div class="ada-closure-modal ada-newmenu-modal" role="document">
         <div class="ada-closure-header ada-newmenu-header">
           <button class="ada-closure-close" type="button" aria-label="Fermer"></button>
@@ -246,7 +246,15 @@ document.addEventListener('DOMContentLoaded', function() {
             Nouveau
           </div>
           <div class="ada-closure-title" id="ada-newmenu-title">Les cartes d'automne sont arrivées !</div>
-          <div class="ada-closure-subtitle">Le midi avec le Chef Olivier, le soir avec le Chef Julio.</div>
+        </div>
+
+        <div class="ada-closure-body">
+          <div class="ada-closure-block">
+            <div class="ada-closure-block-text">
+              <strong>Le midi</strong> : la cuisine de saison du Chef Olivier.<br>
+              <strong>Le soir</strong> : les nouvelles tapas du Chef Julio.
+            </div>
+          </div>
         </div>
 
         <div class="ada-closure-actions">
