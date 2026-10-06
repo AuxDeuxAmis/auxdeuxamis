@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-labelledby', 'ada-newmenu-title');
 
- overlay.innerHTML = `
+  overlay.innerHTML = `
       <div class="ada-closure-modal ada-newmenu-modal" role="document">
         <div class="ada-closure-header ada-newmenu-header">
           <button class="ada-closure-close" type="button" aria-label="Fermer"></button>
@@ -248,18 +248,17 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="ada-closure-title" id="ada-newmenu-title">Les cartes d'automne sont arrivées !</div>
         </div>
 
-        <div class="ada-closure-body">
-          <div class="ada-closure-block">
-            <div class="ada-closure-block-text">
-              <strong>Le midi</strong> : la cuisine de saison du Chef Olivier.<br>
-              <strong>Le soir</strong> : les nouvelles tapas du Chef Julio.
-            </div>
-          </div>
-        </div>
-
-        <div class="ada-closure-actions">
-          <a class="ada-closure-btn ada-closure-btn-primary" href="/restaurant-lattes#carte" data-ada-newmenu-cta>Carte du midi</a>
-          <a class="ada-closure-btn ada-closure-btn-secondary ada-newmenu-btn-tel" href="/bar-lattes/tapas#carte" data-ada-newmenu-cta>Carte du soir</a>
+        <div class="ada-newmenu-choices">
+          <a class="ada-newmenu-choice ada-newmenu-choice--midi" href="/restaurant-lattes#carte" data-ada-newmenu-cta>
+            <span class="ada-newmenu-choice-when">Le midi</span>
+            <span class="ada-newmenu-choice-what">La cuisine de saison du Chef Olivier</span>
+            <span class="ada-newmenu-choice-cta">Voir la carte</span>
+          </a>
+          <a class="ada-newmenu-choice ada-newmenu-choice--soir" href="/bar-lattes/tapas#carte" data-ada-newmenu-cta>
+            <span class="ada-newmenu-choice-when">Le soir</span>
+            <span class="ada-newmenu-choice-what">Les nouvelles tapas du Chef Julio</span>
+            <span class="ada-newmenu-choice-cta">Voir la carte</span>
+          </a>
         </div>
       </div>
     `;
