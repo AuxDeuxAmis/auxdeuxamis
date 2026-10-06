@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.scrollTo(0, y);
   }
 
-  function buildPopup(){
+   function buildPopup(){
     const overlay = document.createElement('div');
     overlay.className = 'ada-closure-overlay ada-newmenu-overlay';
     overlay.setAttribute('role', 'dialog');
@@ -243,48 +243,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <svg class="ada-newmenu-leaf" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M5 21c0-9 5-15 16-17-1 11-7 16-16 17zm0 0c3-4 6-7 10-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            Nouvelles cartes d'automne
+            Nouveau
           </div>
           <div class="ada-closure-title" id="ada-newmenu-title">Les cartes d'automne sont arrivées !</div>
           <div class="ada-closure-subtitle">Le midi avec le Chef Olivier, le soir avec le Chef Julio.</div>
-        </div>
-
-        <div class="ada-closure-body">
-          <div class="ada-closure-block">
-            <div class="ada-closure-block-title">Le midi · du lundi au samedi</div>
-            <ul class="ada-newmenu-dishes">
-              <li class="ada-newmenu-dish">
-                <span class="ada-newmenu-dish-name">Le Risotto du Cueilleur<small>Champignons sauvages de saison</small></span>
-              </li>
-              <li class="ada-newmenu-dish">
-                <span class="ada-newmenu-dish-name">La Volaille aux Morilles<small>Volaille fermière, dés de Comté</small></span>
-              </li>
-              <li class="ada-newmenu-dish">
-                <span class="ada-newmenu-dish-name">Le Trio de Canard aux Cèpes<small>Magret, cœurs, foie gras poêlé</small></span>
-              </li>
-            </ul>
-            <div class="ada-closure-block-text">
-              Formules dès <strong>13,90€</strong> du lundi au vendredi.
-            </div>
-          </div>
-
-          <div class="ada-closure-block">
-            <div class="ada-closure-block-title">Le soir · du mardi au samedi</div>
-            <ul class="ada-newmenu-dishes">
-              <li class="ada-newmenu-dish">
-                <span class="ada-newmenu-dish-name">L'Œuf Parfait Automnal<small>Crémeux de champignons de saison</small></span>
-              </li>
-              <li class="ada-newmenu-dish">
-                <span class="ada-newmenu-dish-name">La Tagliata de Bœuf « Aubrac »<small>Réduction au porto, pickles oignons rouges</small></span>
-              </li>
-              <li class="ada-newmenu-dish">
-                <span class="ada-newmenu-dish-name">Le Foie Gras Maison à l'Armagnac<small>Pain brioché, chutney à la mangue</small></span>
-              </li>
-            </ul>
-            <div class="ada-closure-block-text">
-              Tapas de <strong>5€ à 13€</strong>.
-            </div>
-          </div>
         </div>
 
         <div class="ada-closure-actions">
